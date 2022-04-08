@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Layout, Menu, Breadcrumb } from "antd";
+import Apostas from "./Components/Apostas";
+const { Header, Content, Footer } = Layout;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Layout className="layout">
+			<Header>
+				<div className="logo" />
+				<Menu
+					theme="dark"
+					mode="horizontal"
+					defaultSelectedKeys={["1"]}
+				>
+					{new Array(5).fill(null).map((_, index) => {
+						const key = index + 1;
+						return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
+					})}
+				</Menu>
+			</Header>
+			<Content style={{ padding: "0 50px" }}>
+				<Breadcrumb style={{ margin: "16px 0" }}>
+					<Breadcrumb.Item>Home</Breadcrumb.Item>
+					<Breadcrumb.Item>List</Breadcrumb.Item>
+					<Breadcrumb.Item>App</Breadcrumb.Item>
+				</Breadcrumb>
+				<div className="site-layout-content">
+					Bolão Brasileiro 2022 - Série A
+					<Apostas />
+				</div>
+			</Content>
+			<Footer style={{ textAlign: "center" }}></Footer>
+		</Layout>
+	);
 }
 
 export default App;
