@@ -1,37 +1,53 @@
 import "./App.css";
 import { Layout, Menu, Breadcrumb } from "antd";
 import Apostas from "./Components/Apostas";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 const { Header, Content, Footer } = Layout;
 
 function App() {
 	return (
-		<Layout className="layout">
-			<Header>
-				<div className="logo" />
-				<Menu
-					theme="dark"
-					mode="horizontal"
-					defaultSelectedKeys={["1"]}
-				>
-					{new Array(5).fill(null).map((_, index) => {
-						const key = index + 1;
-						return <Menu.Item key={key}>{`nav ${key}`}</Menu.Item>;
-					})}
-				</Menu>
-			</Header>
-			<Content style={{ padding: "0 50px" }}>
-				<Breadcrumb style={{ margin: "16px 0" }}>
-					<Breadcrumb.Item>Home</Breadcrumb.Item>
-					<Breadcrumb.Item>List</Breadcrumb.Item>
-					<Breadcrumb.Item>App</Breadcrumb.Item>
-				</Breadcrumb>
-				<div className="site-layout-content">
-					Bolão Brasileiro 2022 - Série A
-					<Apostas />
-				</div>
-			</Content>
-			<Footer style={{ textAlign: "center" }}></Footer>
-		</Layout>
+		<Router>
+			<Layout className="layout">
+				<Header>
+					<div className="logo" />
+					<Menu
+						theme="dark"
+						mode="horizontal"
+						defaultSelectedKeys={["1"]}
+					>
+						<Menu.Item key="1">
+							<Link to="/" />
+							Apostas
+						</Menu.Item>
+						<Menu.Item key="2">
+							<Link to="/" />
+							Rodadas{" "}
+						</Menu.Item>
+						<Menu.Item key="3">
+							<Link to="/" />
+							Classificação
+						</Menu.Item>
+						<Menu.Item key="4">
+							<Link to="/" />
+							Distância pro acerto
+						</Menu.Item>
+						<Menu.Item key="5">
+							<Link to="/" />
+							Regras
+						</Menu.Item>
+					</Menu>
+				</Header>
+				<Content style={{ padding: "0 50px" }}>
+					<h1 style={{textAlign: "center", fontWeight: "bold", margin: "10px 0"}}>Bolão Brasileiro 2022 - Série A</h1>
+					<div className="site-layout-content" style={{ padding: "10px 0 0 0 " }}>
+						<Routes>
+							<Route path="/" element={<Apostas />} />
+						</Routes>
+					</div>
+				</Content>
+				<Footer style={{ textAlign: "center" }}></Footer>
+			</Layout>
+		</Router>
 	);
 }
 

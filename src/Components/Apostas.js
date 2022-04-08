@@ -38,8 +38,20 @@ export default class Apostas extends Component {
 	render() {
 		return (
 			<div>
-				Apostas
-				<Table dataSource={data} columns={columns} />
+				<h2
+					style={{
+						fontWeight: "bold",
+						margin: "0 0 10px 10px",
+					}}
+				>
+					Apostas
+				</h2>
+				<Table
+					dataSource={data}
+					columns={columns}
+					pagination={false}
+					size={"small"}
+				/>
 			</div>
 		);
 	}
