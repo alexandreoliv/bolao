@@ -1,8 +1,11 @@
-import { getApostas } from "../Modules/getApostas";
-// import { getTabela } from "../Modules/getTabela";
+export const getClassificacao = (serie, keys, apostasData, tabela) => {
+	// console.info("inside getClassificacao()");
+	// console.info("apostasData: ", apostasData);
 
-export const getClassificacao = (serie) => {
-	const { keys, data } = getApostas(serie);
+	for (let i = 0; i < apostasData.length; i++) {
+		apostasData[i]["Atual"] = tabela[i].posicao;
+	}
+	// console.info("new apostasData is here!: ", apostasData);
 
 	const calculaPontuacao = (d) => {
 		if (d === 0) return 5;
@@ -15,7 +18,7 @@ export const getClassificacao = (serie) => {
 	};
 
 	const geraArray = (k) => {
-		return data.map((e) => {
+		return apostasData.map((e) => {
 			return calculaPontuacao(e[k] - e["Atual"]);
 		});
 	};
@@ -40,20 +43,20 @@ export const getClassificacao = (serie) => {
 	}, {});
 	// console.info("obj2: ", obj2);
 
-	const dataClassificacao = [];
+	const classificacaoData = [];
 	for (let i = 0; i < keys2.length; i++) {
-		dataClassificacao[i] = {};
-		dataClassificacao[i]["nome"] = keys2[i];
-		dataClassificacao[i]["pontuacao"] = pontuacaoArray[i];
-		dataClassificacao[i]["key"] = keys2[i];
+		classificacaoData[i] = {};
+		classificacaoData[i]["nome"] = keys2[i];
+		classificacaoData[i]["pontuacao"] = pontuacaoArray[i];
+		classificacaoData[i]["key"] = keys2[i];
 	}
-	// console.info("dataClassificacao: ", dataClassificacao);
+	// console.info("classificacaoData: ", classificacaoData);
 
-	dataClassificacao.sort(function (a, b) {
+	classificacaoData.sort(function (a, b) {
 		return b.pontuacao - a.pontuacao;
 	});
 
-	const columnsClassificacao = [
+	const classificacaoColumns = [
 		{
 			title: "Nome",
 			key: "nome",
@@ -65,22 +68,10 @@ export const getClassificacao = (serie) => {
 			dataIndex: "pontuacao",
 		},
 	];
-	// console.info("columnsClassificacao: ", columnsClassificacao);
+	// console.info("classificacaoColumns: ", classificacaoColumns);
 
 	return {
-		pontuacaoDetalhadaArray,
-		keys2,
-		obj2,
-		dataClassificacao,
-		columnsClassificacao,
+		classificacaoColumns,
+		classificacaoData,
 	};
-
-	// export {
-	// 	calculaPontuacao,
-	// 	pontuacaoDetalhadaArray,
-	// 	keys2,
-	// 	obj2,
-	// 	dataClassificacao,
-	// 	columnsClassificacao,
-	// };
 };

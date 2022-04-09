@@ -1,12 +1,18 @@
 import { Table } from "antd";
 import { Component } from "react";
-import { getClassificacao } from "../Modules/getClassificacao";
 
 export default class Classificacao extends Component {
 	render() {
-		const { serie } = this.props;
-		const { columnsClassificacao, dataClassificacao } = getClassificacao(serie);
+		// console.info("inside Classificacao.js");
+		const { serie, classificacaoColumnsA, classificacaoDataA, classificacaoColumnsB, classificacaoDataB } = this.props;
+		// console.info(
+		// 	"classificacaoDataA inside Classificacao.js: ",
+		// 	classificacaoDataA
+		// );
+		if (typeof classificacaoDataA === "string") return <div></div>;
+
 		return (
+			// <div key={classificacaoDataA}>
 			<div>
 				<h2
 					style={{
@@ -17,8 +23,8 @@ export default class Classificacao extends Component {
 					Classificação Série {serie}
 				</h2>
 				<Table
-					columns={columnsClassificacao}
-					dataSource={dataClassificacao}
+					columns={serie === "A" ? classificacaoColumnsA : classificacaoColumnsB}
+					dataSource={serie === "A" ? classificacaoDataA : classificacaoDataB}
 					pagination={false}
 					size={"small"}
 				/>

@@ -2,10 +2,11 @@ import apostasA from "../Data/apostasA.json";
 import apostasB from "../Data/apostasB.json";
 
 export const getApostas = (serie) => {
+	// console.info("inside getApostas()");
 	if (serie === "A") serie = apostasA;
 	else if (serie === "B") serie = apostasB;
 
-	const columns = serie.apostas.map((a) => ({
+	const apostasColumns = serie.apostas.map((a) => ({
 		title: a.nome,
 		key: a.nome,
 		dataIndex: a.nome,
@@ -20,7 +21,7 @@ export const getApostas = (serie) => {
 	const palpites = serie.apostas.map((a) => a.aposta);
 	// console.info("palpites: ", palpites);
 
-	const keys = columns.map((c) => c.title);
+	const keys = apostasColumns.map((c) => c.title);
 	// console.info("keys: ", keys);
 
 	const obj = keys.reduce((accumulator, value) => {
@@ -28,15 +29,14 @@ export const getApostas = (serie) => {
 	}, {});
 	// console.info("obj: ", obj);
 
-	const data = [];
+	const apostasData = [];
 	for (let j = 0; j < equipesArray.length; j++) {
-		data[j] = JSON.parse(JSON.stringify(obj));
-		for (let i = 0; i < columns.length; i++) {
-			data[j][keys[i]] = palpites[i][j];
-			data[j].key = j;
+		apostasData[j] = JSON.parse(JSON.stringify(obj));
+		for (let i = 0; i < apostasColumns.length; i++) {
+			apostasData[j][keys[i]] = palpites[i][j];
+			apostasData[j].key = j;
 		}
 	}
-	// console.info("data: ", data);
-	//export { columns, equipesArray, palpites, keys, obj, data };
-	return { columns, equipesArray, palpites, keys, obj, data };
+	// console.info("apostasData: ", apostasData);
+	return { apostasColumns, apostasData, keys };
 };
