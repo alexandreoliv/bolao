@@ -38,9 +38,9 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 	const keys2 = keys.filter((k) => k !== "Equipe" && k !== "Atual");
 	// console.info("keys2", keys2);
 
-	const obj2 = keys2.reduce((accumulator, value) => {
-		return { ...accumulator, [value]: "" };
-	}, {});
+	// const obj2 = keys2.reduce((accumulator, value) => {
+	// 	return { ...accumulator, [value]: "" };
+	// }, {});
 	// console.info("obj2: ", obj2);
 
 	const classificacaoData = [];
