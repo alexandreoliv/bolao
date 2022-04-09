@@ -1,4 +1,5 @@
 import { getApostas } from "../Modules/getApostas";
+// import { getTabela } from "../Modules/getTabela";
 
 export const getClassificacao = (serie) => {
 	const { keys, data } = getApostas(serie);
