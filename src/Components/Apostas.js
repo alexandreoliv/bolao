@@ -1,9 +1,11 @@
 import { Table } from "antd";
 import { Component } from "react";
-import { columns, data } from "../Modules/getData";
+import { getApostas } from "../Modules/getApostas";
 
 export default class Apostas extends Component {
 	render() {
+		const { serie } = this.props;
+		const { columns, data } = getApostas(serie);
 		return (
 			<div>
 				<h2
@@ -12,7 +14,7 @@ export default class Apostas extends Component {
 						margin: "0 0 10px 10px",
 					}}
 				>
-					Apostas
+					Apostas Série {serie}
 				</h2>
 				<Table
 					columns={columns}

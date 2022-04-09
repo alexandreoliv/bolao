@@ -1,9 +1,11 @@
 import { Table } from "antd";
 import { Component } from "react";
-import { columnsClassificacao, dataClassificacao } from "../Modules/getClassificacao";
+import { getClassificacao } from "../Modules/getClassificacao";
 
 export default class Classificacao extends Component {
 	render() {
+		const { serie } = this.props;
+		const { columnsClassificacao, dataClassificacao } = getClassificacao(serie);
 		return (
 			<div>
 				<h2
@@ -12,7 +14,7 @@ export default class Classificacao extends Component {
 						margin: "0 0 10px 10px",
 					}}
 				>
-					Classificação
+					Classificação Série {serie}
 				</h2>
 				<Table
 					columns={columnsClassificacao}
