@@ -2,6 +2,7 @@ import "./App.css";
 import { Layout, Menu } from "antd";
 import Apostas from "./Components/Apostas";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Classificacao from "./Components/Classificacao";
 const { Header, Content, Footer } = Layout;
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 							Rodadas{" "}
 						</Menu.Item>
 						<Menu.Item key="3">
-							<Link to="/" />
+							<Link to="/classificacao" />
 							Classificação
 						</Menu.Item>
 						<Menu.Item key="4">
@@ -42,6 +43,7 @@ function App() {
 					<div className="site-layout-content" style={{ padding: "10px 0 0 0 " }}>
 						<Routes>
 							<Route path="/" element={<Apostas />} />
+							<Route path="/classificacao" element={<Classificacao />} />
 						</Routes>
 					</div>
 				</Content>
