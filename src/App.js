@@ -10,6 +10,7 @@ import { getTabela } from "./modules/getTabela";
 import { getApostas } from "./modules/getApostas";
 import { getClassificacao } from "./modules/getClassificacao";
 import { getDistancia } from "./modules/getDistancia";
+// import { scrapeTabela } from "./modules/scrapeTabela";
 const { Header, Content, Footer } = Layout;
 
 export default class App extends Component {
@@ -47,6 +48,9 @@ export default class App extends Component {
 
 	componentDidMount = async () => {
 		// console.info("inside App.js componentDidMount()");
+
+		// scrapeTabela();
+
 		const tabelaA = await getTabela("A");
 		// console.info("inside componentDidMount() tabelaA", tabelaA);
 		const tabelaB = await getTabela("B");
@@ -151,6 +155,7 @@ export default class App extends Component {
 
 	render() {
 		// console.info("inside App.js render()");
+
 		return (
 			<Router>
 				<Layout className="layout">
