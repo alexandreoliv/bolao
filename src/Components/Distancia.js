@@ -10,7 +10,7 @@ export default class Distancia extends Component {
 		// 	"classificacaoDataA inside Classificacao.js: ",
 		// 	classificacaoDataA
 		// );
-		if (typeof distanciaDataA === "string") return <div></div>;
+		if (typeof distanciaDataA === "string") return <div></div>; 
 
 		return (
 			// <div key={classificacaoDataA}>

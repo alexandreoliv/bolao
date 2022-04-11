@@ -35,7 +35,7 @@ export const getTabela = (serie) => {
 	// 	});
 
 	// Local method:
-	const tabela = require("../data/tabela.json");
+	const tabela = require("../data/tabelaA.json");
 	// console.info("tabela: ", tabela);
 	return sortedTabela(tabela);
 };

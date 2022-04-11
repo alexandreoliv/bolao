@@ -170,31 +170,31 @@ export default class App extends Component {
 							</Menu.Item>
 							<Menu.Item
 								key="2"
-								onClick={() => this.handleClick("B")}
-							>
-								<Link to="/" />
-								Apostas Série B
-							</Menu.Item>
-							<Menu.Item
-								key="3"
 								onClick={() => this.handleClick("A")}
 							>
 								<Link to="/classificacao" />
 								Classificação Série A
 							</Menu.Item>
 							<Menu.Item
-								key="4"
-								onClick={() => this.handleClick("B")}
-							>
-								<Link to="/classificacao" />
-								Classificação Série B
-							</Menu.Item>
-							<Menu.Item
-								key="5"
+								key="3"
 								onClick={() => this.handleClick("A")}
 							>
 								<Link to="/distancia" />
 								Distância pro acerto A
+							</Menu.Item>
+							<Menu.Item
+								key="4"
+								onClick={() => this.handleClick("B")}
+							>
+								<Link to="/" />
+								Apostas Série B
+							</Menu.Item>
+							<Menu.Item
+								key="5"
+								onClick={() => this.handleClick("B")}
+							>
+								<Link to="/classificacao" />
+								Classificação Série B
 							</Menu.Item>
 							<Menu.Item
 								key="6"

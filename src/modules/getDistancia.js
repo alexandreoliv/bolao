@@ -1,5 +1,28 @@
 export const getDistancia = (keys, apostasData) => {
-	console.info("inside getDistancia()");
+	// console.info("inside getDistancia()");
+
+    const colours = [
+        "#5cbd8c",
+        "#76c79f",
+        "#91d2b2",
+        "#addec5",
+        "#c8e9d9",
+        "#e3f3eb",
+        "#ffffff",
+        "#fef6f6",
+        "#fcecec",
+        "#f9e2e3",
+        "#f7d9d9",
+        "#f6d0ce",
+        "#f4c5c4",
+        "#f2bcbb",
+        "#f0b2b1",
+        "#eda8a8",
+        "#ec9f9d",
+        "#ea9595",
+        "#e88b8a",
+        "#e68181",
+    ];
 
 	const distanciaData = [];
 	for (let i = 0; i < apostasData.length; i++) {
@@ -16,6 +39,15 @@ export const getDistancia = (keys, apostasData) => {
 		title: k,
 		key: k,
 		dataIndex: k,
+        render(text, record) {
+            return {
+              props: {
+                style: { background: k !== "Atual" ? (colours[Math.abs(text)]) :"white" }
+              },
+              children: <div>{text}</div>
+            };
+          }
+
 	}));
 	// console.info("distanciaColumns: ", distanciaColumns);
 
