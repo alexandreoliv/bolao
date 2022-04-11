@@ -1,4 +1,4 @@
-export const getClassificacao = (serie, keys, apostasData, tabela) => {
+export const getClassificacao = (keys, apostasData, tabela) => {
 	// console.info("inside getClassificacao()");
 	// console.info("apostasData: ", apostasData);
 

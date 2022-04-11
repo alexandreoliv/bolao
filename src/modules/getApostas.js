@@ -1,5 +1,5 @@
-import apostasA from "../Data/apostasA.json";
-import apostasB from "../Data/apostasB.json";
+import apostasA from "../data/apostasA.json";
+import apostasB from "../data/apostasB.json";
 
 export const getApostas = (serie) => {
 	// console.info("inside getApostas()");

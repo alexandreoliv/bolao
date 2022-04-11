@@ -4,9 +4,12 @@ import { Component } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
-import { getTabela } from "./Modules/getTabela";
-import { getApostas } from "./Modules/getApostas";
-import { getClassificacao } from "./Modules/getClassificacao";
+import Distancia from "./Components/Distancia";
+import Regras from "./Components/Regras";
+import { getTabela } from "./modules/getTabela";
+import { getApostas } from "./modules/getApostas";
+import { getClassificacao } from "./modules/getClassificacao";
+import { getDistancia } from "./modules/getDistancia";
 const { Header, Content, Footer } = Layout;
 
 export default class App extends Component {
@@ -20,6 +23,8 @@ export default class App extends Component {
 				apostasData: "",
 				classificacaoColumns: "",
 				classificacaoData: "",
+				distanciaColumns: "",
+				distanciaData: "",
 				keys: "",
 				tabela: "",
 			},
@@ -28,6 +33,8 @@ export default class App extends Component {
 				apostasData: "",
 				classificacaoColumns: "",
 				classificacaoData: "",
+				distanciaColumns: "",
+				distanciaData: "",
 				keys: "",
 				tabela: "",
 			},
@@ -72,15 +79,25 @@ export default class App extends Component {
 		// console.info("inside componentDidMount() apostasDataB", apostasDataB);
 		// console.info("inside componentDidMount() keysB", keysB);
 
-		resp = await getClassificacao("A", keysA, apostasDataA, tabelaA);
+		resp = await getClassificacao(keysA, apostasDataA, tabelaA);
 		// console.info("inside componentDidMount() resp", resp);
 		const classificacaoColumnsA = resp["classificacaoColumns"];
 		const classificacaoDataA = resp["classificacaoData"];
 
-		resp = await getClassificacao("B", keysB, apostasDataB, tabelaB);
+		resp = await getClassificacao(keysB, apostasDataB, tabelaB);
 		// console.info("inside componentDidMount() resp", resp);
 		const classificacaoColumnsB = resp["classificacaoColumns"];
 		const classificacaoDataB = resp["classificacaoData"];
+
+		resp = await getDistancia(keysA, apostasDataA);
+		// console.info("inside componentDidMount() resp", resp);
+		const distanciaColumnsA = resp["distanciaColumns"];
+		const distanciaDataA = resp["distanciaData"];
+
+		resp = await getDistancia(keysB, apostasDataB);
+		// console.info("inside componentDidMount() resp", resp);
+		const distanciaColumnsB = resp["distanciaColumns"];
+		const distanciaDataB = resp["distanciaData"];
 
 		// console.info(
 		// 	"inside componentDidMount() classificacaoColumnsA",
@@ -105,6 +122,8 @@ export default class App extends Component {
 				apostasData: apostasDataA,
 				classificacaoColumns: classificacaoColumnsA,
 				classificacaoData: classificacaoDataA,
+				distanciaColumns: distanciaColumnsA,
+				distanciaData: distanciaDataA,
 				keys: keysA,
 				tabela: tabelaA,
 			},
@@ -113,11 +132,17 @@ export default class App extends Component {
 				apostasData: apostasDataB,
 				classificacaoColumns: classificacaoColumnsB,
 				classificacaoData: classificacaoDataB,
+				distanciaColumns: distanciaColumnsB,
+				distanciaData: distanciaDataB,
 				keys: keysB,
 				tabela: tabelaB,
 			},
 		});
 
+		// console.info(
+		// 	"after state change, this.state.serieA: ",
+		// 	this.state.serieA
+		// );
 		// console.info(
 		// 	"after state change, this.state.serieB: ",
 		// 	this.state.serieB
@@ -168,14 +193,18 @@ export default class App extends Component {
 								key="5"
 								onClick={() => this.handleClick("A")}
 							>
-								<Link to="/" />
-								Distância pro acerto
+								<Link to="/distancia" />
+								Distância pro acerto A
 							</Menu.Item>
 							<Menu.Item
 								key="6"
-								onClick={() => this.handleClick("A", "6")}
+								onClick={() => this.handleClick("B")}
 							>
-								<Link to="/" />
+								<Link to="/distancia" />
+								Distância pro acerto B
+							</Menu.Item>
+							<Menu.Item key="7">
+								<Link to="/regras" />
 								Regras
 							</Menu.Item>
 						</Menu>
@@ -239,6 +268,29 @@ export default class App extends Component {
 										/>
 									}
 								/>
+								<Route
+									path="/distancia"
+									element={
+										<Distancia
+											serie={this.state.serie}
+											distanciaColumnsA={
+												this.state.serieA
+													.distanciaColumns
+											}
+											distanciaDataA={
+												this.state.serieA.distanciaData
+											}
+											distanciaColumnsB={
+												this.state.serieB
+													.distanciaColumns
+											}
+											distanciaDataB={
+												this.state.serieB.distanciaData
+											}
+										/>
+									}
+								/>
+								<Route path="/regras" element={<Regras />} />
 							</Routes>
 						</div>
 					</Content>
