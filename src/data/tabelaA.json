@@ -132,7 +132,7 @@
         ]
     },
     {
-        "posicao": 7,
+        "posicao": 6,
         "pontos": 3,
         "time": {
             "time_id": 204,
@@ -157,6 +157,50 @@
         "posicao": 8,
         "pontos": 1,
         "time": {
+            "time_id": 43,
+            "nome_popular": "Juventude",
+            "sigla": "JUV",
+            "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999cb997a01.svg"
+        },
+        "jogos": 1,
+        "vitorias": 0,
+        "empates": 1,
+        "derrotas": 0,
+        "gols_pro": 2,
+        "gols_contra": 2,
+        "saldo_gols": 0,
+        "aproveitamento": 33.3,
+        "variacao_posicao": 0,
+        "ultimos_jogos": [
+            "e"
+        ]
+    },
+    {
+        "posicao": 9,
+        "pontos": 1,
+        "time": {
+            "time_id": 64,
+            "nome_popular": "Bragantino",
+            "sigla": "BGT",
+            "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d770dbb2.svg"
+        },
+        "jogos": 1,
+        "vitorias": 0,
+        "empates": 1,
+        "derrotas": 0,
+        "gols_pro": 2,
+        "gols_contra": 2,
+        "saldo_gols": 0,
+        "aproveitamento": 33.3,
+        "variacao_posicao": 0,
+        "ultimos_jogos": [
+            "e"
+        ]
+    },
+    {
+        "posicao": 10,
+        "pontos": 1,
+        "time": {
             "time_id": 18,
             "nome_popular": "Flamengo",
             "sigla": "FLA",
@@ -176,7 +220,7 @@
         ]
     },
     {
-        "posicao": 9,
+        "posicao": 11,
         "pontos": 1,
         "time": {
             "time_id": 98,
@@ -198,7 +242,7 @@
         ]
     },
     {
-        "posicao": 10,
+        "posicao": 12,
         "pontos": 1,
         "time": {
             "time_id": 63,
@@ -220,7 +264,7 @@
         ]
     },
     {
-        "posicao": 11,
+        "posicao": 13,
         "pontos": 1,
         "time": {
             "time_id": 26,
@@ -240,46 +284,6 @@
         "ultimos_jogos": [
             "e"
         ]
-    },
-    {
-        "posicao": 12,
-        "pontos": 0,
-        "time": {
-            "time_id": 64,
-            "nome_popular": "Bragantino",
-            "sigla": "BGT",
-            "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d770dbb2.svg"
-        },
-        "jogos": 0,
-        "vitorias": 0,
-        "empates": 0,
-        "derrotas": 0,
-        "gols_pro": 0,
-        "gols_contra": 0,
-        "saldo_gols": 0,
-        "aproveitamento": 0,
-        "variacao_posicao": 0,
-        "ultimos_jogos": []
-    },
-    {
-        "posicao": 12,
-        "pontos": 0,
-        "time": {
-            "time_id": 43,
-            "nome_popular": "Juventude",
-            "sigla": "JUV",
-            "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999cb997a01.svg"
-        },
-        "jogos": 0,
-        "vitorias": 0,
-        "empates": 0,
-        "derrotas": 0,
-        "gols_pro": 0,
-        "gols_contra": 0,
-        "saldo_gols": 0,
-        "aproveitamento": 0,
-        "variacao_posicao": 0,
-        "ultimos_jogos": []
     },
     {
         "posicao": 14,

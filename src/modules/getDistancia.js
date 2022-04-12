@@ -35,7 +35,11 @@ export const getDistancia = (keys, apostasData) => {
 	}
 	// console.info("distanciaData: ", distanciaData);
 
-	const distanciaColumns = keys.map((k) => ({
+    distanciaData.sort(function (a, b) { // mutates distanciaData
+		return a.Atual - b.Atual;
+	});
+	
+    const distanciaColumns = keys.map((k) => ({
 		title: k,
 		key: k,
 		dataIndex: k,

@@ -83,12 +83,12 @@ export default class App extends Component {
 		// console.info("inside componentDidMount() apostasDataB", apostasDataB);
 		// console.info("inside componentDidMount() keysB", keysB);
 
-		resp = await getClassificacao(keysA, apostasDataA, tabelaA);
+		resp = await getClassificacao("A", keysA, apostasDataA, tabelaA);
 		// console.info("inside componentDidMount() resp", resp);
 		const classificacaoColumnsA = resp["classificacaoColumns"];
 		const classificacaoDataA = resp["classificacaoData"];
 
-		resp = await getClassificacao(keysB, apostasDataB, tabelaB);
+		resp = await getClassificacao("B", keysB, apostasDataB, tabelaB);
 		// console.info("inside componentDidMount() resp", resp);
 		const classificacaoColumnsB = resp["classificacaoColumns"];
 		const classificacaoDataB = resp["classificacaoData"];
@@ -250,6 +250,7 @@ export default class App extends Component {
 									}
 								/>
 								<Route
+									exact
 									path="/classificacao"
 									element={
 										<Classificacao
@@ -274,6 +275,7 @@ export default class App extends Component {
 									}
 								/>
 								<Route
+									exact
 									path="/distancia"
 									element={
 										<Distancia
@@ -295,7 +297,11 @@ export default class App extends Component {
 										/>
 									}
 								/>
-								<Route path="/regras" element={<Regras />} />
+								<Route
+									exact
+									path="/regras"
+									element={<Regras />}
+								/>
 							</Routes>
 						</div>
 					</Content>
