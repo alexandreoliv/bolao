@@ -9,7 +9,7 @@
       "time": {
         "nome_popular": "Brusque"
       },
-      "posicao": 4
+      "posicao": 3
     },
     {
       "time": {
@@ -39,7 +39,7 @@
       "time": {
         "nome_popular": "Cruzeiro"
       },
-      "posicao": 20
+      "posicao": 19
     },
     {
       "time": {
@@ -51,19 +51,19 @@
       "time": {
         "nome_popular": "Guarani"
       },
-      "posicao": 18
+      "posicao": 17
     },
     {
       "time": {
         "nome_popular": "Ituano"
       },
-      "posicao": 9
+      "posicao": 5
     },
     {
       "time": {
         "nome_popular": "Londrina"
       },
-      "posicao": 2
+      "posicao": 1
     },
     {
       "time": {
@@ -105,18 +105,18 @@
       "time": {
         "nome_popular": "Tombense"
       },
-      "posicao": 10
+      "posicao": 5
     },
     {
       "time": {
         "nome_popular": "Vasco"
       },
-      "posicao": 7
+      "posicao": 5
     },
     {
       "time": {
         "nome_popular": "Vila Nova"
       },
-      "posicao": 7
+      "posicao": 5
     }
   ]

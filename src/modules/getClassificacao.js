@@ -2,13 +2,11 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 	// console.info("inside getClassificacao()");
 	// console.info("apostasData: ", apostasData);
 
-	if (serie === "A") {
-		for (let i = 0; i < apostasData.length; i++) {
-			// mutates apostasData
-			apostasData[i]["Atual"] = tabela[i].posicao;
-		}
-		// console.info("new apostasData is here!: ", apostasData);
+	for (let i = 0; i < apostasData.length; i++) {
+		// mutates apostasData
+		apostasData[i]["Atual"] = tabela[i]["posicao"];
 	}
+	// console.info("new apostasData is here!: ", apostasData);
 
 	const calculaPontuacao = (d) => {
 		if (d === 0) return 5;
@@ -33,9 +31,9 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 		});
 	// console.info("pontuacaoDetalhadaArray", pontuacaoDetalhadaArray);
 
-	apostasData.sort(function (a, b) {
+	apostasData.sort((a, b) => {
 		// mutates apostasData
-		return a.Atual - b.Atual;
+		return a.Atual < b.Atual ? -1 : 1;
 	});
 
 	const pontuacaoArray = pontuacaoDetalhadaArray.map((p) => {
@@ -64,7 +62,7 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 		// mutates classificacaoData
 		return b.pontuacao - a.pontuacao;
 	});
-	console.info("classificacaoData: ", classificacaoData);
+	// console.info("classificacaoData: ", classificacaoData);
 
 	const classificacaoColumns = [
 		{

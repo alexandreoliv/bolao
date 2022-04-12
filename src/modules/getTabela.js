@@ -43,11 +43,11 @@ export const getTabela = (serie) => {
 	// Local method:
 	if (serie === "A") {
 		const tabela = require("../data/tabelaA.json");
-		console.info("tabela Série " + serie + ": ", tabela);
+		// console.info("tabela Série " + serie + ": ", tabela);
 		return sortedTabela(tabela);
 	} else if (serie === "B") {
 		const tabela = require("../data/tabelaB.json");
-		console.info("tabela Série " + serie + ": ", tabela);
+		// console.info("tabela Série " + serie + ": ", tabela);
 		return sortedTabela(tabela);
 	}
 };
