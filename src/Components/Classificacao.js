@@ -18,11 +18,12 @@ export default class Classificacao extends Component {
 					style={{
 						fontWeight: "bold",
 						margin: "0 0 10px 10px",
+						textAlign: "center",
 					}}
 				>
 					Classificação Série {serie}
 				</h2>
-				<Table
+				<Table className="small-table"
 					columns={serie === "A" ? classificacaoColumnsA : classificacaoColumnsB}
 					dataSource={serie === "A" ? classificacaoDataA : classificacaoDataB}
 					pagination={false}

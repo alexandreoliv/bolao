@@ -19,11 +19,12 @@ export default class Distancia extends Component {
 					style={{
 						fontWeight: "bold",
 						margin: "0 0 10px 10px",
+						textAlign: "center",
 					}}
 				>
 					Distância Para o Acerto Série {serie}
 				</h2>
-				<Table
+				<Table className="big-table"
 					columns={serie === "A" ? distanciaColumnsA : distanciaColumnsB}
 					dataSource={serie === "A" ? distanciaDataA : distanciaDataB}
 					pagination={false}

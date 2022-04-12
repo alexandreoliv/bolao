@@ -64,16 +64,39 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 	});
 	// console.info("classificacaoData: ", classificacaoData);
 
+	// mutates classificacaoData to add each bettor's current position
+	classificacaoData[0].posicao = 1;
+	for (let i = 1; i < classificacaoData.length; i++) {
+		if (
+			classificacaoData[i].pontuacao ===
+			classificacaoData[i - 1].pontuacao
+		)
+			classificacaoData[i].posicao = classificacaoData[i - 1].posicao;
+		else classificacaoData[i].posicao = i + 1;
+	}
+	console.info("classificacaoData: ", classificacaoData);
+
 	const classificacaoColumns = [
+		{
+			title: "Posição",
+			key: "posicao",
+			dataIndex: "posicao",
+			align: "center",
+			width: "15%",
+		},
 		{
 			title: "Nome",
 			key: "nome",
 			dataIndex: "nome",
+			align: "center",
+			width: "30%",
 		},
 		{
 			title: "Pontuação",
 			key: "pontuacao",
 			dataIndex: "pontuacao",
+			align: "center",
+			width: "15%",
 		},
 	];
 	// console.info("classificacaoColumns: ", classificacaoColumns);

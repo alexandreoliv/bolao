@@ -44,11 +44,15 @@ const columns = [
 		title: "Situação",
 		dataIndex: "situacao",
 		key: "situacao",
+		width: "10%",
+		align: "center",
 	},
 	{
 		title: "Pontos",
 		dataIndex: "pontos",
 		key: "pontos",
+		width: "10%",
+		align: "center",
 	},
 ];
 
@@ -60,15 +64,18 @@ export default class Regras extends Component {
 					style={{
 						fontWeight: "bold",
 						margin: "0 0 10px 10px",
+						textAlign: "center",
 					}}
 				>
 					Regras
 				</h2>
 				<Table
+					className="small-table"
 					columns={columns}
 					dataSource={data}
 					pagination={false}
 					size={"small"}
+					bordered
 				/>
 			</div>
 		);

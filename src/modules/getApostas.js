@@ -10,6 +10,7 @@ export const getApostas = (serie) => {
 		title: a.nome,
 		key: a.nome,
 		dataIndex: a.nome,
+		align: "center",
 	}));
 	// console.info("columns: ", columns);
 
