@@ -2,7 +2,6 @@ import apostasA from "../data/apostasA.json";
 import apostasB from "../data/apostasB.json";
 
 export const getApostas = (serie) => {
-	// console.info("inside getApostas()");
 	if (serie === "A") serie = apostasA;
 	else if (serie === "B") serie = apostasB;
 
@@ -12,23 +11,18 @@ export const getApostas = (serie) => {
 		dataIndex: a.nome,
 		align: "center",
 	}));
-	// console.info("columns: ", columns);
 
 	const equipesArray = serie.apostas
 		.filter((a) => a.nome === "Equipe")
 		.map((a) => a.aposta)[0];
-	// console.info("equipesArray: ", equipesArray);
 
 	const palpites = serie.apostas.map((a) => a.aposta);
-	// console.info("palpites: ", palpites);
 
 	const keys = apostasColumns.map((c) => c.title);
-	// console.info("keys: ", keys);
 
 	const obj = keys.reduce((accumulator, value) => {
 		return { ...accumulator, [value]: "" };
 	}, {});
-	// console.info("obj: ", obj);
 
 	const apostasData = [];
 	for (let j = 0; j < equipesArray.length; j++) {
@@ -38,6 +32,5 @@ export const getApostas = (serie) => {
 			apostasData[j].key = j;
 		}
 	}
-	// console.info("apostasData: ", apostasData);
 	return { apostasColumns, apostasData, keys };
 };

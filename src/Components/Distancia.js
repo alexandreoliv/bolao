@@ -3,17 +3,14 @@ import { Component } from "react";
 
 export default class Distancia extends Component {
 	render() {
-		// console.info("inside Distancia.js");
-		const { serie, distanciaColumnsA, distanciaDataA, distanciaColumnsB, distanciaDataB } = this.props;
-
-		// console.info(
-		// 	"classificacaoDataA inside Classificacao.js: ",
-		// 	classificacaoDataA
-		// );
-		if (typeof distanciaDataA === "string") return <div></div>; 
-
+		const {
+			serie,
+			distanciaColumnsA,
+			distanciaDataA,
+			distanciaColumnsB,
+			distanciaDataB,
+		} = this.props;
 		return (
-			// <div key={classificacaoDataA}>
 			<div>
 				<h2
 					style={{
@@ -24,8 +21,11 @@ export default class Distancia extends Component {
 				>
 					Distância Para o Acerto Série {serie}
 				</h2>
-				<Table className="big-table"
-					columns={serie === "A" ? distanciaColumnsA : distanciaColumnsB}
+				<Table
+					className="big-table"
+					columns={
+						serie === "A" ? distanciaColumnsA : distanciaColumnsB
+					}
 					dataSource={serie === "A" ? distanciaDataA : distanciaDataB}
 					pagination={false}
 					size={"small"}

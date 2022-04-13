@@ -10,12 +10,10 @@ import { getTabela } from "./modules/getTabela";
 import { getApostas } from "./modules/getApostas";
 import { getClassificacao } from "./modules/getClassificacao";
 import { getDistancia } from "./modules/getDistancia";
-// import { scrapeTabela } from "./modules/scrapeTabela";
 const { Header, Content, Footer } = Layout;
 
 export default class App extends Component {
 	constructor(props) {
-		// console.info("inside App.js constructor()");
 		super(props);
 		this.state = {
 			serie: "A",
@@ -47,78 +45,34 @@ export default class App extends Component {
 	};
 
 	componentDidMount = async () => {
-		// console.info("inside App.js componentDidMount()");
-
-		// scrapeTabela();
-
 		const tabelaA = await getTabela("A");
-		// console.info("inside componentDidMount() tabelaA", tabelaA);
 		const tabelaB = await getTabela("B");
-		// console.info("inside componentDidMount() tabelaB", tabelaB);
 
-		// const { apostasColumnsA, apostasDataA, keysA } = await getApostas("A");
 		let resp = await getApostas("A");
-		// console.info("inside componentDidMount() resp", resp);
 		const apostasColumnsA = resp["apostasColumns"];
 		const apostasDataA = resp["apostasData"];
 		const keysA = resp["keys"];
 
-		// console.info(
-		// 	"inside componentDidMount() apostasColumnsA",
-		// 	apostasColumnsA
-		// );
-		// console.info("inside componentDidMount() apostasDataA", apostasDataA);
-		// console.info("inside componentDidMount() keysA", keysA);
-
 		resp = await getApostas("B");
-		// console.info("inside componentDidMount() resp", resp);
 		const apostasColumnsB = resp["apostasColumns"];
 		const apostasDataB = resp["apostasData"];
 		const keysB = resp["keys"];
 
-		// console.info(
-		// 	"inside componentDidMount() apostasColumnsB",
-		// 	apostasColumnsB
-		// );
-		// console.info("inside componentDidMount() apostasDataB", apostasDataB);
-		// console.info("inside componentDidMount() keysB", keysB);
-
 		resp = await getClassificacao("A", keysA, apostasDataA, tabelaA);
-		// console.info("inside componentDidMount() resp", resp);
 		const classificacaoColumnsA = resp["classificacaoColumns"];
 		const classificacaoDataA = resp["classificacaoData"];
 
 		resp = await getClassificacao("B", keysB, apostasDataB, tabelaB);
-		// console.info("inside componentDidMount() resp", resp);
 		const classificacaoColumnsB = resp["classificacaoColumns"];
 		const classificacaoDataB = resp["classificacaoData"];
 
 		resp = await getDistancia(keysA, apostasDataA);
-		// console.info("inside componentDidMount() resp", resp);
 		const distanciaColumnsA = resp["distanciaColumns"];
 		const distanciaDataA = resp["distanciaData"];
 
 		resp = await getDistancia(keysB, apostasDataB);
-		// console.info("inside componentDidMount() resp", resp);
 		const distanciaColumnsB = resp["distanciaColumns"];
 		const distanciaDataB = resp["distanciaData"];
-
-		// console.info(
-		// 	"inside componentDidMount() classificacaoColumnsA",
-		// 	classificacaoColumnsA
-		// );
-		// console.info(
-		// 	"inside componentDidMount() classificacaoDataA",
-		// 	classificacaoDataA
-		// );
-		// console.info(
-		// 	"inside componentDidMount() classificacaoColumnsB",
-		// 	classificacaoColumnsB
-		// );
-		// console.info(
-		// 	"inside componentDidMount() classificacaoDataB",
-		// 	classificacaoDataB
-		// );
 
 		this.setState({
 			serieA: {
@@ -142,20 +96,9 @@ export default class App extends Component {
 				tabela: tabelaB,
 			},
 		});
-
-		// console.info(
-		// 	"after state change, this.state.serieA: ",
-		// 	this.state.serieA
-		// );
-		// console.info(
-		// 	"after state change, this.state.serieB: ",
-		// 	this.state.serieB
-		// );
 	};
 
 	render() {
-		// console.info("inside App.js render()");
-
 		return (
 			<Router>
 				<Layout className="layout">

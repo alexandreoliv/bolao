@@ -1,12 +1,8 @@
 export const getClassificacao = (serie, keys, apostasData, tabela) => {
-	// console.info("inside getClassificacao()");
-	// console.info("apostasData: ", apostasData);
-
 	for (let i = 0; i < apostasData.length; i++) {
 		// mutates apostasData
 		apostasData[i]["Atual"] = tabela[i]["posicao"];
 	}
-	// console.info("new apostasData is here!: ", apostasData);
 
 	const calculaPontuacao = (d) => {
 		if (d === 0) return 5;
@@ -29,7 +25,6 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 		.map((k) => {
 			return geraArray(k);
 		});
-	// console.info("pontuacaoDetalhadaArray", pontuacaoDetalhadaArray);
 
 	apostasData.sort((a, b) => {
 		// mutates apostasData
@@ -39,15 +34,8 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 	const pontuacaoArray = pontuacaoDetalhadaArray.map((p) => {
 		return p.reduce((prev, cur) => prev + cur, 0);
 	});
-	// console.info("pontuacaoArray", pontuacaoArray);
 
 	const keys2 = keys.filter((k) => k !== "Equipe" && k !== "Atual");
-	// console.info("keys2", keys2);
-
-	// const obj2 = keys2.reduce((accumulator, value) => {
-	// 	return { ...accumulator, [value]: "" };
-	// }, {});
-	// console.info("obj2: ", obj2);
 
 	const classificacaoData = [];
 	for (let i = 0; i < keys2.length; i++) {
@@ -56,13 +44,11 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 		classificacaoData[i]["pontuacao"] = pontuacaoArray[i];
 		classificacaoData[i]["key"] = keys2[i];
 	}
-	// console.info("classificacaoData: ", classificacaoData);
 
 	classificacaoData.sort(function (a, b) {
 		// mutates classificacaoData
 		return b.pontuacao - a.pontuacao;
 	});
-	// console.info("classificacaoData: ", classificacaoData);
 
 	// mutates classificacaoData to add each bettor's current position
 	classificacaoData[0].posicao = 1;
@@ -74,7 +60,6 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 			classificacaoData[i].posicao = classificacaoData[i - 1].posicao;
 		else classificacaoData[i].posicao = i + 1;
 	}
-	console.info("classificacaoData: ", classificacaoData);
 
 	const classificacaoColumns = [
 		{
@@ -99,7 +84,6 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 			width: "15%",
 		},
 	];
-	// console.info("classificacaoColumns: ", classificacaoColumns);
 
 	return {
 		classificacaoColumns,

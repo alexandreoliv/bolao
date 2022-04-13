@@ -1,6 +1,4 @@
 export const getDistancia = (keys, apostasData) => {
-	// console.info("inside getDistancia()");
-
 	const colours = [
 		"#5cbd8c",
 		"#76c79f",
@@ -33,7 +31,6 @@ export const getDistancia = (keys, apostasData) => {
 				apostasData[i][keys[j]] - apostasData[i].Atual;
 		}
 	}
-	// console.info("distanciaData: ", distanciaData);
 
 	distanciaData.sort(function (a, b) {
 		// mutates distanciaData
@@ -57,7 +54,6 @@ export const getDistancia = (keys, apostasData) => {
 		},
 		align: "center",
 	}));
-	// console.info("distanciaColumns: ", distanciaColumns);
 
 	return {
 		distanciaColumns,
