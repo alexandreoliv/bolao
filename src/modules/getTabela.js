@@ -13,34 +13,34 @@ export const getTabela = (serie) => {
 			});
 	};
 
-	// // API method:
-	// if (serie === "A") {
-	// 	return axios
-	// 		.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
-	// 			headers: {
-	// 				Authorization: `Bearer ${API_KEY}`,
-	// 			},
-	// 		})
-	// 		.then(function (response) {
-	// 			return response.data;
-	// 		})
-	// 		.catch(function (error) {
-	// 			console.log(error);
-	// 		})
-	// 		.then(function (tabela) {
-	// 			return sortedTabela(tabela);
-	// 		});
-	// } else if (serie === "B") {
-	// 	const tabela = require("../data/tabelaB.json");
-	// 	return sortedTabela(tabela);
-	// }
-
-	// Local method:
+	// API method:
 	if (serie === "A") {
-		const tabela = require("../data/tabelaA.json");
-		return sortedTabela(tabela);
+		return axios
+			.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
+				headers: {
+					Authorization: `Bearer ${API_KEY}`,
+				},
+			})
+			.then(function (response) {
+				return response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function (tabela) {
+				return sortedTabela(tabela);
+			});
 	} else if (serie === "B") {
 		const tabela = require("../data/tabelaB.json");
 		return sortedTabela(tabela);
 	}
+
+	// // Local method:
+	// if (serie === "A") {
+	// 	const tabela = require("../data/tabelaA.json");
+	// 	return sortedTabela(tabela);
+	// } else if (serie === "B") {
+	// 	const tabela = require("../data/tabelaB.json");
+	// 	return sortedTabela(tabela);
+	// }
 };
