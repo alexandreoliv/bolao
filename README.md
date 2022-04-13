@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- PROJECT SHIELDS -->
 
-## Available Scripts
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-In the project directory, you can run:
+<!-- PROJECT NAME AND SCREENSHOT -->
+<br />
+<div align="center">
+  <h3 align="center">BOLÃO BRASILEIRÃO 2022</h3>
+</div>
 
-### `npm start`
+[![Product Name Screen Shot][product-screenshot]](https://bolao2022.vercel.app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<!-- ABOUT THE PROJECT -->
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## About the project
 
-### `npm test`
+Personal project. For some time I've been running football sweepstakes among friends for fun. I used to organise everything in an automated spreadsheet. It has now become a React app.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The "bolão" (Portuguese for "big ball" - how we call sweepstakes in Brazil), or better the "bolões" (plural) consist of two separate championships - the Série A (Brazilian football league) and the Série B (the second tier).
 
-### `npm run build`
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Built with
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   [React.js](https://reactjs.org/)
+-   [Node.js](https://nodejs.org/en/)
+-   [API Futebol](https://www.api-futebol.com.br/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm run eject`
+<!-- INSTALLATION -->
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repo
+    ```sh
+    git clone https://github.com/alexandreoliv/bolao.git
+    ```
+2. Install NPM packages
+    ```sh
+    npm install
+    ```
+3. Environment variables (from the API) are stored in .env files, naturally not included here
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<p></p>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. To run the project, type in the root folder:
+    ```sh
+    npm start
+    ```
+5. If not automatically opened, open the web browser and enter
+    ```sh
+    http://localhost:3000/
+    ```
 
-## Learn More
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- USAGE EXAMPLES -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+1. In <i>"Apostas A"</i> or <i>"Apostas B"</i> one can see all the bets, the first column <i>"Equipes"</i> being the "Teams", the second column <i>"Atual"</i> meaning their current standings (taken from an API in the case of "Série A", and hardcoded in the "Série B" — see <i>"Future improvements"</i> below for more details), and the rest of the columns being each bettor's bet for the final standing of that team.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p></p>
 
-### Analyzing the Bundle Size
+2. In <i>"Classificação A"</i> or <i>"Classificação B"</i> there's the bettor's standings, column <i>"Pontuação"</i> showing their current score.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<p></p>
 
-### Making a Progressive Web App
+3. <i>"Distância A"</i> or <i>"Distância B"</i> is similar to <i>"Apostas"</i>, showing how distant to the current standings the bets were. The numbers have conditional formatting - the greener the better, the redder the worse, in a 20-point scale.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p></p>
 
-### Advanced Configuration
+4. <i>"Regras"</i> just shows how the scores are calculated. A correct prediction gets 5 points, missing by one position gets you 3 points, missing by 2 gets you 1 point, and so on.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<p></p>
 
-### Deployment
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<!-- FUTURE IMPROVEMENTS -->
 
-### `npm run build` fails to minify
+## Future improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ When I created the app, the bets had already been made, so there was no need to implement neither the login or "bet" pages, nor a database.
+
+1. Add log in and "bet" pages.
+2. Transfer hardcoded data to database.
+3. There's currently no free APIs for the Série B league, so I need to update the JSON file semi-manually after each round. Perhaps implement some web scraping or hope for a free API to be released in the future.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/alexandre-oliv/
+[product-screenshot]: images/screenshot.png
