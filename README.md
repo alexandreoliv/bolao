@@ -27,6 +27,7 @@ The "bolão" (Portuguese for "big ball" - how we call sweepstakes in Brazil), or
 -   [React.js](https://reactjs.org/)
 -   [Node.js](https://nodejs.org/en/)
 -   [API Futebol](https://www.api-futebol.com.br/)
+-   [Puppeteer](https://github.com/puppeteer/puppeteer)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -83,7 +84,7 @@ The "bolão" (Portuguese for "big ball" - how we call sweepstakes in Brazil), or
 
 ## Future improvements
 
- When I created the app, the bets had already been made, so there was no need to implement neither the login or "bet" pages, nor a database.
+When I created the app, the bets had already been made, so there was no need to implement neither the login or "bet" pages, nor a database.
 
 1. Add log in and "bet" pages.
 2. Transfer hardcoded data to database.
