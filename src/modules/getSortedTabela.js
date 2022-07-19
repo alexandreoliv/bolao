@@ -1,8 +1,8 @@
 const axios = require("axios");
 const API_KEY = process.env.REACT_APP_SECRET_KEY;
 
-export const getSortedTabela = async (serie) => {
-	const tabela = await getTabela(serie);
+export const getSortedTabela = (serie) => {
+	const tabela = getTabela(serie);
 	return sortTabela(tabela);
 };
 

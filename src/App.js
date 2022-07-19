@@ -48,31 +48,37 @@ export default class App extends Component {
 		const tabelaA = await getSortedTabela("A");
 		const tabelaB = await getSortedTabela("B");
 
-		let resp = await getApostas("A", tabelaA);
-		const apostasColumnsA = resp["apostasColumns"];
-		const apostasDataA = resp["apostasData"];
-		const keysA = resp["keys"];
+		const {
+			apostasColumns: apostasColumnsA,
+			apostasData: apostasDataA,
+			keys: keysA,
+		} = getApostas("A", tabelaA);
 
-		resp = await getApostas("B", tabelaB);
-		const apostasColumnsB = resp["apostasColumns"];
-		const apostasDataB = resp["apostasData"];
-		const keysB = resp["keys"];
+		const {
+			apostasColumns: apostasColumnsB,
+			apostasData: apostasDataB,
+			keys: keysB,
+		} = getApostas("B", tabelaB);
 
-		resp = await getClassificacao(keysA, apostasDataA);
-		const classificacaoColumnsA = resp["classificacaoColumns"];
-		const classificacaoDataA = resp["classificacaoData"];
+		const {
+			classificacaoColumns: classificacaoColumnsA,
+			classificacaoData: classificacaoDataA,
+		} = getClassificacao(keysA, apostasDataA);
 
-		resp = await getClassificacao(keysB, apostasDataB);
-		const classificacaoColumnsB = resp["classificacaoColumns"];
-		const classificacaoDataB = resp["classificacaoData"];
+		const {
+			classificacaoColumns: classificacaoColumnsB,
+			classificacaoData: classificacaoDataB,
+		} = getClassificacao(keysB, apostasDataB);
 
-		resp = await getDistancia(keysA, apostasDataA);
-		const distanciaColumnsA = resp["distanciaColumns"];
-		const distanciaDataA = resp["distanciaData"];
+		const {
+			distanciaColumns: distanciaColumnsA,
+			distanciaData: distanciaDataA,
+		} = getDistancia(keysA, apostasDataA);
 
-		resp = await getDistancia(keysB, apostasDataB);
-		const distanciaColumnsB = resp["distanciaColumns"];
-		const distanciaDataB = resp["distanciaData"];
+		const {
+			distanciaColumns: distanciaColumnsB,
+			distanciaData: distanciaDataB,
+		} = getDistancia(keysB, apostasDataB);
 
 		this.setState({
 			serieA: {
