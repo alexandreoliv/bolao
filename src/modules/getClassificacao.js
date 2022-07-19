@@ -1,8 +1,8 @@
 export const getClassificacao = (serie, keys, apostasData, tabela) => {
-	for (let i = 0; i < apostasData.length; i++) {
-		// mutates apostasData
-		apostasData[i]["Atual"] = tabela[i]["posicao"];
-	}
+	// for (let i = 0; i < apostasData.length; i++) {
+	// 	// mutates apostasData
+	// 	apostasData[i]["Atual"] = tabela[i]["posicao"];
+	// }
 
 	const calculaPontuacao = (d) => {
 		if (d === 0) return 5;

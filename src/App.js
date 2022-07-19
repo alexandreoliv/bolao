@@ -48,12 +48,12 @@ export default class App extends Component {
 		const tabelaA = await getSortedTabela("A");
 		const tabelaB = await getSortedTabela("B");
 
-		let resp = await getApostas("A");
+		let resp = await getApostas("A", tabelaA);
 		const apostasColumnsA = resp["apostasColumns"];
 		const apostasDataA = resp["apostasData"];
 		const keysA = resp["keys"];
 
-		resp = await getApostas("B");
+		resp = await getApostas("B", tabelaB);
 		const apostasColumnsB = resp["apostasColumns"];
 		const apostasDataB = resp["apostasData"];
 		const keysB = resp["keys"];
