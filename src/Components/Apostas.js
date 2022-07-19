@@ -8,6 +8,9 @@ const Apostas = (props) => {
 		apostasColumnsB,
 		apostasDataB,
 	} = props;
+
+	if (!props.apostasColumnsA) return null; // no props yet
+
 	return (
 		<div>
 			<h2
