@@ -57,11 +57,8 @@ const getData = (apostas, apostasColumns, keys, tabela) => {
 		}
 	}
 
-	// Sorts the teams according to their standings
-	apostasData.sort((a, b) => {
-		// mutates apostasData
-		return a.Atual < b.Atual ? -1 : 1;
-	});
+	// sorts the teams according to their standings
+	apostasData.sort((a, b) => (a.Atual < b.Atual ? -1 : 1));
 
 	return apostasData;
 };

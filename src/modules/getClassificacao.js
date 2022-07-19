@@ -1,7 +1,7 @@
 export const getClassificacao = (keys, apostasData) => {
-	const pontuacaoDetalhada = getPontuacaoDetalhada(keys, apostasData);
-	const pontuacaoFinal = getPontuacaoFinal(pontuacaoDetalhada);
 	const filteredKeys = keys.filter((k) => k !== "Equipe" && k !== "Atual");
+	const pontuacaoDetalhada = getPontuacaoDetalhada(filteredKeys, apostasData);
+	const pontuacaoFinal = getPontuacaoFinal(pontuacaoDetalhada);
 	const classificacaoData = getClassificacaoData(
 		filteredKeys,
 		pontuacaoFinal
@@ -14,28 +14,20 @@ export const getClassificacao = (keys, apostasData) => {
 	};
 };
 
-const calculaPontuacao = (d) => {
-	if (d === 0) return 5;
-	if (Math.abs(d) === 1) return 3;
-	if (Math.abs(d) === 2) return 1;
-	if (Math.abs(d) === 3) return 0;
-	if (Math.abs(d) === 4) return -1;
-	if (Math.abs(d) === 5) return -3;
-	if (Math.abs(d) >= 6) return -5;
+const getPontuacaoDetalhada = (filteredKeys, apostasData) => {
+	return filteredKeys.map((k) =>
+		apostasData.map((e) => calculaPontuacao(e[k] - e["Atual"]))
+	);
 };
 
-const geraArray = (k, apostasData) => {
-	return apostasData.map((e) => {
-		return calculaPontuacao(e[k] - e["Atual"]);
-	});
-};
-
-const getPontuacaoDetalhada = (keys, apostasData) => {
-	return keys
-		.filter((k) => k !== "Equipe" && k !== "Atual")
-		.map((k) => {
-			return geraArray(k, apostasData);
-		});
+const calculaPontuacao = (distancia) => {
+	if (distancia === 0) return 5;
+	if (Math.abs(distancia) === 1) return 3;
+	if (Math.abs(distancia) === 2) return 1;
+	if (Math.abs(distancia) === 3) return 0;
+	if (Math.abs(distancia) === 4) return -1;
+	if (Math.abs(distancia) === 5) return -3;
+	if (Math.abs(distancia) >= 6) return -5;
 };
 
 const getPontuacaoFinal = (pontuacaoDetalhada) => {
@@ -52,28 +44,19 @@ const getClassificacaoData = (filteredKeys, pontuacaoFinal) => {
 		classificacaoData[i]["pontuacao"] = pontuacaoFinal[i];
 		classificacaoData[i]["key"] = filteredKeys[i];
 	}
-	classificacaoData.sort(function (a, b) {
-		// mutates classificacaoData
-		return b.pontuacao - a.pontuacao;
-	});
-
-	classificacaoData = addPosicaoApostador(classificacaoData);
-	return classificacaoData;
+	classificacaoData.sort((a, b) => b.pontuacao - a.pontuacao);
+	return addPosicaoApostador(classificacaoData);
 };
 
 const addPosicaoApostador = (classificacaoData) => {
-	let classificacaoDataClone = JSON.parse(JSON.stringify(classificacaoData));
-	classificacaoDataClone[0].posicao = 1;
-	for (let i = 1; i < classificacaoDataClone.length; i++) {
-		if (
-			classificacaoDataClone[i].pontuacao ===
-			classificacaoDataClone[i - 1].pontuacao
-		)
-			classificacaoDataClone[i].posicao =
-				classificacaoDataClone[i - 1].posicao;
-		else classificacaoDataClone[i].posicao = i + 1;
+	let clone = JSON.parse(JSON.stringify(classificacaoData));
+	clone[0].posicao = 1;
+	for (let i = 1; i < clone.length; i++) {
+		if (clone[i].pontuacao === clone[i - 1].pontuacao)
+			clone[i].posicao = clone[i - 1].posicao;
+		else clone[i].posicao = i + 1;
 	}
-	return classificacaoDataClone;
+	return clone;
 };
 
 const getClassificacaoColumns = () => {
