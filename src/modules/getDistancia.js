@@ -50,17 +50,15 @@ const getDistanciaColumns = (keys) => {
 		title: k,
 		key: k,
 		dataIndex: k,
-		render(text, record) {
-			return {
-				props: {
-					style: {
-						background:
-							k !== "Atual" ? colours[Math.abs(text)] : "white",
-					},
+		render: (text, record) => ({
+			props: {
+				style: {
+					background:
+						k !== "Atual" ? colours[Math.abs(text)] : "white",
 				},
-				children: <div>{text}</div>,
-			};
-		},
+			},
+			children: <div>{text}</div>,
+		}),
 		align: "center",
 	}));
 
