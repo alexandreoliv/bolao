@@ -1,7 +1,7 @@
 export const getApostas = (serie, tabela) => {
 	let apostas = getFile(serie);
 	const apostasColumns = getColumns(apostas);
-	const keys = apostasColumns.map((c) => c.title);
+	const keys = getKeys(apostasColumns);
 	const apostasData = getData(apostas, apostasColumns, keys, tabela);
 	return { apostasColumns, apostasData, keys };
 };
@@ -26,12 +26,22 @@ const getColumns = (apostas) => {
 	}));
 };
 
+const getKeys = (apostasColumns) => {
+	return (
+		apostasColumns
+			// .filter((k) => k.title !== "Equipe" && k.title !== "Atual")
+			.map((c) => c.title)
+	);
+};
+
 const getData = (apostas, apostasColumns, keys, tabela) => {
 	const equipesArray = apostas
 		.filter((a) => a.nome === "Equipe")
 		.map((a) => a.aposta)[0];
 
-	const palpites = apostas.map((a) => a.aposta);
+	const palpites = apostas
+		// .filter((a) => a.nome !== "Equipe" && a.nome !== "Atual")
+		.map((a) => a.aposta);
 
 	const obj = keys.reduce((accumulator, value) => {
 		return { ...accumulator, [value]: "" };
@@ -46,6 +56,12 @@ const getData = (apostas, apostasColumns, keys, tabela) => {
 			apostasData[j]["Atual"] = tabela[j]["posicao"];
 		}
 	}
+
+	// Sorts the teams according to their standings
+	apostasData.sort((a, b) => {
+		// mutates apostasData
+		return a.Atual < b.Atual ? -1 : 1;
+	});
 
 	return apostasData;
 };

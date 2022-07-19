@@ -1,49 +1,22 @@
-export const getClassificacao = (serie, keys, apostasData, tabela) => {
-	// for (let i = 0; i < apostasData.length; i++) {
-	// 	// mutates apostasData
-	// 	apostasData[i]["Atual"] = tabela[i]["posicao"];
-	// }
+export const getClassificacao = (keys, apostasData) => {
+	const pontuacaoDetalhada = getPontuacaoDetalhada(keys, apostasData);
+	console.log("pontuacaoDetalhada", pontuacaoDetalhada);
 
-	const calculaPontuacao = (d) => {
-		if (d === 0) return 5;
-		if (Math.abs(d) === 1) return 3;
-		if (Math.abs(d) === 2) return 1;
-		if (Math.abs(d) === 3) return 0;
-		if (Math.abs(d) === 4) return -1;
-		if (Math.abs(d) === 5) return -3;
-		if (Math.abs(d) >= 6) return -5;
-	};
-
-	const geraArray = (k) => {
-		return apostasData.map((e) => {
-			return calculaPontuacao(e[k] - e["Atual"]);
-		});
-	};
-
-	const pontuacaoDetalhadaArray = keys
-		.filter((k) => k !== "Equipe" && k !== "Atual")
-		.map((k) => {
-			return geraArray(k);
-		});
-
-	apostasData.sort((a, b) => {
-		// mutates apostasData
-		return a.Atual < b.Atual ? -1 : 1;
-	});
-
-	const pontuacaoArray = pontuacaoDetalhadaArray.map((p) => {
+	const pontuacaoFinal = pontuacaoDetalhada.map((p) => {
 		return p.reduce((prev, cur) => prev + cur, 0);
 	});
 
-	const keys2 = keys.filter((k) => k !== "Equipe" && k !== "Atual");
+	const filteredKeys = keys.filter((k) => k !== "Equipe" && k !== "Atual");
 
 	const classificacaoData = [];
-	for (let i = 0; i < keys2.length; i++) {
+	console.log("pontuacaoArray", pontuacaoFinal);
+	for (let i = 0; i < filteredKeys.length; i++) {
 		classificacaoData[i] = {};
-		classificacaoData[i]["nome"] = keys2[i];
-		classificacaoData[i]["pontuacao"] = pontuacaoArray[i];
-		classificacaoData[i]["key"] = keys2[i];
+		classificacaoData[i]["nome"] = filteredKeys[i];
+		classificacaoData[i]["pontuacao"] = pontuacaoFinal[i];
+		classificacaoData[i]["key"] = filteredKeys[i];
 	}
+	console.log("classificacaoData", classificacaoData);
 
 	classificacaoData.sort(function (a, b) {
 		// mutates classificacaoData
@@ -89,4 +62,28 @@ export const getClassificacao = (serie, keys, apostasData, tabela) => {
 		classificacaoColumns,
 		classificacaoData,
 	};
+};
+
+const calculaPontuacao = (d) => {
+	if (d === 0) return 5;
+	if (Math.abs(d) === 1) return 3;
+	if (Math.abs(d) === 2) return 1;
+	if (Math.abs(d) === 3) return 0;
+	if (Math.abs(d) === 4) return -1;
+	if (Math.abs(d) === 5) return -3;
+	if (Math.abs(d) >= 6) return -5;
+};
+
+const geraArray = (k, apostasData) => {
+	return apostasData.map((e) => {
+		return calculaPontuacao(e[k] - e["Atual"]);
+	});
+};
+
+const getPontuacaoDetalhada = (keys, apostasData) => {
+	return keys
+		.filter((k) => k !== "Equipe" && k !== "Atual")
+		.map((k) => {
+			return geraArray(k, apostasData);
+		});
 };

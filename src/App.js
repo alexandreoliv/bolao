@@ -58,11 +58,11 @@ export default class App extends Component {
 		const apostasDataB = resp["apostasData"];
 		const keysB = resp["keys"];
 
-		resp = await getClassificacao("A", keysA, apostasDataA, tabelaA);
+		resp = await getClassificacao(keysA, apostasDataA);
 		const classificacaoColumnsA = resp["classificacaoColumns"];
 		const classificacaoDataA = resp["classificacaoData"];
 
-		resp = await getClassificacao("B", keysB, apostasDataB, tabelaB);
+		resp = await getClassificacao(keysB, apostasDataB);
 		const classificacaoColumnsB = resp["classificacaoColumns"];
 		const classificacaoDataB = resp["classificacaoData"];
 
