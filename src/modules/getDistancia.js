@@ -1,4 +1,28 @@
 export const getDistancia = (keys, apostasData) => {
+	const distanciaData = getDistanciaData(apostasData, keys);
+	const distanciaColumns = getDistanciaColumns(keys);
+
+	return {
+		distanciaColumns,
+		distanciaData,
+	};
+};
+
+const getDistanciaData = (apostasData, keys) => {
+	const distanciaData = [];
+	for (let i = 0; i < apostasData.length; i++) {
+		distanciaData[i] = JSON.parse(JSON.stringify(apostasData[i]));
+		for (let j = 2; j < keys.length; j++) {
+			// ignoring "Equipe" and "Atual"
+			distanciaData[i][keys[j]] =
+				apostasData[i][keys[j]] - apostasData[i].Atual;
+		}
+	}
+	distanciaData.sort((a, b) => a.Atual - b.Atual);
+	return distanciaData;
+};
+
+const getDistanciaColumns = (keys) => {
 	const colours = [
 		"#5cbd8c",
 		"#76c79f",
@@ -22,21 +46,6 @@ export const getDistancia = (keys, apostasData) => {
 		"#e68181",
 	];
 
-	const distanciaData = [];
-	for (let i = 0; i < apostasData.length; i++) {
-		distanciaData[i] = JSON.parse(JSON.stringify(apostasData[i]));
-		for (let j = 2; j < keys.length; j++) {
-			// ignoring "Equipe" and "Atual"
-			distanciaData[i][keys[j]] =
-				apostasData[i][keys[j]] - apostasData[i].Atual;
-		}
-	}
-
-	distanciaData.sort(function (a, b) {
-		// mutates distanciaData
-		return a.Atual - b.Atual;
-	});
-
 	const distanciaColumns = keys.map((k) => ({
 		title: k,
 		key: k,
@@ -55,8 +64,5 @@ export const getDistancia = (keys, apostasData) => {
 		align: "center",
 	}));
 
-	return {
-		distanciaColumns,
-		distanciaData,
-	};
+	return distanciaColumns;
 };
