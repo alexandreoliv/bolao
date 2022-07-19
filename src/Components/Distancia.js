@@ -8,6 +8,9 @@ const Distancia = (props) => {
 		distanciaColumnsB,
 		distanciaDataB,
 	} = props;
+
+	if (!props.distanciaColumnsA) return null; // no props yet
+
 	return (
 		<div>
 			<h2

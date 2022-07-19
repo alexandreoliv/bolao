@@ -8,6 +8,9 @@ const Classificacao = (props) => {
 		classificacaoColumnsB,
 		classificacaoDataB,
 	} = props;
+
+	if (!props.classificacaoColumnsA) return null; // no props yet
+
 	return (
 		<div>
 			<h2
