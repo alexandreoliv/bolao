@@ -1,14 +1,24 @@
-const puppeteer = require("puppeteer");
+const scrapeB = async () => {
+	const browser = await launchBrowser();
+	const page = await openPage(browser);
+	const tabela = await scrapeTabela(page);
+	exportTabelaAsJSON(tabela);
+	await browser.close();
+};
 
-(async () => {
-	const browser = await puppeteer.launch({
+const launchBrowser = () => {
+	const puppeteer = require("puppeteer");
+	const browser = puppeteer.launch({
 		defaultViewport: {
 			width: 1920,
 			height: 1080,
 		},
 		headless: true,
 	});
+	return browser;
+};
 
+const openPage = async (browser) => {
 	const page = await browser.newPage();
 	await page.goto(
 		"https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2022_-_S%C3%A9rie_B#Classifica%C3%A7%C3%A3o",
@@ -16,10 +26,13 @@ const puppeteer = require("puppeteer");
 			waitUntil: "networkidle2",
 		}
 	);
+	return page;
+};
 
-	let times = [];
+const scrapeTabela = async (page) => {
+	let tabela = [];
 	for (let pos = 2; pos <= 21; pos++) {
-		times.push({
+		tabela.push({
 			time: {
 				nome_popular: await page.$eval(
 					`.wikitable:nth-child(22) tr:nth-child(${pos})> td:nth-child(2) > a:nth-child(2)`,
@@ -32,15 +45,19 @@ const puppeteer = require("puppeteer");
 			),
 		});
 	}
+	return tabela;
+};
 
+const exportTabelaAsJSON = (tabela) => {
 	const fs = require("fs");
 	fs.writeFile(
-		"./src/data/tabelaB.json",
-		JSON.stringify(times),
+		"../data/tabelaB.json",
+		JSON.stringify(tabela),
 		function (err) {
 			if (err) throw err;
 			console.log("tabelaB.json complete");
 		}
 	);
-	await browser.close();
-})();
+};
+
+scrapeB();
