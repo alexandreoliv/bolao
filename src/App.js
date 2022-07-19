@@ -6,7 +6,7 @@ import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
 import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
-import { getSortedTabela } from "./modules/getTabela";
+import { getSortedTabela } from "./modules/getSortedTabela";
 import { getApostas } from "./modules/getApostas";
 import { getClassificacao } from "./modules/getClassificacao";
 import { getDistancia } from "./modules/getDistancia";

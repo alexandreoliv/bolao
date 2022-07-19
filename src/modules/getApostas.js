@@ -1,24 +1,37 @@
-import apostasA from "../data/apostasA.json";
-import apostasB from "../data/apostasB.json";
-
 export const getApostas = (serie) => {
-	if (serie === "A") serie = apostasA;
-	else if (serie === "B") serie = apostasB;
+	const apostas = getFile(serie);
+	const apostasColumns = getColumns(apostas);
+	const keys = apostasColumns.map((c) => c.title);
+	const apostasData = getData(apostas, apostasColumns, keys);
+	return { apostasColumns, apostasData, keys };
+};
 
-	const apostasColumns = serie.apostas.map((a) => ({
+const getFile = (serie) => {
+	if (serie === "A") {
+		const aposta = require("../data/apostasA.json");
+		return aposta.apostas;
+	}
+	if (serie === "B") {
+		const aposta = require("../data/apostasA.json");
+		return aposta.apostas;
+	}
+};
+
+const getColumns = (apostas) => {
+	return apostas.map((a) => ({
 		title: a.nome,
 		key: a.nome,
 		dataIndex: a.nome,
 		align: "center",
 	}));
+};
 
-	const equipesArray = serie.apostas
+const getData = (apostas, apostasColumns, keys) => {
+	const equipesArray = apostas
 		.filter((a) => a.nome === "Equipe")
 		.map((a) => a.aposta)[0];
 
-	const palpites = serie.apostas.map((a) => a.aposta);
-
-	const keys = apostasColumns.map((c) => c.title);
+	const palpites = apostas.map((a) => a.aposta);
 
 	const obj = keys.reduce((accumulator, value) => {
 		return { ...accumulator, [value]: "" };
@@ -32,5 +45,5 @@ export const getApostas = (serie) => {
 			apostasData[j].key = j;
 		}
 	}
-	return { apostasColumns, apostasData, keys };
+	return apostasData;
 };
