@@ -8,34 +8,34 @@ export const getSortedTabela = (serie) => {
 
 const getTabela = (serie) => {
 	// API method:
-	// if (serie === "A") {
-	// 	return axios
-	// 		.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
-	// 			headers: {
-	// 				Authorization: `Bearer ${API_KEY}`,
-	// 			},
-	// 		})
-	// 		.then(function (response) {
-	// 			return response.data;
-	// 		})
-	// 		.catch(function (error) {
-	// 			console.log(error);
-	// 		})
-	// 		.then(function (tabela) {
-	// 			return tabela;
-	// 		});
-	// }
-	// if (serie === "B") {
-	// 	return require("../data/tabelaB.json");
-	// }
-
-	// Local method:
 	if (serie === "A") {
-		return require("../data/tabelaA.json");
+		return axios
+			.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
+				headers: {
+					Authorization: `Bearer ${API_KEY}`,
+				},
+			})
+			.then(function (response) {
+				return response.data;
+			})
+			.catch(function (error) {
+				console.log(error);
+			})
+			.then(function (tabela) {
+				return tabela;
+			});
 	}
 	if (serie === "B") {
 		return require("../data/tabelaB.json");
 	}
+
+	// Local method:
+	// if (serie === "A") {
+	// 	return require("../data/tabelaA.json");
+	// }
+	// if (serie === "B") {
+	// 	return require("../data/tabelaB.json");
+	// }
 };
 
 const sortTabela = (tabela) => {
