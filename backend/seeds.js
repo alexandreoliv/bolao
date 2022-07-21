@@ -13,14 +13,23 @@ const seed = async () => {
 	const Tabela = require("./models/Tabela.model");
 	const tabelas = require("../src/data/tabelas.json");
 
-	await Aposta.insertMany(apostas)
-		.then((a) => {
-			console.log(
-				`Successfully added ${a.length} apostas into the database`
-			);
-			// mongoose.connection.close();
-		})
-		.catch((err) => console.log(err));
+	// await Aposta.insertMany(apostas)
+	// 	.then((a) => {
+	// 		console.log(
+	// 			`Successfully added ${a.length} apostas into the database`
+	// 		);
+	// 		// mongoose.connection.close();
+	// 	})
+	// 	.catch((err) => console.log(err));
+
+	// await Tabela.insertMany(tabelas)
+	// 	.then((t) => {
+	// 		console.log(
+	// 			`Successfully added ${t.length} tabelas into the database`
+	// 		);
+	// 		// mongoose.connection.close();
+	// 	})
+	// 	.catch((err) => console.log(err));
 
 	await Tabela.insertMany(tabelas)
 		.then((t) => {

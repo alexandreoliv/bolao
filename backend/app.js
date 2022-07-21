@@ -1,6 +1,7 @@
 require("dotenv/config");
 require("./db");
 const Aposta = require("./models/Aposta.model");
+const Tabela = require("./models/Tabela.model");
 
 const express = require("express");
 const app = express();
@@ -30,7 +31,14 @@ app.get("/getApostas", (req, res) => {
 	console.log("----->>> GET /getApostas called: ");
 	Aposta.find()
 		.then((apostas) => res.json({ apostas }))
-		.catch((err) => next(err));
+		.catch((err) => console.log(err));
+});
+
+app.get("/getTabelas", (req, res) => {
+	console.log("----->>> GET /getTabelas called: ");
+	Tabela.find()
+		.then((tabelas) => res.json({ tabelas }))
+		.catch((err) => console.log(err));
 });
 
 module.exports = app;

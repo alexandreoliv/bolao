@@ -1,15 +1,15 @@
 const exportApostasAndEquipes = () => {
-	const apostasA = fetchAndFilterAposta("apostasA");
-	const apostasB = fetchAndFilterAposta("apostasB");
-	const equipesA = createEquipes("apostasA", "A");
-	const equipesB = createEquipes("apostasB", "B");
+	const apostasA = getApostas("apostasA");
+	const apostasB = getApostas("apostasB");
+	const tabelaA = getTabela("apostasA", "tabelaA", "A");
+	const tabelaB = getTabela("apostasB", "tabelaB", "B");
 	const apostas = concatenateArrays(apostasA, apostasB);
-	const equipes = concatenateArrays(equipesA, equipesB);
+	const tabelas = concatenateArrays(tabelaA, tabelaB);
 	exportAsJSON(apostas, "apostas");
-	exportAsJSON(equipes, "tabelas");
+	exportAsJSON(tabelas, "tabelas");
 };
 
-const fetchAndFilterAposta = (name) => {
+const getApostas = (name) => {
 	const apostas = require(`../data/${name}.json`);
 	return apostas.apostas
 		.filter((a) => a.nome !== "Equipe" && a.nome !== "Atual")
@@ -21,15 +21,38 @@ const fetchAndFilterAposta = (name) => {
 		}));
 };
 
-const createEquipes = (name, serie) => {
+const getTabela = (nameApostas, nameTabela, serie) => {
+	const posicoes = getPosicoes(nameTabela);
+	const equipes = getEquipes(nameApostas, serie);
+	const tabela = equipes.map((e) => ({
+		ano: 2022,
+		serie,
+		equipes: e.equipes,
+		posicoes: posicoes,
+	}));
+	return tabela;
+};
+
+const getPosicoes = (nameTabela) => {
+	let tabela = require(`../data/${nameTabela}.json`);
+
+	// sorts the teams alphabetically
+	tabela.sort((a, b) =>
+		a.time.nome_popular.localeCompare(b.time.nome_popular)
+	);
+
+	const posicoes = tabela.map((t) => t.posicao);
+	return posicoes;
+};
+
+const getEquipes = (name) => {
 	const apostas = require(`../data/${name}.json`);
-	return apostas.apostas
+	let equipes = apostas.apostas
 		.filter((a) => a.nome === "Equipe")
 		.map((e) => ({
-			ano: 2022,
-			serie,
 			equipes: e.aposta,
 		}));
+	return equipes;
 };
 
 const concatenateArrays = (array1, array2) => {
