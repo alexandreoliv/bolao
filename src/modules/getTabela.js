@@ -6,6 +6,8 @@ export const getTabela = async (serie) => {
 	if (serie === "A") {
 		// offline way:
 		let tabela = require("../data/tabelaA.json");
+
+		// online way:
 		// let tabela = await axios
 		// 	.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
 		// 		headers: {

@@ -6,6 +6,7 @@ import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
 import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
+import AddAposta from "./Components/AddAposta";
 import { getTabela } from "./modules/getTabela";
 import { getApostas } from "./modules/getApostas";
 import { getClassificacao } from "./modules/getClassificacao";
@@ -206,6 +207,17 @@ export const App = () => {
 								}
 							/>
 							<Route exact path="/regras" element={<Regras />} />
+							<Route
+								exact
+								path="/addAposta"
+								element={
+									<AddAposta
+										ano={2022}
+										equipesA={serieA.tabela.equipes}
+										equipesB={serieB.tabela.equipes}
+									/>
+								}
+							/>
 						</Routes>
 					</div>
 				</Content>
