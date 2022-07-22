@@ -6,7 +6,7 @@ import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
 import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
-import { getSortedTabela } from "./modules/getSortedTabela";
+import { getTabela } from "./modules/getTabela";
 import { getApostas } from "./modules/getApostas";
 import { getClassificacao } from "./modules/getClassificacao";
 import { getDistancia } from "./modules/getDistancia";
@@ -42,8 +42,8 @@ export const App = () => {
 	});
 
 	const getData = async () => {
-		const tabelaA = await getSortedTabela("A");
-		const tabelaB = await getSortedTabela("B");
+		const tabelaA = await getTabela("A");
+		const tabelaB = await getTabela("B");
 
 		const {
 			apostasColumns: apostasColumnsA,
