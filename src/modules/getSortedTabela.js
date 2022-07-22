@@ -3,10 +3,12 @@ const API_KEY = process.env.REACT_APP_SECRET_KEY;
 
 export const getSortedTabela = async (serie) => {
 	const tabela = await getTabela(serie);
-	return sortTabela(tabela);
+	console.log("tabela", tabela);
+	// return sortTabela(tabela);
+	return tabela;
 };
 
-const getTabela = (serie) => {
+const getTabela = async (serie) => {
 	// API method:
 	// if (serie === "A") {
 	// 	return axios
@@ -25,17 +27,13 @@ const getTabela = (serie) => {
 	// 			return tabela;
 	// 		});
 	// }
-	// if (serie === "B") {
-	// 	return require("../data/tabelaB.json");
-	// }
 
-	// Local method:
-	if (serie === "A") {
-		return require("../data/tabelaA.json");
-	}
-	if (serie === "B") {
-		return require("../data/tabelaB.json");
-	}
+	return await axios
+		.get("http://localhost:5005/getTabelas")
+		.then((response) =>
+			response.data.tabelas.filter((t) => t.serie === serie)
+		)
+		.catch((error) => console.log(error));
 };
 
 const sortTabela = (tabela) => {
