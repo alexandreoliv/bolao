@@ -21,10 +21,22 @@ export const getTabela = async (serie) => {
 	// 		});
 	// }
 
+	if (serie === "A") {
+		let tabela = require("../data/tabelaA.json");
+		tabela.sort((a, b) =>
+			a.time.nome_popular.localeCompare(b.time.nome_popular)
+		);
+		const equipes = tabela.map((t) => t.time.nome_popular);
+		const posicoes = tabela.map((t) => t.posicao);
+		tabela = { ano: 2022, serie, equipes, posicoes };
+		return tabela;
+	}
+
 	return await axios
 		.get("http://localhost:5005/getTabelas")
-		.then((response) =>
-			response.data.tabelas.filter((t) => t.serie === serie)
+		.then(
+			(response) =>
+				response.data.tabelas.filter((t) => t.serie === serie)[0]
 		)
 		.catch((error) => console.log(error));
 };

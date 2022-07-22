@@ -49,13 +49,13 @@ export const App = () => {
 			apostasColumns: apostasColumnsA,
 			apostasData: apostasDataA,
 			keys: keysA,
-		} = await getApostas("A");
+		} = await getApostas("A", tabelaA);
 
 		const {
 			apostasColumns: apostasColumnsB,
 			apostasData: apostasDataB,
 			keys: keysB,
-		} = await getApostas("B");
+		} = await getApostas("B", tabelaB);
 
 		const {
 			classificacaoColumns: classificacaoColumnsA,

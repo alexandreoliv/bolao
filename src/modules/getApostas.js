@@ -1,24 +1,20 @@
-export const getApostas = async (serie) => {
-	let apostas = await getFile(serie);
+const axios = require("axios");
+
+export const getApostas = async (serie, tabela) => {
+	const apostas = await getFile(serie);
 	const apostasColumns = getColumns(apostas);
-	console.log("apostasColumns", apostasColumns);
 	const keys = getKeys(apostasColumns);
-	console.log("keys", keys);
-	const apostasData = await getData(apostas, apostasColumns, keys, serie);
-	console.log("apostasData", apostasData);
+	const apostasData = getData(apostas, apostasColumns, keys, tabela);
 	return { apostasColumns, apostasData, keys };
 };
 
 const getFile = (serie) => {
-	const axios = require("axios");
 	return axios
 		.get("http://localhost:5005/getApostas")
-		.then(function (response) {
-			return response.data.apostas.filter((r) => r.serie === serie);
-		})
-		.catch(function (error) {
-			console.log(error);
-		});
+		.then((response) =>
+			response.data.apostas.filter((r) => r.serie === serie)
+		)
+		.catch((error) => console.log(error));
 };
 
 const getColumns = (apostas) => {
@@ -47,29 +43,16 @@ const getKeys = (apostasColumns) => {
 	return apostasColumns.map((c) => c.title);
 };
 
-const getData = async (apostas, apostasColumns, keys, serie) => {
-	const axios = require("axios");
-	const tabela = await axios
-		.get("http://localhost:5005/getTabelas")
-		.then((response) =>
-			response.data.tabelas
-				.filter((t) => t.serie === serie)
-				.map((t) => ({ equipes: t.equipes, posicoes: t.posicoes }))
-		)
-		.catch((error) => console.log(error));
-	const { equipes, posicoes } = tabela[0];
-
-	console.log("equipes", equipes);
-	console.log("posicoes", posicoes);
+const getData = (apostas, apostasColumns, keys, tabela) => {
+	const { equipes, posicoes } = tabela;
 
 	const palpites = apostas.map((a) => a.aposta);
 	palpites.unshift(posicoes);
 	palpites.unshift(equipes);
-	console.log("palpites", palpites);
+
 	const obj = keys.reduce((accumulator, value) => {
 		return { ...accumulator, [value]: "" };
 	}, {});
-	console.log("obj", obj);
 
 	const apostasData = [];
 	for (let j = 0; j < equipes.length; j++) {

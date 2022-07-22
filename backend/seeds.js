@@ -9,23 +9,25 @@ const seed = async () => {
 	});
 
 	const Aposta = require("./models/Aposta.model");
-	const apostas = require("../src/data/apostas.json");
+	const apostasA = require("../src/data/apostasA.json");
+	const apostasB = require("../src/data/apostasB.json");
+	const apostas = apostasA.concat(apostasB);
 	const Tabela = require("./models/Tabela.model");
-	const tabelas = require("../src/data/tabelas.json");
+	const tabelaB = require("../src/data/tabelaB.json");
 
 	await Aposta.insertMany(apostas)
 		.then((a) => {
 			console.log(
-				`Successfully added ${a.length} apostas into the database`
+				`Successfully added ${a.length} aposta(s) into the database`
 			);
 			// mongoose.connection.close();
 		})
 		.catch((err) => console.log(err));
 
-	await Tabela.insertMany(tabelas)
+	await Tabela.insertMany(tabelaB)
 		.then((t) => {
 			console.log(
-				`Successfully added ${t.length} tabelas into the database`
+				`Successfully added ${t.length} tabela(s) into the database`
 			);
 			// mongoose.connection.close();
 		})

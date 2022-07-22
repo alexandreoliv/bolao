@@ -2,7 +2,8 @@ const scrapeB = async () => {
 	const browser = await launchBrowser();
 	const page = await openPage(browser);
 	const tabela = await scrapeTabela(page);
-	exportTabelaAsJSON(tabela);
+	const formattedTabela = formatTabela(tabela);
+	exportTabelaAsJSON(formattedTabela);
 	await browser.close();
 };
 
@@ -46,6 +47,17 @@ const scrapeTabela = async (page) => {
 		});
 	}
 	return tabela;
+};
+
+const formatTabela = (tabela) => {
+	let newTabela = JSON.parse(JSON.stringify(tabela));
+	newTabela.sort((a, b) =>
+		a.time.nome_popular.localeCompare(b.time.nome_popular)
+	);
+	const equipes = newTabela.map((t) => t.time.nome_popular);
+	const posicoes = newTabela.map((t) => t.posicao);
+	newTabela = { ano: 2022, serie: "B", equipes, posicoes };
+	return newTabela;
 };
 
 const exportTabelaAsJSON = (tabela) => {
