@@ -10,17 +10,12 @@ export const getTabela = async (serie) => {
 	// 				Authorization: `Bearer ${API_KEY}`,
 	// 			},
 	// 		})
-	// 		.then(function (response) {
-	// 			return response.data;
-	// 		})
-	// 		.catch(function (error) {
-	// 			console.log(error);
-	// 		})
-	// 		.then(function (tabela) {
-	// 			return tabela;
-	// 		});
+	// 		.then((response) => response.data)
+	// 		.catch((error) => console.log(error))
+	// 		.then((tabela) => tabela);
 	// }
 
+	// TODO I need to insert the logic below inside the .then above
 	if (serie === "A") {
 		let tabela = require("../data/tabelaA.json");
 		tabela.sort((a, b) =>
