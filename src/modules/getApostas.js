@@ -1,22 +1,13 @@
-export const getApostas = async (serie, tabela) => {
+export const getApostas = async (serie) => {
 	let apostas = await getFile(serie);
-	console.log("apostas", apostas);
 	const apostasColumns = getColumns(apostas);
+	console.log("apostasColumns", apostasColumns);
 	const keys = getKeys(apostasColumns);
-	const apostasData = getData(apostas, apostasColumns, keys, serie);
+	console.log("keys", keys);
+	const apostasData = await getData(apostas, apostasColumns, keys, serie);
+	console.log("apostasData", apostasData);
 	return { apostasColumns, apostasData, keys };
 };
-
-// const getFile = (serie) => {
-// 	if (serie === "A") {
-// 		const aposta = require("../data/apostasA.json");
-// 		return aposta.apostas;
-// 	}
-// 	if (serie === "B") {
-// 		const aposta = require("../data/apostasB.json");
-// 		return aposta.apostas;
-// 	}
-// };
 
 const getFile = (serie) => {
 	const axios = require("axios");
@@ -31,20 +22,29 @@ const getFile = (serie) => {
 };
 
 const getColumns = (apostas) => {
-	return apostas.map((a) => ({
+	let columns = apostas.map((a) => ({
 		title: a.nome,
 		key: a.nome,
 		dataIndex: a.nome,
 		align: "center",
 	}));
+	columns.unshift({
+		title: "Atual",
+		key: "Atual",
+		dataIndex: "Atual",
+		align: "center",
+	});
+	columns.unshift({
+		title: "Equipe",
+		key: "Equipe",
+		dataIndex: "Equipe",
+		align: "center",
+	});
+	return columns;
 };
 
 const getKeys = (apostasColumns) => {
-	return (
-		apostasColumns
-			// .filter((k) => k.title !== "Equipe" && k.title !== "Atual")
-			.map((c) => c.title)
-	);
+	return apostasColumns.map((c) => c.title);
 };
 
 const getData = async (apostas, apostasColumns, keys, serie) => {
@@ -63,10 +63,13 @@ const getData = async (apostas, apostasColumns, keys, serie) => {
 	console.log("posicoes", posicoes);
 
 	const palpites = apostas.map((a) => a.aposta);
-
+	palpites.unshift(posicoes);
+	palpites.unshift(equipes);
+	console.log("palpites", palpites);
 	const obj = keys.reduce((accumulator, value) => {
 		return { ...accumulator, [value]: "" };
 	}, {});
+	console.log("obj", obj);
 
 	const apostasData = [];
 	for (let j = 0; j < equipes.length; j++) {
@@ -74,7 +77,6 @@ const getData = async (apostas, apostasColumns, keys, serie) => {
 		for (let i = 0; i < apostasColumns.length; i++) {
 			apostasData[j][keys[i]] = palpites[i][j];
 			apostasData[j].key = j;
-			apostasData[j]["Atual"] = posicoes[j];
 		}
 	}
 

@@ -1,4 +1,6 @@
 export const getClassificacao = (keys, apostasData) => {
+	console.log("inside getClassificacao");
+	console.log("apostasData", apostasData);
 	const filteredKeys = keys.filter((k) => k !== "Equipe" && k !== "Atual");
 	const pontuacaoDetalhada = getPontuacaoDetalhada(filteredKeys, apostasData);
 	const pontuacaoFinal = getPontuacaoFinal(pontuacaoDetalhada);
