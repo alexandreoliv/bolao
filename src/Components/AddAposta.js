@@ -13,19 +13,20 @@ const AddAposta = (props) => {
 	useEffect(() => {
 		console.log("inside useEffect");
 		if (equipesA) {
-			console.log("inside if (equipesA)");
-			console.log("equipesA", equipesA);
-			console.log("posicoesA", posicoesA);
 			if (posicoesA.length === 0) {
-				console.log("inside if (posicoesA.length === 0)");
+				console.log(
+					"useEffet is finally doing some stuff - setting posicoesA"
+				);
 				const state = equipesA.map((e) => ({
 					equipe: e,
 					posicao: 0,
 				}));
-				console.log("state", state);
 				setPosicoesA(state);
-			}
-		}
+			} else
+				console.log(
+					"posicoesA already has the positions, nothing to do in the useEffect"
+				);
+		} else console.log("no equipesA yet, nothing to do in the useEffect");
 	});
 
 	const onPosicaoChange = (equipe, posicao) => {
@@ -46,18 +47,17 @@ const AddAposta = (props) => {
 		setNumerosA(numerosAnew);
 
 		// now updates PosicoesA
-		let posicoesAnew = [...posicoesA];
-		posicoesAnew = posicoesAnew.map((p) =>
+		const posicoesAnew = posicoesA.map((p) =>
 			p.equipe === equipe ? { equipe, posicao } : p
 		);
 		setPosicoesA(posicoesAnew);
 	};
 
-	const onFinish = (values: any) => {
+	const onFinish = (values) => {
 		console.log("Success:", values);
 	};
 
-	const onFinishFailed = (errorInfo: any) => {
+	const onFinishFailed = (errorInfo) => {
 		console.log("Failed:", errorInfo);
 	};
 
