@@ -3,21 +3,17 @@ const API_KEY = process.env.REACT_APP_SECRET_KEY;
 
 export const getTabela = async (serie) => {
 	// API method:
-	// if (serie === "A") {
-	// 	return axios
-	// 		.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
-	// 			headers: {
-	// 				Authorization: `Bearer ${API_KEY}`,
-	// 			},
-	// 		})
-	// 		.then((response) => response.data)
-	// 		.catch((error) => console.log(error))
-	// 		.then((tabela) => tabela);
-	// }
-
-	// TODO I need to insert the logic below inside the .then above
 	if (serie === "A") {
+		// offline way:
 		let tabela = require("../data/tabelaA.json");
+		// let tabela = await axios
+		// 	.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
+		// 		headers: {
+		// 			Authorization: `Bearer ${API_KEY}`,
+		// 		},
+		// 	})
+		// 	.then((response) => response.data)
+		// 	.catch((error) => console.log(error))
 		tabela.sort((a, b) =>
 			a.time.nome_popular.localeCompare(b.time.nome_popular)
 		);
