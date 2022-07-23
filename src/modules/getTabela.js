@@ -16,6 +16,8 @@ export const getTabela = async (serie) => {
 		// 	})
 		// 	.then((response) => response.data)
 		// 	.catch((error) => console.log(error))
+
+		// for both ways:
 		tabela.sort((a, b) =>
 			a.time.nome_popular.localeCompare(b.time.nome_popular)
 		);
