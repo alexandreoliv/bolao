@@ -41,4 +41,11 @@ app.get("/getTabelas", (req, res) => {
 		.catch((err) => console.log(err));
 });
 
+app.post("/sendAposta", (req, res) => {
+	console.log("----->>> POST /sendAposta called: ");
+	Aposta.create(req.body)
+		.then((a) => console.log(`Successfully added aposta ${a}`))
+		.catch((err) => console.log(err));
+});
+
 module.exports = app;

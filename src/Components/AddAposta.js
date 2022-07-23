@@ -27,7 +27,7 @@ const AddAposta = (props) => {
 					"posicoesA already has the positions, nothing to do in the useEffect"
 				);
 		} else console.log("no equipesA yet, nothing to do in the useEffect");
-	});
+	}, [equipesA, posicoesA.length]);
 
 	const onPosicaoChange = (equipe, posicao) => {
 		console.log("inside onPosicaoChange");
@@ -54,7 +54,17 @@ const AddAposta = (props) => {
 	};
 
 	const onFinish = (values) => {
-		console.log("Success:", values);
+		// console.log("Success:", values);
+		const ano = 2022;
+		const serie = "A";
+		const nome = values["nome"];
+		const aposta = equipesA.map((e) => values[e]);
+		const obj = { ano, serie, nome, aposta };
+		const axios = require("axios");
+		return axios
+			.post("http://localhost:5005/sendAposta", obj)
+			.then((response) => console.log(response))
+			.catch((error) => console.log(error));
 	};
 
 	const onFinishFailed = (errorInfo) => {
@@ -77,55 +87,56 @@ const AddAposta = (props) => {
 			>
 				Adicionar Aposta
 			</h2>
-			<Form
-				name="basic"
-				labelCol={{ span: 2 }}
-				wrapperCol={{ span: 3 }}
-				initialValues={{ remember: true }}
-				onFinish={onFinish}
-				onFinishFailed={onFinishFailed}
-				autoComplete="off"
-			>
-				<Form.Item
-					label="Nome"
-					name="nome"
-					rules={[
-						{
-							required: true,
-							message: "Please input your username!",
-						},
-					]}
+
+				<Form
+					name="basic"
+					labelCol={{ span: 2 }}
+					wrapperCol={{ span: 3 }}
+					initialValues={{ remember: true }}
+					onFinish={onFinish}
+					onFinishFailed={onFinishFailed}
+					autoComplete="off"
 				>
-					<Input />
-				</Form.Item>
-
-				{equipesA.map((e) => (
 					<Form.Item
-						name={e}
-						label={e}
-						key={e}
-						rules={[{ required: true }]}
+						label="Nome"
+						name="nome"
+						rules={[
+							{
+								required: true,
+								message: "Please input your username!",
+							},
+						]}
 					>
-						<Select
-							placeholder="Posição"
-							onChange={(event) => onPosicaoChange(e, event)}
-							allowClear
-						>
-							{numerosA.map((p) => (
-								<Option value={p} key={p}>
-									{p}
-								</Option>
-							))}
-						</Select>
+						<Input />
 					</Form.Item>
-				))}
 
-				<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-					<Button type="primary" htmlType="submit">
-						Submit
-					</Button>
-				</Form.Item>
-			</Form>
+					{equipesA.map((e) => (
+						<Form.Item
+							name={e}
+							label={e}
+							key={e}
+							// rules={[{ required: true }]}
+						>
+							<Select
+								placeholder="Posição"
+								onChange={(event) => onPosicaoChange(e, event)}
+								allowClear
+							>
+								{numerosA.map((p) => (
+									<Option value={p} key={p}>
+										{p}
+									</Option>
+								))}
+							</Select>
+						</Form.Item>
+					))}
+
+					<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+						<Button type="primary" htmlType="submit">
+							Submit
+						</Button>
+					</Form.Item>
+				</Form>
 		</div>
 	);
 };
