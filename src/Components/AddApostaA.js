@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { Button, Form, Input, Select } from "antd";
 const { Option } = Select;
 
-const AddAposta = (props) => {
-	console.log("inside AddAposta");
+const AddApostaA = (props) => {
+	console.log("inside AddApostaA");
 	const { ano, equipesA, equipesB } = props;
 	const [posicoesA, setPosicoesA] = useState([]);
 	const [numerosA, setNumerosA] = useState([
@@ -88,57 +88,57 @@ const AddAposta = (props) => {
 				Adicionar Aposta
 			</h2>
 
-				<Form
-					name="basic"
-					labelCol={{ span: 2 }}
-					wrapperCol={{ span: 3 }}
-					initialValues={{ remember: true }}
-					onFinish={onFinish}
-					onFinishFailed={onFinishFailed}
-					autoComplete="off"
+			<Form
+				name="basic"
+				labelCol={{ span: 2 }}
+				wrapperCol={{ span: 3 }}
+				initialValues={{ remember: true }}
+				onFinish={onFinish}
+				onFinishFailed={onFinishFailed}
+				autoComplete="off"
+			>
+				<Form.Item
+					label="Nome"
+					name="nome"
+					rules={[
+						{
+							required: true,
+							message: "Please input your username!",
+						},
+					]}
 				>
+					<Input />
+				</Form.Item>
+
+				{equipesA.map((e) => (
 					<Form.Item
-						label="Nome"
-						name="nome"
-						rules={[
-							{
-								required: true,
-								message: "Please input your username!",
-							},
-						]}
+						name={e}
+						label={e}
+						key={e}
+						// rules={[{ required: true }]}
 					>
-						<Input />
-					</Form.Item>
-
-					{equipesA.map((e) => (
-						<Form.Item
-							name={e}
-							label={e}
-							key={e}
-							// rules={[{ required: true }]}
+						<Select
+							placeholder="Posição"
+							onChange={(event) => onPosicaoChange(e, event)}
+							allowClear
 						>
-							<Select
-								placeholder="Posição"
-								onChange={(event) => onPosicaoChange(e, event)}
-								allowClear
-							>
-								{numerosA.map((p) => (
-									<Option value={p} key={p}>
-										{p}
-									</Option>
-								))}
-							</Select>
-						</Form.Item>
-					))}
-
-					<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-						<Button type="primary" htmlType="submit">
-							Submit
-						</Button>
+							{numerosA.map((p) => (
+								<Option value={p} key={p}>
+									{p}
+								</Option>
+							))}
+						</Select>
 					</Form.Item>
-				</Form>
+				))}
+
+				<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+					<Button type="primary" htmlType="submit">
+						Submit
+					</Button>
+				</Form.Item>
+			</Form>
 		</div>
 	);
 };
 
-export default AddAposta;
+export default AddApostaA;

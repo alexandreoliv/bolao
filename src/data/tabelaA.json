@@ -1,58 +1,84 @@
 [
   {
     "posicao": 1,
-    "pontos": 34,
+    "pontos": 39,
     "time": {
       "time_id": 56,
       "nome_popular": "Palmeiras",
       "sigla": "PAL",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ccc90039.svg"
     },
-    "jogos": 18,
-    "vitorias": 9,
-    "empates": 7,
+    "jogos": 19,
+    "vitorias": 11,
+    "empates": 6,
     "derrotas": 2,
-    "gols_pro": 28,
-    "gols_contra": 12,
-    "saldo_gols": 16,
-    "aproveitamento": 63,
+    "gols_pro": 31,
+    "gols_contra": 13,
+    "saldo_gols": 18,
+    "aproveitamento": 68.4,
     "variacao_posicao": 0,
     "ultimos_jogos": [
-      "e",
       "d",
       "e",
       "v",
-      "e"
+      "v",
+      "v"
     ]
   },
   {
     "posicao": 2,
-    "pontos": 32,
+    "pontos": 35,
     "time": {
       "time_id": 65,
       "nome_popular": "Corinthians",
       "sigla": "COR",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d7ab48fa.svg"
     },
-    "jogos": 18,
-    "vitorias": 9,
+    "jogos": 19,
+    "vitorias": 10,
     "empates": 5,
     "derrotas": 4,
-    "gols_pro": 22,
-    "gols_contra": 18,
-    "saldo_gols": 4,
-    "aproveitamento": 59.3,
-    "variacao_posicao": 1,
+    "gols_pro": 24,
+    "gols_contra": 19,
+    "saldo_gols": 5,
+    "aproveitamento": 61.4,
+    "variacao_posicao": 0,
     "ultimos_jogos": [
-      "e",
       "d",
       "v",
       "d",
+      "v",
       "v"
     ]
   },
   {
     "posicao": 3,
+    "pontos": 34,
+    "time": {
+      "time_id": 26,
+      "nome_popular": "Fluminense",
+      "sigla": "FLU",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ca0e01e3.svg"
+    },
+    "jogos": 19,
+    "vitorias": 10,
+    "empates": 4,
+    "derrotas": 5,
+    "gols_pro": 29,
+    "gols_contra": 20,
+    "saldo_gols": 9,
+    "aproveitamento": 59.6,
+    "variacao_posicao": 1,
+    "ultimos_jogos": [
+      "v",
+      "v",
+      "e",
+      "v",
+      "v"
+    ]
+  },
+  {
+    "posicao": 4,
     "pontos": 32,
     "time": {
       "time_id": 30,
@@ -60,47 +86,21 @@
       "sigla": "CAM",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ca6bfd30.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 8,
     "empates": 8,
-    "derrotas": 2,
-    "gols_pro": 25,
-    "gols_contra": 17,
-    "saldo_gols": 8,
-    "aproveitamento": 59.3,
+    "derrotas": 3,
+    "gols_pro": 27,
+    "gols_contra": 20,
+    "saldo_gols": 7,
+    "aproveitamento": 56.1,
     "variacao_posicao": -1,
     "ultimos_jogos": [
       "v",
-      "v",
       "e",
       "v",
-      "e"
-    ]
-  },
-  {
-    "posicao": 4,
-    "pontos": 31,
-    "time": {
-      "time_id": 26,
-      "nome_popular": "Fluminense",
-      "sigla": "FLU",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ca0e01e3.svg"
-    },
-    "jogos": 18,
-    "vitorias": 9,
-    "empates": 4,
-    "derrotas": 5,
-    "gols_pro": 27,
-    "gols_contra": 19,
-    "saldo_gols": 8,
-    "aproveitamento": 57.4,
-    "variacao_posicao": 1,
-    "ultimos_jogos": [
-      "v",
-      "v",
-      "v",
       "e",
-      "v"
+      "d"
     ]
   },
   {
@@ -112,25 +112,51 @@
       "sigla": "CAP",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999e2864a27.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 9,
     "empates": 4,
-    "derrotas": 5,
+    "derrotas": 6,
     "gols_pro": 24,
-    "gols_contra": 18,
-    "saldo_gols": 6,
-    "aproveitamento": 57.4,
-    "variacao_posicao": 1,
+    "gols_contra": 20,
+    "saldo_gols": 4,
+    "aproveitamento": 54.4,
+    "variacao_posicao": 0,
     "ultimos_jogos": [
-      "v",
       "v",
       "d",
       "e",
-      "v"
+      "v",
+      "d"
     ]
   },
   {
     "posicao": 6,
+    "pontos": 30,
+    "time": {
+      "time_id": 18,
+      "nome_popular": "Flamengo",
+      "sigla": "FLA",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999c95084cb.svg"
+    },
+    "jogos": 19,
+    "vitorias": 9,
+    "empates": 3,
+    "derrotas": 7,
+    "gols_pro": 26,
+    "gols_contra": 18,
+    "saldo_gols": 8,
+    "aproveitamento": 52.6,
+    "variacao_posicao": 1,
+    "ultimos_jogos": [
+      "v",
+      "d",
+      "v",
+      "v",
+      "v"
+    ]
+  },
+  {
+    "posicao": 7,
     "pontos": 30,
     "time": {
       "time_id": 44,
@@ -138,47 +164,21 @@
       "sigla": "INT",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999cbb0b297.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 7,
     "empates": 9,
-    "derrotas": 2,
-    "gols_pro": 26,
-    "gols_contra": 18,
-    "saldo_gols": 8,
-    "aproveitamento": 55.6,
-    "variacao_posicao": -2,
-    "ultimos_jogos": [
-      "v",
-      "e",
-      "v",
-      "e",
-      "e"
-    ]
-  },
-  {
-    "posicao": 7,
-    "pontos": 27,
-    "time": {
-      "time_id": 18,
-      "nome_popular": "Flamengo",
-      "sigla": "FLA",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999c95084cb.svg"
-    },
-    "jogos": 18,
-    "vitorias": 8,
-    "empates": 3,
-    "derrotas": 7,
-    "gols_pro": 24,
-    "gols_contra": 17,
+    "derrotas": 3,
+    "gols_pro": 27,
+    "gols_contra": 20,
     "saldo_gols": 7,
-    "aproveitamento": 50,
-    "variacao_posicao": 0,
+    "aproveitamento": 52.6,
+    "variacao_posicao": -1,
     "ultimos_jogos": [
+      "e",
       "v",
-      "v",
-      "d",
-      "v",
-      "v"
+      "e",
+      "e",
+      "d"
     ]
   },
   {
@@ -190,70 +190,70 @@
       "sigla": "BGT",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d770dbb2.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 7,
     "empates": 6,
-    "derrotas": 5,
-    "gols_pro": 29,
-    "gols_contra": 21,
-    "saldo_gols": 8,
-    "aproveitamento": 50,
+    "derrotas": 6,
+    "gols_pro": 30,
+    "gols_contra": 23,
+    "saldo_gols": 7,
+    "aproveitamento": 47.4,
     "variacao_posicao": 0,
     "ultimos_jogos": [
       "d",
-      "d",
       "v",
       "v",
-      "v"
+      "v",
+      "d"
     ]
   },
   {
     "posicao": 9,
-    "pontos": 25,
+    "pontos": 26,
     "time": {
       "time_id": 63,
       "nome_popular": "Santos",
       "sigla": "SAN",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d7525121.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 6,
-    "empates": 7,
+    "empates": 8,
     "derrotas": 5,
     "gols_pro": 22,
     "gols_contra": 16,
     "saldo_gols": 6,
-    "aproveitamento": 46.3,
-    "variacao_posicao": 1,
+    "aproveitamento": 45.6,
+    "variacao_posicao": 0,
     "ultimos_jogos": [
-      "e",
       "d",
       "v",
       "d",
-      "v"
+      "v",
+      "e"
     ]
   },
   {
     "posicao": 10,
-    "pontos": 25,
+    "pontos": 26,
     "time": {
       "time_id": 57,
       "nome_popular": "São Paulo",
       "sigla": "SAO",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ccdc1656.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 5,
-    "empates": 10,
+    "empates": 11,
     "derrotas": 3,
-    "gols_pro": 25,
-    "gols_contra": 21,
+    "gols_pro": 28,
+    "gols_contra": 24,
     "saldo_gols": 4,
-    "aproveitamento": 46.3,
-    "variacao_posicao": -1,
+    "aproveitamento": 45.6,
+    "variacao_posicao": 0,
     "ultimos_jogos": [
-      "e",
       "v",
+      "e",
       "e",
       "e",
       "e"
@@ -263,56 +263,134 @@
     "posicao": 11,
     "pontos": 24,
     "time": {
-      "time_id": 105,
-      "nome_popular": "Ceará",
-      "sigla": "CEA",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999dba767ba.svg"
-    },
-    "jogos": 18,
-    "vitorias": 5,
-    "empates": 9,
-    "derrotas": 4,
-    "gols_pro": 20,
-    "gols_contra": 18,
-    "saldo_gols": 2,
-    "aproveitamento": 44.4,
-    "variacao_posicao": 3,
-    "ultimos_jogos": [
-      "e",
-      "e",
-      "d",
-      "v",
-      "v"
-    ]
-  },
-  {
-    "posicao": 12,
-    "pontos": 21,
-    "time": {
       "time_id": 22,
       "nome_popular": "Botafogo",
       "sigla": "BOT",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999c9b06760.svg"
     },
-    "jogos": 18,
-    "vitorias": 6,
+    "jogos": 19,
+    "vitorias": 7,
     "empates": 3,
     "derrotas": 9,
-    "gols_pro": 17,
+    "gols_pro": 19,
     "gols_contra": 24,
-    "saldo_gols": -7,
-    "aproveitamento": 38.9,
-    "variacao_posicao": -1,
+    "saldo_gols": -5,
+    "aproveitamento": 42.1,
+    "variacao_posicao": 1,
     "ultimos_jogos": [
-      "d",
       "v",
       "d",
       "d",
+      "d",
+      "v"
+    ]
+  },
+  {
+    "posicao": 12,
+    "pontos": 24,
+    "time": {
+      "time_id": 105,
+      "nome_popular": "Ceará",
+      "sigla": "CEA",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999dba767ba.svg"
+    },
+    "jogos": 19,
+    "vitorias": 5,
+    "empates": 9,
+    "derrotas": 5,
+    "gols_pro": 20,
+    "gols_contra": 19,
+    "saldo_gols": 1,
+    "aproveitamento": 42.1,
+    "variacao_posicao": -1,
+    "ultimos_jogos": [
+      "e",
+      "d",
+      "v",
+      "v",
       "d"
     ]
   },
   {
     "posicao": 13,
+    "pontos": 22,
+    "time": {
+      "time_id": 84,
+      "nome_popular": "Coritiba",
+      "sigla": "CFC",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d991e8b8.svg"
+    },
+    "jogos": 19,
+    "vitorias": 6,
+    "empates": 4,
+    "derrotas": 9,
+    "gols_pro": 22,
+    "gols_contra": 30,
+    "saldo_gols": -8,
+    "aproveitamento": 38.6,
+    "variacao_posicao": 3,
+    "ultimos_jogos": [
+      "v",
+      "e",
+      "d",
+      "d",
+      "v"
+    ]
+  },
+  {
+    "posicao": 14,
+    "pontos": 22,
+    "time": {
+      "time_id": 115,
+      "nome_popular": "Goiás",
+      "sigla": "GOI",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999dc97b4e2.svg"
+    },
+    "jogos": 19,
+    "vitorias": 5,
+    "empates": 7,
+    "derrotas": 7,
+    "gols_pro": 21,
+    "gols_contra": 25,
+    "saldo_gols": -4,
+    "aproveitamento": 38.6,
+    "variacao_posicao": 0,
+    "ultimos_jogos": [
+      "d",
+      "v",
+      "e",
+      "d",
+      "e"
+    ]
+  },
+  {
+    "posicao": 15,
+    "pontos": 21,
+    "time": {
+      "time_id": 33,
+      "nome_popular": "América-MG",
+      "sigla": "AMG",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999cac0b5cc.svg"
+    },
+    "jogos": 19,
+    "vitorias": 6,
+    "empates": 3,
+    "derrotas": 10,
+    "gols_pro": 13,
+    "gols_contra": 22,
+    "saldo_gols": -9,
+    "aproveitamento": 36.8,
+    "variacao_posicao": 2,
+    "ultimos_jogos": [
+      "v",
+      "d",
+      "d",
+      "d",
+      "v"
+    ]
+  },
+  {
+    "posicao": 16,
     "pontos": 21,
     "time": {
       "time_id": 6,
@@ -320,51 +398,25 @@
       "sigla": "AVA",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999c8488adb.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 6,
     "empates": 3,
-    "derrotas": 9,
-    "gols_pro": 19,
-    "gols_contra": 28,
-    "saldo_gols": -9,
-    "aproveitamento": 38.9,
-    "variacao_posicao": -1,
+    "derrotas": 10,
+    "gols_pro": 20,
+    "gols_contra": 30,
+    "saldo_gols": -10,
+    "aproveitamento": 36.8,
+    "variacao_posicao": -3,
     "ultimos_jogos": [
-      "e",
       "d",
       "d",
       "v",
+      "d",
       "d"
     ]
   },
   {
-    "posicao": 14,
-    "pontos": 21,
-    "time": {
-      "time_id": 115,
-      "nome_popular": "Goiás",
-      "sigla": "GOI",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999dc97b4e2.svg"
-    },
-    "jogos": 18,
-    "vitorias": 5,
-    "empates": 6,
-    "derrotas": 7,
-    "gols_pro": 18,
-    "gols_contra": 22,
-    "saldo_gols": -4,
-    "aproveitamento": 38.9,
-    "variacao_posicao": -1,
-    "ultimos_jogos": [
-      "v",
-      "d",
-      "v",
-      "e",
-      "d"
-    ]
-  },
-  {
-    "posicao": 15,
+    "posicao": 17,
     "pontos": 20,
     "time": {
       "time_id": 204,
@@ -372,73 +424,21 @@
       "sigla": "CUI",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999e4424264.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 5,
     "empates": 5,
-    "derrotas": 8,
-    "gols_pro": 13,
-    "gols_contra": 18,
-    "saldo_gols": -5,
-    "aproveitamento": 37,
-    "variacao_posicao": 0,
-    "ultimos_jogos": [
-      "d",
-      "v",
-      "v",
-      "d",
-      "e"
-    ]
-  },
-  {
-    "posicao": 16,
-    "pontos": 19,
-    "time": {
-      "time_id": 84,
-      "nome_popular": "Coritiba",
-      "sigla": "CFC",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999d991e8b8.svg"
-    },
-    "jogos": 18,
-    "vitorias": 5,
-    "empates": 4,
     "derrotas": 9,
-    "gols_pro": 21,
-    "gols_contra": 30,
-    "saldo_gols": -9,
-    "aproveitamento": 35.2,
-    "variacao_posicao": 0,
+    "gols_pro": 14,
+    "gols_contra": 20,
+    "saldo_gols": -6,
+    "aproveitamento": 35.1,
+    "variacao_posicao": -2,
     "ultimos_jogos": [
-      "d",
       "v",
+      "v",
+      "d",
       "e",
-      "d",
       "d"
-    ]
-  },
-  {
-    "posicao": 17,
-    "pontos": 19,
-    "time": {
-      "time_id": 33,
-      "nome_popular": "América-MG",
-      "sigla": "AMG",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999cac0b5cc.svg"
-    },
-    "jogos": 18,
-    "vitorias": 5,
-    "empates": 4,
-    "derrotas": 9,
-    "gols_pro": 12,
-    "gols_contra": 21,
-    "saldo_gols": -9,
-    "aproveitamento": 35.2,
-    "variacao_posicao": 0,
-    "ultimos_jogos": [
-      "d",
-      "v",
-      "d",
-      "d",
-      "e"
     ]
   },
   {
@@ -450,17 +450,17 @@
       "sigla": "ACG",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999db078911.svg"
     },
-    "jogos": 18,
+    "jogos": 19,
     "vitorias": 4,
     "empates": 5,
-    "derrotas": 9,
+    "derrotas": 10,
     "gols_pro": 18,
-    "gols_contra": 27,
-    "saldo_gols": -9,
-    "aproveitamento": 31.5,
+    "gols_contra": 28,
+    "saldo_gols": -10,
+    "aproveitamento": 29.8,
     "variacao_posicao": 0,
     "ultimos_jogos": [
-      "e",
+      "d",
       "d",
       "d",
       "d",
@@ -469,54 +469,54 @@
   },
   {
     "posicao": 19,
-    "pontos": 14,
-    "time": {
-      "time_id": 131,
-      "nome_popular": "Fortaleza",
-      "sigla": "FOR",
-      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ddaa261b.svg"
-    },
-    "jogos": 18,
-    "vitorias": 3,
-    "empates": 5,
-    "derrotas": 10,
-    "gols_pro": 15,
-    "gols_contra": 23,
-    "saldo_gols": -8,
-    "aproveitamento": 25.9,
-    "variacao_posicao": 0,
-    "ultimos_jogos": [
-      "d",
-      "d",
-      "e",
-      "v",
-      "d"
-    ]
-  },
-  {
-    "posicao": 20,
-    "pontos": 13,
+    "pontos": 16,
     "time": {
       "time_id": 43,
       "nome_popular": "Juventude",
       "sigla": "JUV",
       "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999cb997a01.svg"
     },
-    "jogos": 18,
-    "vitorias": 2,
+    "jogos": 19,
+    "vitorias": 3,
     "empates": 7,
     "derrotas": 9,
-    "gols_pro": 15,
+    "gols_pro": 16,
     "gols_contra": 32,
-    "saldo_gols": -17,
-    "aproveitamento": 24.1,
-    "variacao_posicao": 0,
+    "saldo_gols": -16,
+    "aproveitamento": 28.1,
+    "variacao_posicao": 1,
     "ultimos_jogos": [
-      "e",
       "d",
       "e",
       "e",
-      "d"
+      "d",
+      "v"
+    ]
+  },
+  {
+    "posicao": 20,
+    "pontos": 15,
+    "time": {
+      "time_id": 131,
+      "nome_popular": "Fortaleza",
+      "sigla": "FOR",
+      "escudo": "https://apifutebol.s3.sa-east-1.amazonaws.com/escudos/5f999ddaa261b.svg"
+    },
+    "jogos": 19,
+    "vitorias": 3,
+    "empates": 6,
+    "derrotas": 10,
+    "gols_pro": 15,
+    "gols_contra": 23,
+    "saldo_gols": -8,
+    "aproveitamento": 26.3,
+    "variacao_posicao": -1,
+    "ultimos_jogos": [
+      "d",
+      "e",
+      "v",
+      "d",
+      "e"
     ]
   }
 ]
