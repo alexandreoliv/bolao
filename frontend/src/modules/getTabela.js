@@ -28,7 +28,7 @@ export const getTabela = async (serie) => {
 	}
 
 	return await axios
-		.get("http://localhost:5005/getTabelas")
+		.get(`${process.env.REACT_APP_API_URL}/getTabelas`)
 		.then(
 			(response) =>
 				response.data.tabelas.filter((t) => t.serie === serie)[0]

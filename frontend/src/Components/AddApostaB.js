@@ -62,7 +62,7 @@ const AddApostaB = (props) => {
 		const obj = { ano, serie, nome, aposta };
 		const axios = require("axios");
 		return axios
-			.post("http://localhost:5005/sendAposta", obj)
+			.post(`${process.env.REACT_APP_API_URL}/sendAposta`, obj)
 			.then((response) => console.log(response))
 			.catch((error) => console.log(error));
 	};

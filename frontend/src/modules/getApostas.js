@@ -10,7 +10,7 @@ export const getApostas = async (serie, tabela) => {
 
 const getFile = (serie) => {
 	return axios
-		.get("http://localhost:5005/getApostas")
+		.get(`${process.env.REACT_APP_API_URL}/getApostas`)
 		.then((response) =>
 			response.data.apostas.filter((r) => r.serie === serie)
 		)
