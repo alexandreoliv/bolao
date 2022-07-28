@@ -1,7 +1,7 @@
 const axios = require("axios");
 const API_KEY = process.env.REACT_APP_SECRET_KEY;
 
-export const getTabela = async (serie) => {
+export const getTabela = async (serie, ano) => {
 	// API method:
 	if (serie === "A") {
 		// offline way:

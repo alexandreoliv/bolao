@@ -44,20 +44,20 @@ export const App = () => {
 	});
 
 	const getData = async () => {
-		const tabelaA = await getTabela("A");
-		const tabelaB = await getTabela("B");
+		const tabelaA = await getTabela("A", 2022);
+		const tabelaB = await getTabela("B", 2022);
 
 		const {
 			apostasColumns: apostasColumnsA,
 			apostasData: apostasDataA,
 			keys: keysA,
-		} = await getApostas("A", tabelaA);
+		} = await getApostas("A", 2022, tabelaA);
 
 		const {
 			apostasColumns: apostasColumnsB,
 			apostasData: apostasDataB,
 			keys: keysB,
-		} = await getApostas("B", tabelaB);
+		} = await getApostas("B", 2022, tabelaB);
 
 		const {
 			classificacaoColumns: classificacaoColumnsA,

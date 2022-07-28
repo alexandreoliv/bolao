@@ -1,18 +1,20 @@
 const axios = require("axios");
 
-export const getApostas = async (serie, tabela) => {
-	const apostas = await getFile(serie);
+export const getApostas = async (serie, ano, tabela) => {
+	const apostas = await getFile(serie, ano);
 	const apostasColumns = getColumns(apostas);
 	const keys = getKeys(apostasColumns);
 	const apostasData = getData(apostas, apostasColumns, keys, tabela);
 	return { apostasColumns, apostasData, keys };
 };
 
-const getFile = (serie) => {
+const getFile = (serie, ano) => {
 	return axios
 		.get(`${process.env.REACT_APP_API_URL}/getApostas`)
 		.then((response) =>
-			response.data.apostas.filter((r) => r.serie === serie)
+			response.data.apostas.filter(
+				(r) => r.serie === serie && r.ano === ano
+			)
 		)
 		.catch((error) => console.log(error));
 };
