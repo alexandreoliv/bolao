@@ -5,17 +5,17 @@ export const getTabela = async (ano, serie) => {
 	// API method:
 	if (ano === 2022 && serie === "A") {
 		// offline way:
-		let tabela = require("../data/tabela2022A.json");
+		// let tabela = require("../data/tabela2022A.json");
 
 		// online way:
-		// let tabela = await axios
-		// 	.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
-		// 		headers: {
-		// 			Authorization: `Bearer ${API_KEY}`,
-		// 		},
-		// 	})
-		// 	.then((response) => response.data)
-		// 	.catch((error) => console.log(error));
+		let tabela = await axios
+			.get("https://api.api-futebol.com.br/v1/campeonatos/10/tabela/", {
+				headers: {
+					Authorization: `Bearer ${API_KEY}`,
+				},
+			})
+			.then((response) => response.data)
+			.catch((error) => console.log(error));
 
 		// for both ways:
 		tabela.sort((a, b) =>
