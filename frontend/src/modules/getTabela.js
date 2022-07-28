@@ -5,7 +5,7 @@ export const getTabela = async (serie) => {
 	// API method:
 	if (serie === "A") {
 		// offline way:
-		let tabela = require("../data/tabelaA.json");
+		let tabela = require("../data/tabelaA2022.json");
 
 		// online way:
 		// let tabela = await axios
