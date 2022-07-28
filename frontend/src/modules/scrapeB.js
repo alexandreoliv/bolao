@@ -63,11 +63,11 @@ const formatTabela = (tabela) => {
 const exportTabelaAsJSON = (tabela) => {
 	const fs = require("fs");
 	fs.writeFile(
-		"../data/tabelaB.json",
+		"../data/tabela2022B.json",
 		JSON.stringify(tabela),
 		function (err) {
 			if (err) throw err;
-			console.log("tabelaB.json complete");
+			console.log("tabela2022B.json complete");
 		}
 	);
 };

@@ -1,15 +1,9 @@
 import { Table } from "antd";
 
 const Apostas = (props) => {
-	const {
-		serie,
-		apostasColumnsA,
-		apostasDataA,
-		apostasColumnsB,
-		apostasDataB,
-	} = props;
+	const { ano, serie, apostasColumns, apostasData } = props;
 
-	if (!props.apostasColumnsA) return null; // no props yet
+	if (!props.apostasColumns) return null; // no props yet
 
 	return (
 		<div>
@@ -20,12 +14,12 @@ const Apostas = (props) => {
 					textAlign: "center",
 				}}
 			>
-				Apostas Série {serie}
+				Apostas Série {serie} {ano}
 			</h2>
 			<Table
 				className="big-table"
-				columns={serie === "A" ? apostasColumnsA : apostasColumnsB}
-				dataSource={serie === "A" ? apostasDataA : apostasDataB}
+				columns={apostasColumns}
+				dataSource={apostasData}
 				pagination={false}
 				size={"small"}
 			/>

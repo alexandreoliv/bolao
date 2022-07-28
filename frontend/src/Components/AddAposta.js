@@ -2,63 +2,61 @@ import { useState, useEffect } from "react";
 import { Button, Form, Input, Select } from "antd";
 const { Option } = Select;
 
-const AddApostaA = (props) => {
-	console.log("inside AddApostaA");
-	const { ano, equipesA, equipesB } = props;
-	const [posicoesA, setPosicoesA] = useState([]);
-	const [numerosA, setNumerosA] = useState([
+const AddAposta = (props) => {
+	console.log("inside AddAposta");
+	const { ano, serie, equipes } = props;
+	const [posicoes, setPosicoes] = useState([]);
+	const [numeros, setNumeros] = useState([
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 	]);
 
 	useEffect(() => {
 		console.log("inside useEffect");
-		if (equipesA) {
-			if (posicoesA.length === 0) {
+		if (equipes) {
+			if (posicoes.length === 0) {
 				console.log(
-					"useEffet is finally doing some stuff - setting posicoesA"
+					"useEffet is finally doing some stuff - setting posicoes"
 				);
-				const state = equipesA.map((e) => ({
+				const state = equipes.map((e) => ({
 					equipe: e,
 					posicao: 0,
 				}));
-				setPosicoesA(state);
+				setPosicoes(state);
 			} else
 				console.log(
-					"posicoesA already has the positions, nothing to do in the useEffect"
+					"posicoes already has the positions, nothing to do in the useEffect"
 				);
-		} else console.log("no equipesA yet, nothing to do in the useEffect");
-	}, [equipesA, posicoesA.length]);
+		} else console.log("no equipes yet, nothing to do in the useEffect");
+	}, [equipes, posicoes.length]);
 
 	const onPosicaoChange = (equipe, posicao) => {
 		console.log("inside onPosicaoChange");
 
 		// gets previous position of this team
-		const previousPosition = posicoesA
+		const previousPosition = posicoes
 			.filter((p) => p.equipe === equipe)
 			.map((p) => p.posicao)[0];
 
 		// removes the new position from the array of available positions
-		let numerosAnew = numerosA.filter((n) => n !== posicao);
+		let numerosnew = numeros.filter((n) => n !== posicao);
 		// and adds back the previous position (if it's not 0) -> then sorts it
 		if (previousPosition !== 0) {
-			numerosAnew.push(previousPosition);
-			numerosAnew.sort((a, b) => a - b);
+			numerosnew.push(previousPosition);
+			numerosnew.sort((a, b) => a - b);
 		}
-		setNumerosA(numerosAnew);
+		setNumeros(numerosnew);
 
-		// now updates PosicoesA
-		const posicoesAnew = posicoesA.map((p) =>
+		// now updates Posicoes
+		const posicoesnew = posicoes.map((p) =>
 			p.equipe === equipe ? { equipe, posicao } : p
 		);
-		setPosicoesA(posicoesAnew);
+		setPosicoes(posicoesnew);
 	};
 
 	const onFinish = (values) => {
 		// console.log("Success:", values);
-		const ano = 2022;
-		const serie = "A";
 		const nome = values["nome"];
-		const aposta = equipesA.map((e) => values[e]);
+		const aposta = equipes.map((e) => values[e]);
 		const obj = { ano, serie, nome, aposta };
 		const axios = require("axios");
 		return axios
@@ -71,7 +69,7 @@ const AddApostaA = (props) => {
 		console.log("Failed:", errorInfo);
 	};
 
-	if (!equipesA) {
+	if (!equipes) {
 		console.log("no props yet, will return null");
 		return null; // no props yet
 	}
@@ -110,7 +108,7 @@ const AddApostaA = (props) => {
 					<Input />
 				</Form.Item>
 
-				{equipesA.map((e) => (
+				{equipes.map((e) => (
 					<Form.Item
 						name={e}
 						label={e}
@@ -122,7 +120,7 @@ const AddApostaA = (props) => {
 							onChange={(event) => onPosicaoChange(e, event)}
 							allowClear
 						>
-							{numerosA.map((p) => (
+							{numeros.map((p) => (
 								<Option value={p} key={p}>
 									{p}
 								</Option>
@@ -141,4 +139,4 @@ const AddApostaA = (props) => {
 	);
 };
 
-export default AddApostaA;
+export default AddAposta;

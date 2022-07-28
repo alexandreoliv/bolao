@@ -1,15 +1,9 @@
 import { Table } from "antd";
 
 const Classificacao = (props) => {
-	const {
-		serie,
-		classificacaoColumnsA,
-		classificacaoDataA,
-		classificacaoColumnsB,
-		classificacaoDataB,
-	} = props;
+	const { ano, serie, classificacaoColumns, classificacaoData } = props;
 
-	if (!props.classificacaoColumnsA) return null; // no props yet
+	if (!props.classificacaoColumns) return null; // no props yet
 
 	return (
 		<div>
@@ -20,18 +14,12 @@ const Classificacao = (props) => {
 					textAlign: "center",
 				}}
 			>
-				Classificação Série {serie}
+				Classificação Série {serie} {ano}
 			</h2>
 			<Table
 				className="small-table"
-				columns={
-					serie === "A"
-						? classificacaoColumnsA
-						: classificacaoColumnsB
-				}
-				dataSource={
-					serie === "A" ? classificacaoDataA : classificacaoDataB
-				}
+				columns={classificacaoColumns}
+				dataSource={classificacaoData}
 				pagination={false}
 				size={"small"}
 			/>

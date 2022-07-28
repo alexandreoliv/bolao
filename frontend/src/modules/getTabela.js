@@ -1,11 +1,11 @@
 const axios = require("axios");
 const API_KEY = process.env.REACT_APP_SECRET_KEY;
 
-export const getTabela = async (serie, ano) => {
+export const getTabela = async (ano, serie) => {
 	// API method:
-	if (serie === "A") {
+	if (ano === 2022 && serie === "A") {
 		// offline way:
-		let tabela = require("../data/tabelaA2022.json");
+		let tabela = require("../data/tabela2022A.json");
 
 		// online way:
 		// let tabela = await axios
@@ -15,7 +15,7 @@ export const getTabela = async (serie, ano) => {
 		// 		},
 		// 	})
 		// 	.then((response) => response.data)
-		// 	.catch((error) => console.log(error))
+		// 	.catch((error) => console.log(error));
 
 		// for both ways:
 		tabela.sort((a, b) =>
@@ -23,7 +23,7 @@ export const getTabela = async (serie, ano) => {
 		);
 		const equipes = tabela.map((t) => t.time.nome_popular);
 		const posicoes = tabela.map((t) => t.posicao);
-		tabela = { ano: 2022, serie, equipes, posicoes };
+		tabela = { ano, serie, equipes, posicoes };
 		return tabela;
 	}
 
@@ -31,7 +31,9 @@ export const getTabela = async (serie, ano) => {
 		.get(`${process.env.REACT_APP_API_URL}/getTabelas`)
 		.then(
 			(response) =>
-				response.data.tabelas.filter((t) => t.serie === serie)[0]
+				response.data.tabelas.filter(
+					(t) => t.serie === serie && t.ano === ano
+				)[0]
 		)
 		.catch((error) => console.log(error));
 };

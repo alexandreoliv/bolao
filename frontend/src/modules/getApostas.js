@@ -8,7 +8,7 @@ export const getApostas = async (serie, ano, tabela) => {
 	return { apostasColumns, apostasData, keys };
 };
 
-const getFile = (serie, ano) => {
+const getFile = (ano, serie) => {
 	return axios
 		.get(`${process.env.REACT_APP_API_URL}/getApostas`)
 		.then((response) =>

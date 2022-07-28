@@ -1,15 +1,9 @@
 import { Table } from "antd";
 
 const Distancia = (props) => {
-	const {
-		serie,
-		distanciaColumnsA,
-		distanciaDataA,
-		distanciaColumnsB,
-		distanciaDataB,
-	} = props;
+	const { ano, serie, distanciaColumns, distanciaData } = props;
 
-	if (!props.distanciaColumnsA) return null; // no props yet
+	if (!props.distanciaColumns) return null; // no props yet
 
 	return (
 		<div>
@@ -20,12 +14,12 @@ const Distancia = (props) => {
 					textAlign: "center",
 				}}
 			>
-				Distância Para o Acerto Série {serie}
+				Distância Para o Acerto Série {serie} {ano}
 			</h2>
 			<Table
 				className="big-table"
-				columns={serie === "A" ? distanciaColumnsA : distanciaColumnsB}
-				dataSource={serie === "A" ? distanciaDataA : distanciaDataB}
+				columns={distanciaColumns}
+				dataSource={distanciaData}
 				pagination={false}
 				size={"small"}
 			/>

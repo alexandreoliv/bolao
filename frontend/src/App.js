@@ -6,101 +6,33 @@ import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
 import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
-import AddApostaA from "./Components/AddApostaA";
-import AddApostaB from "./Components/AddApostaB";
-import { getTabela } from "./modules/getTabela";
-import { getApostas } from "./modules/getApostas";
-import { getClassificacao } from "./modules/getClassificacao";
-import { getDistancia } from "./modules/getDistancia";
+import AddAposta from "./Components/AddAposta";
+import { getData } from "./modules/getData";
 const { Header, Content, Footer } = Layout;
 
 export const App = () => {
-	const [serie, setSerie] = useState("A");
-	const [serieA, setSerieA] = useState({
-		apostasColumns: "",
-		apostasData: "",
-		classificacaoColumns: "",
-		classificacaoData: "",
-		distanciaColumns: "",
-		distanciaData: "",
-		keys: "",
-		tabela: "",
-	});
-	const [serieB, setSerieB] = useState({
-		apostasColumns: "",
-		apostasData: "",
-		classificacaoColumns: "",
-		classificacaoData: "",
-		distanciaColumns: "",
-		distanciaData: "",
-		keys: "",
-		tabela: "",
-	});
+	const [anoAndSerie, setAnoAndSerie] = useState({ ano: 2022, serie: "A" });
+	const [dados, setDados] = useState("");
 
 	useEffect(() => {
-		if (!serieA.tabela) {
-			getData();
+		if (!dados) {
+			getAllData();
 		}
 	});
 
-	const getData = async () => {
-		const tabelaA = await getTabela("A", 2022);
-		const tabelaB = await getTabela("B", 2022);
-
-		const {
-			apostasColumns: apostasColumnsA,
-			apostasData: apostasDataA,
-			keys: keysA,
-		} = await getApostas("A", 2022, tabelaA);
-
-		const {
-			apostasColumns: apostasColumnsB,
-			apostasData: apostasDataB,
-			keys: keysB,
-		} = await getApostas("B", 2022, tabelaB);
-
-		const {
-			classificacaoColumns: classificacaoColumnsA,
-			classificacaoData: classificacaoDataA,
-		} = getClassificacao(keysA, apostasDataA);
-
-		const {
-			classificacaoColumns: classificacaoColumnsB,
-			classificacaoData: classificacaoDataB,
-		} = getClassificacao(keysB, apostasDataB);
-
-		const {
-			distanciaColumns: distanciaColumnsA,
-			distanciaData: distanciaDataA,
-		} = getDistancia(keysA, apostasDataA);
-
-		const {
-			distanciaColumns: distanciaColumnsB,
-			distanciaData: distanciaDataB,
-		} = getDistancia(keysB, apostasDataB);
-
-		setSerieA({
-			apostasColumns: apostasColumnsA,
-			apostasData: apostasDataA,
-			classificacaoColumns: classificacaoColumnsA,
-			classificacaoData: classificacaoDataA,
-			distanciaColumns: distanciaColumnsA,
-			distanciaData: distanciaDataA,
-			keys: keysA,
-			tabela: tabelaA,
-		});
-
-		setSerieB({
-			apostasColumns: apostasColumnsB,
-			apostasData: apostasDataB,
-			classificacaoColumns: classificacaoColumnsB,
-			classificacaoData: classificacaoDataB,
-			distanciaColumns: distanciaColumnsB,
-			distanciaData: distanciaDataB,
-			keys: keysB,
-			tabela: tabelaB,
-		});
+	const getAllData = async () => {
+		let dados = [];
+		dados.push(await getData(2020, "A"));
+		dados.push(await getData(2021, "A"));
+		dados.push(await getData(2021, "B"));
+		dados.push(await getData(2022, "A"));
+		dados.push(await getData(2022, "B"));
+		setDados(dados);
 	};
+
+	console.log("dados now", dados);
+
+	if (!dados) return;
 
 	return (
 		<Router>
@@ -112,31 +44,162 @@ export const App = () => {
 						mode="horizontal"
 						defaultSelectedKeys={["1"]}
 					>
-						<Menu.Item key="1" onClick={() => setSerie("A")}>
+						<Menu.Item
+							key="1"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "A" })
+							}
+						>
 							<Link to="/" />
-							Apostas A
+							AA22
 						</Menu.Item>
-						<Menu.Item key="2" onClick={() => setSerie("A")}>
+						<Menu.Item
+							key="2"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "A" })
+							}
+						>
 							<Link to="/classificacao" />
-							Classificação A
+							CA22
 						</Menu.Item>
-						<Menu.Item key="3" onClick={() => setSerie("A")}>
+						<Menu.Item
+							key="3"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "A" })
+							}
+						>
 							<Link to="/distancia" />
-							Distância A
+							DA22
 						</Menu.Item>
-						<Menu.Item key="4" onClick={() => setSerie("B")}>
+						<Menu.Item
+							key="4"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "B" })
+							}
+						>
 							<Link to="/" />
-							Apostas B
+							AB22
 						</Menu.Item>
-						<Menu.Item key="5" onClick={() => setSerie("B")}>
+						<Menu.Item
+							key="5"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "B" })
+							}
+						>
 							<Link to="/classificacao" />
-							Classificação B
+							CB22
 						</Menu.Item>
-						<Menu.Item key="6" onClick={() => setSerie("B")}>
+						<Menu.Item
+							key="6"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "B" })
+							}
+						>
 							<Link to="/distancia" />
-							Distância B
+							DB22
 						</Menu.Item>
-						<Menu.Item key="7">
+
+						<Menu.Item
+							key="7"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2021, serie: "A" })
+							}
+						>
+							<Link to="/" />
+							AA21
+						</Menu.Item>
+						<Menu.Item
+							key="8"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2021, serie: "A" })
+							}
+						>
+							<Link to="/classificacao" />
+							CA21
+						</Menu.Item>
+						<Menu.Item
+							key="9"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2021, serie: "A" })
+							}
+						>
+							<Link to="/distancia" />
+							DA21
+						</Menu.Item>
+						<Menu.Item
+							key="10"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2021, serie: "B" })
+							}
+						>
+							<Link to="/" />
+							AB21
+						</Menu.Item>
+						<Menu.Item
+							key="11"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2021, serie: "B" })
+							}
+						>
+							<Link to="/classificacao" />
+							CB21
+						</Menu.Item>
+						<Menu.Item
+							key="12"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2021, serie: "B" })
+							}
+						>
+							<Link to="/distancia" />
+							DB21
+						</Menu.Item>
+						<Menu.Item
+							key="13"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2020, serie: "A" })
+							}
+						>
+							<Link to="/" />
+							AA20
+						</Menu.Item>
+						<Menu.Item
+							key="14"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2020, serie: "A" })
+							}
+						>
+							<Link to="/classificacao" />
+							CA20
+						</Menu.Item>
+						<Menu.Item
+							key="15"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2020, serie: "A" })
+							}
+						>
+							<Link to="/distancia" />
+							DA20
+						</Menu.Item>
+						<Menu.Item
+							key="16"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "A" })
+							}
+						>
+							<Link to="/addAposta" />
+							Adicionar Aposta A
+						</Menu.Item>
+						<Menu.Item
+							key="17"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2022, serie: "B" })
+							}
+						>
+							<Link to="/addAposta" />
+							Adicionar Aposta B
+						</Menu.Item>
+
+						<Menu.Item key="18">
 							<Link to="/regras" />
 							Regras
 						</Menu.Item>
@@ -150,7 +213,7 @@ export const App = () => {
 							margin: "10px 0",
 						}}
 					>
-						Bolão Brasileiro 2022
+						Bolão Brasileiro
 					</h1>
 					<div
 						className="site-layout-content"
@@ -161,11 +224,30 @@ export const App = () => {
 								path="/"
 								element={
 									<Apostas
-										serie={serie}
-										apostasColumnsA={serieA.apostasColumns}
-										apostasDataA={serieA.apostasData}
-										apostasColumnsB={serieB.apostasColumns}
-										apostasDataB={serieB.apostasData}
+										ano={anoAndSerie.ano}
+										serie={anoAndSerie.serie}
+										apostasColumns={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map((d) => d.apostasColumns)[0]
+										}
+										apostasData={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map((d) => d.apostasData)[0]
+										}
 									/>
 								}
 							/>
@@ -174,18 +256,34 @@ export const App = () => {
 								path="/classificacao"
 								element={
 									<Classificacao
-										serie={serie}
-										classificacaoColumnsA={
-											serieA.classificacaoColumns
+										ano={anoAndSerie.ano}
+										serie={anoAndSerie.serie}
+										classificacaoColumns={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map(
+													(d) =>
+														d.classificacaoColumns
+												)[0]
 										}
-										classificacaoDataA={
-											serieA.classificacaoData
-										}
-										classificacaoColumnsB={
-											serieB.classificacaoColumns
-										}
-										classificacaoDataB={
-											serieB.classificacaoData
+										classificacaoData={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map(
+													(d) => d.classificacaoData
+												)[0]
 										}
 									/>
 								}
@@ -195,43 +293,57 @@ export const App = () => {
 								path="/distancia"
 								element={
 									<Distancia
-										serie={serie}
-										distanciaColumnsA={
-											serieA.distanciaColumns
+										ano={anoAndSerie.ano}
+										serie={anoAndSerie.serie}
+										distanciaColumns={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map(
+													(d) => d.distanciaColumns
+												)[0]
 										}
-										distanciaDataA={serieA.distanciaData}
-										distanciaColumnsB={
-											serieB.distanciaColumns
+										distanciaData={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map((d) => d.distanciaData)[0]
 										}
-										distanciaDataB={serieB.distanciaData}
+									/>
+								}
+							/>
+							<Route
+								exact
+								path="/addAposta"
+								element={
+									<AddAposta
+										ano={anoAndSerie.ano}
+										serie={anoAndSerie.serie}
+										equipes={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map((d) => d.tabela.equipes)[0]
+										}
 									/>
 								}
 							/>
 							<Route exact path="/regras" element={<Regras />} />
-							<Route
-								exact
-								path="/addApostaA"
-								element={
-									<AddApostaA
-										ano={2022}
-										serie={"A"}
-										equipesA={serieA.tabela.equipes}
-										equipesB={serieB.tabela.equipes}
-									/>
-								}
-							/>
-							<Route
-								exact
-								path="/addApostaB"
-								element={
-									<AddApostaB
-										ano={2022}
-										serie={"B"}
-										equipesA={serieA.tabela.equipes}
-										equipesB={serieB.tabela.equipes}
-									/>
-								}
-							/>
 						</Routes>
 					</div>
 				</Content>
