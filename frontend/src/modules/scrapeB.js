@@ -36,12 +36,12 @@ const scrapeTabela = async (page) => {
 		tabela.push({
 			time: {
 				nome_popular: await page.$eval(
-					`.wikitable:nth-child(22) tr:nth-child(${pos})> td:nth-child(2) > a:nth-child(2)`,
-					(el) => el.innerText
+					`.wikitable:nth-child(23) tr:nth-child(${pos})> td:nth-child(2)`,
+					(el) => el.innerText.trim()
 				),
 			},
 			posicao: await page.$eval(
-				`.wikitable:nth-child(22) tr:nth-child(${pos}) > td:nth-child(1)`,
+				`.wikitable:nth-child(23) tr:nth-child(${pos}) > td:nth-child(1)`,
 				(el) => Number(el.innerText)
 			),
 		});
