@@ -11,7 +11,7 @@ import { getData } from "./modules/getData";
 const { Header, Content, Footer } = Layout;
 
 export const App = () => {
-	const [anoAndSerie, setAnoAndSerie] = useState({ ano: 2022, serie: "A" });
+	const [anoAndSerie, setAnoAndSerie] = useState({ ano: 2023, serie: "A" });
 	const [dados, setDados] = useState("");
 
 	useEffect(() => {
@@ -27,6 +27,8 @@ export const App = () => {
 		dados.push(await getData(2021, "B"));
 		dados.push(await getData(2022, "A"));
 		dados.push(await getData(2022, "B"));
+		dados.push(await getData(2023, "A"));
+		dados.push(await getData(2023, "B"));
 		setDados(dados);
 	};
 
@@ -45,7 +47,81 @@ export const App = () => {
 						defaultSelectedKeys={["1"]}
 					>
 						<Menu.Item
+							key="22"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "A" })
+							}
+						>
+							<Link to="/addAposta" />
+							Adicionar Aposta A
+						</Menu.Item>
+						<Menu.Item
+							key="23"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "B" })
+							}
+						>
+							<Link to="/addAposta" />
+							Adicionar Aposta B
+						</Menu.Item>
+
+						<Menu.Item
 							key="1"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "A" })
+							}
+						>
+							<Link to="/" />
+							AA23
+						</Menu.Item>
+						<Menu.Item
+							key="2"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "A" })
+							}
+						>
+							<Link to="/classificacao" />
+							CA23
+						</Menu.Item>
+						<Menu.Item
+							key="3"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "A" })
+							}
+						>
+							<Link to="/distancia" />
+							DA23
+						</Menu.Item>
+						<Menu.Item
+							key="4"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "B" })
+							}
+						>
+							<Link to="/" />
+							AB23
+						</Menu.Item>
+						<Menu.Item
+							key="5"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "B" })
+							}
+						>
+							<Link to="/classificacao" />
+							CB23
+						</Menu.Item>
+						<Menu.Item
+							key="6"
+							onClick={() =>
+								setAnoAndSerie({ ano: 2023, serie: "B" })
+							}
+						>
+							<Link to="/distancia" />
+							DB23
+						</Menu.Item>
+
+						<Menu.Item
+							key="7"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2022, serie: "A" })
 							}
@@ -54,7 +130,7 @@ export const App = () => {
 							AA22
 						</Menu.Item>
 						<Menu.Item
-							key="2"
+							key="8"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2022, serie: "A" })
 							}
@@ -63,7 +139,7 @@ export const App = () => {
 							CA22
 						</Menu.Item>
 						<Menu.Item
-							key="3"
+							key="9"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2022, serie: "A" })
 							}
@@ -72,7 +148,7 @@ export const App = () => {
 							DA22
 						</Menu.Item>
 						<Menu.Item
-							key="4"
+							key="10"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2022, serie: "B" })
 							}
@@ -81,7 +157,7 @@ export const App = () => {
 							AB22
 						</Menu.Item>
 						<Menu.Item
-							key="5"
+							key="11"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2022, serie: "B" })
 							}
@@ -90,7 +166,7 @@ export const App = () => {
 							CB22
 						</Menu.Item>
 						<Menu.Item
-							key="6"
+							key="12"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2022, serie: "B" })
 							}
@@ -100,7 +176,7 @@ export const App = () => {
 						</Menu.Item>
 
 						<Menu.Item
-							key="7"
+							key="13"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2021, serie: "A" })
 							}
@@ -109,7 +185,7 @@ export const App = () => {
 							AA21
 						</Menu.Item>
 						<Menu.Item
-							key="8"
+							key="14"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2021, serie: "A" })
 							}
@@ -118,7 +194,7 @@ export const App = () => {
 							CA21
 						</Menu.Item>
 						<Menu.Item
-							key="9"
+							key="15"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2021, serie: "A" })
 							}
@@ -127,7 +203,7 @@ export const App = () => {
 							DA21
 						</Menu.Item>
 						<Menu.Item
-							key="10"
+							key="16"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2021, serie: "B" })
 							}
@@ -136,7 +212,7 @@ export const App = () => {
 							AB21
 						</Menu.Item>
 						<Menu.Item
-							key="11"
+							key="17"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2021, serie: "B" })
 							}
@@ -145,7 +221,7 @@ export const App = () => {
 							CB21
 						</Menu.Item>
 						<Menu.Item
-							key="12"
+							key="18"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2021, serie: "B" })
 							}
@@ -154,7 +230,7 @@ export const App = () => {
 							DB21
 						</Menu.Item>
 						<Menu.Item
-							key="13"
+							key="19"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2020, serie: "A" })
 							}
@@ -163,7 +239,7 @@ export const App = () => {
 							AA20
 						</Menu.Item>
 						<Menu.Item
-							key="14"
+							key="20"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2020, serie: "A" })
 							}
@@ -172,7 +248,7 @@ export const App = () => {
 							CA20
 						</Menu.Item>
 						<Menu.Item
-							key="15"
+							key="21"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2020, serie: "A" })
 							}
@@ -180,26 +256,8 @@ export const App = () => {
 							<Link to="/distancia" />
 							DA20
 						</Menu.Item>
-						<Menu.Item
-							key="16"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "A" })
-							}
-						>
-							<Link to="/addAposta" />
-							Adicionar Aposta A
-						</Menu.Item>
-						<Menu.Item
-							key="17"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "B" })
-							}
-						>
-							<Link to="/addAposta" />
-							Adicionar Aposta B
-						</Menu.Item>
 
-						<Menu.Item key="18">
+						<Menu.Item key="24">
 							<Link to="/regras" />
 							Regras
 						</Menu.Item>
