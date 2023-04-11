@@ -2,7 +2,7 @@ import "./App.css";
 import { Layout, Menu } from "antd";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Apostas from "./Components/Apostas";
+// import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
 import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
@@ -44,7 +44,7 @@ export const App = () => {
 					<Menu
 						theme="dark"
 						mode="horizontal"
-						defaultSelectedKeys={["1"]}
+						defaultSelectedKeys={["22"]}
 					>
 						<Menu.Item
 							key="22"
@@ -65,7 +65,7 @@ export const App = () => {
 							Adicionar Aposta B
 						</Menu.Item>
 
-						<Menu.Item
+						{/* <Menu.Item
 							key="1"
 							onClick={() =>
 								setAnoAndSerie({ ano: 2023, serie: "A" })
@@ -260,7 +260,7 @@ export const App = () => {
 						<Menu.Item key="24">
 							<Link to="/regras" />
 							Regras
-						</Menu.Item>
+						</Menu.Item> */}
 					</Menu>
 				</Header>
 				<Content style={{ padding: "0 50px" }}>
@@ -281,10 +281,36 @@ export const App = () => {
 							<Route
 								path="/"
 								element={
-									<Apostas
+									// <Apostas
+									// 	ano={anoAndSerie.ano}
+									// 	serie={anoAndSerie.serie}
+									// 	apostasColumns={
+									// 		dados
+									// 			.filter(
+									// 				(d) =>
+									// 					d.ano ===
+									// 						anoAndSerie.ano &&
+									// 					d.serie ===
+									// 						anoAndSerie.serie
+									// 			)
+									// 			.map((d) => d.apostasColumns)[0]
+									// 	}
+									// 	apostasData={
+									// 		dados
+									// 			.filter(
+									// 				(d) =>
+									// 					d.ano ===
+									// 						anoAndSerie.ano &&
+									// 					d.serie ===
+									// 						anoAndSerie.serie
+									// 			)
+									// 			.map((d) => d.apostasData)[0]
+									// 	}
+									// />
+									<AddAposta
 										ano={anoAndSerie.ano}
 										serie={anoAndSerie.serie}
-										apostasColumns={
+										equipes={
 											dados
 												.filter(
 													(d) =>
@@ -293,18 +319,7 @@ export const App = () => {
 														d.serie ===
 															anoAndSerie.serie
 												)
-												.map((d) => d.apostasColumns)[0]
-										}
-										apostasData={
-											dados
-												.filter(
-													(d) =>
-														d.ano ===
-															anoAndSerie.ano &&
-														d.serie ===
-															anoAndSerie.serie
-												)
-												.map((d) => d.apostasData)[0]
+												.map((d) => d.tabela.equipes)[0]
 										}
 									/>
 								}
