@@ -9,6 +9,7 @@ const AddAposta = (props) => {
 	const [numeros, setNumeros] = useState([
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 	]);
+	const [disabled, setDisabled] = useState(false);
 
 	useEffect(() => {
 		console.log("inside useEffect");
@@ -54,14 +55,16 @@ const AddAposta = (props) => {
 	};
 
 	const onFinish = (values) => {
-		// console.log("Success:", values);
 		const nome = values["nome"];
 		const aposta = equipes.map((e) => values[e]);
 		const obj = { ano, serie, nome, aposta };
 		const axios = require("axios");
+		setDisabled(true);
 		return axios
 			.post(`${process.env.REACT_APP_API_URL}/sendAposta`, obj)
-			.then((response) => console.log(response))
+			.then((response) => {
+				console.log({ response });
+			})
 			.catch((error) => console.log(error));
 	};
 
@@ -101,7 +104,7 @@ const AddAposta = (props) => {
 					rules={[
 						{
 							required: true,
-							message: "Please input your username!",
+							message: "Escreva seu nome",
 						},
 					]}
 				>
@@ -113,7 +116,7 @@ const AddAposta = (props) => {
 						name={e}
 						label={e}
 						key={e}
-						// rules={[{ required: true }]}
+						rules={[{ required: true }]}
 					>
 						<Select
 							placeholder="Posição"
@@ -130,8 +133,12 @@ const AddAposta = (props) => {
 				))}
 
 				<Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-					<Button type="primary" htmlType="submit">
-						Submit
+					<Button
+						type="primary"
+						htmlType="submit"
+						disabled={disabled}
+					>
+						{disabled ? "Aposta enviada" : "Submit"}
 					</Button>
 				</Form.Item>
 			</Form>
