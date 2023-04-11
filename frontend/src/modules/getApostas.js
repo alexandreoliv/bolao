@@ -22,6 +22,7 @@ const getFile = (ano, serie) => {
 const getColumns = (apostas) => {
 	let columns = apostas.map((a) => ({
 		title: a.nome,
+		ellipsis: true,
 		key: a.nome,
 		dataIndex: a.nome,
 		align: "center",
