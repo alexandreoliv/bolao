@@ -138,7 +138,7 @@ const AddAposta = (props) => {
 						htmlType="submit"
 						disabled={disabled}
 					>
-						{disabled ? "Aposta enviada" : "Submit"}
+						{disabled ? "Aposta enviada" : "Enviar"}
 					</Button>
 				</Form.Item>
 			</Form>
