@@ -1,0 +1,27 @@
+{
+	"ano": 2023,
+	"serie": "B",
+	"equipes": [
+		"ABC",
+		"Atlético-GO",
+		"Avaí",
+		"Botafogo-SP",
+		"Chapecoense",
+		"Ceará",
+		"CRB",
+		"Criciúma",
+		"Guarani",
+		"Ituano",
+		"Juventude",
+		"Londrina",
+		"Mirassol",
+		"Novorizontino",
+		"Ponte Preta",
+		"Sampaio Corrêa",
+		"Sport",
+		"Tombense",
+		"Vila Nova",
+		"Vitória"
+	],
+	"posicoes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+}
