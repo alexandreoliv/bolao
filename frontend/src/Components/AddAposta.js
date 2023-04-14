@@ -5,53 +5,91 @@ const { Option } = Select;
 const AddAposta = (props) => {
 	console.log("inside AddAposta");
 	const { ano, serie, equipes } = props;
-	const [posicoes, setPosicoes] = useState([]);
-	const [numeros, setNumeros] = useState([
+	const [posicoesA, setPosicoesA] = useState([]);
+	const [posicoesB, setPosicoesB] = useState([]);
+	const [numerosA, setNumerosA] = useState([
 		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
 	]);
-	const [disabled, setDisabled] = useState(false);
+	const [numerosB, setNumerosB] = useState([
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+	]);
+	const [disabledA, setDisabledA] = useState(false);
+	const [disabledB, setDisabledB] = useState(false);
 
 	useEffect(() => {
 		console.log("inside useEffect");
 		if (equipes) {
-			if (posicoes.length === 0) {
-				console.log(
-					"useEffet is finally doing some stuff - setting posicoes"
-				);
-				const state = equipes.map((e) => ({
-					equipe: e,
-					posicao: 0,
-				}));
-				setPosicoes(state);
-			} else
-				console.log(
-					"posicoes already has the positions, nothing to do in the useEffect"
-				);
+			if (serie === "A") {
+				if (posicoesA.length === 0) {
+					console.log(
+						"useEffect is finally doing some stuff - setting posicoes"
+					);
+					const state = equipes.map((e) => ({
+						equipe: e,
+						posicao: 0,
+					}));
+					setPosicoesA(state);
+				} else
+					console.log(
+						"posicoes already has the positions, nothing to do in the useEffect"
+					);
+			} else if (serie === "B") {
+				if (posicoesB.length === 0) {
+					console.log(
+						"useEffect is finally doing some stuff - setting posicoes"
+					);
+					const state = equipes.map((e) => ({
+						equipe: e,
+						posicao: 0,
+					}));
+					setPosicoesB(state);
+				} else
+					console.log(
+						"posicoes already has the positions, nothing to do in the useEffect"
+					);
+			}
 		} else console.log("no equipes yet, nothing to do in the useEffect");
-	}, [equipes, posicoes.length]);
+	}, [equipes, posicoesA, posicoesB, serie]);
 
 	const onPosicaoChange = (equipe, posicao) => {
 		console.log("inside onPosicaoChange");
 
+		let previousPosition;
 		// gets previous position of this team
-		const previousPosition = posicoes
-			.filter((p) => p.equipe === equipe)
-			.map((p) => p.posicao)[0];
+		if (serie === "A") {
+			previousPosition = posicoesA
+				.filter((p) => p.equipe === equipe)
+				.map((p) => p.posicao)[0];
+		} else if (serie === "B") {
+			previousPosition = posicoesB
+				.filter((p) => p.equipe === equipe)
+				.map((p) => p.posicao)[0];
+		}
 
+		let numerosNew;
 		// removes the new position from the array of available positions
-		let numerosnew = numeros.filter((n) => n !== posicao);
+		serie === "A"
+			? (numerosNew = numerosA.filter((n) => n !== posicao))
+			: (numerosNew = numerosB.filter((n) => n !== posicao));
 		// and adds back the previous position (if it's not 0) -> then sorts it
 		if (previousPosition !== 0) {
-			numerosnew.push(previousPosition);
-			numerosnew.sort((a, b) => a - b);
+			numerosNew.push(previousPosition);
+			numerosNew.sort((a, b) => a - b);
 		}
-		setNumeros(numerosnew);
+		serie === "A" ? setNumerosA(numerosNew) : setNumerosB(numerosNew);
 
 		// now updates Posicoes
-		const posicoesnew = posicoes.map((p) =>
-			p.equipe === equipe ? { equipe, posicao } : p
-		);
-		setPosicoes(posicoesnew);
+		if (serie === "A") {
+			const posicoesANew = posicoesA.map((p) =>
+				p.equipe === equipe ? { equipe, posicao } : p
+			);
+			setPosicoesA(posicoesANew);
+		} else if (serie === "B") {
+			const posicoesBNew = posicoesB.map((p) =>
+				p.equipe === equipe ? { equipe, posicao } : p
+			);
+			setPosicoesB(posicoesBNew);
+		}
 	};
 
 	const onFinish = (values) => {
@@ -59,7 +97,7 @@ const AddAposta = (props) => {
 		const aposta = equipes.map((e) => values[e]);
 		const obj = { ano, serie, nome, aposta };
 		const axios = require("axios");
-		setDisabled(true);
+		serie === "A" ? setDisabledA(true) : setDisabledB(true);
 		return axios
 			.post(`${process.env.REACT_APP_API_URL}/sendAposta`, obj)
 			.then((response) => {
@@ -123,11 +161,17 @@ const AddAposta = (props) => {
 							onChange={(event) => onPosicaoChange(e, event)}
 							allowClear
 						>
-							{numeros.map((p) => (
-								<Option value={p} key={p}>
-									{p}
-								</Option>
-							))}
+							{serie === "A"
+								? numerosA.map((p) => (
+										<Option value={p} key={p}>
+											{p}
+										</Option>
+								  ))
+								: numerosB.map((p) => (
+										<Option value={p} key={p}>
+											{p}
+										</Option>
+								  ))}
 						</Select>
 					</Form.Item>
 				))}
@@ -136,9 +180,15 @@ const AddAposta = (props) => {
 					<Button
 						type="primary"
 						htmlType="submit"
-						disabled={disabled}
+						disabled={serie === "A" ? disabledA : disabledB}
 					>
-						{disabled ? "Aposta enviada" : "Enviar"}
+						{serie === "A"
+							? disabledA
+								? "Aposta enviada"
+								: "Enviar"
+							: disabledB
+							? "Aposta enviada"
+							: "Enviar"}
 					</Button>
 				</Form.Item>
 			</Form>
