@@ -8,10 +8,7 @@ module.exports = (app) => {
 	app.use(
 		cors({
 			credentials: true,
-			origin:
-				process.env.ORIGIN ||
-				"http://localhost:3000" ||
-				"https://bolao2023.onrender.com",
+			origin: "https://bolao2023.onrender.com",
 		})
 	);
 
