@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.22.1",
+    "antd": "^5.4.2",
     "axios": "^0.26.1",
     "dotenv": "^16.0.1",
     "fs": "^0.0.1-security",
