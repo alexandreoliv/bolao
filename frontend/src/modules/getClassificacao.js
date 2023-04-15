@@ -63,6 +63,7 @@ const getClassificacaoColumns = () => {
 	return [
 		{
 			title: "Posição",
+			ellipsis: true,
 			key: "posicao",
 			dataIndex: "posicao",
 			align: "center",
@@ -70,6 +71,7 @@ const getClassificacaoColumns = () => {
 		},
 		{
 			title: "Nome",
+			ellipsis: true,
 			key: "nome",
 			dataIndex: "nome",
 			align: "center",
@@ -77,6 +79,7 @@ const getClassificacaoColumns = () => {
 		},
 		{
 			title: "Pontuação",
+			ellipsis: true,
 			key: "pontuacao",
 			dataIndex: "pontuacao",
 			align: "center",

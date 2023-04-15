@@ -29,15 +29,18 @@ const getColumns = (apostas) => {
 	}));
 	columns.unshift({
 		title: "Atual",
+		ellipsis: true,
 		key: "Atual",
 		dataIndex: "Atual",
 		align: "center",
 	});
 	columns.unshift({
 		title: "Equipe",
+		ellipsis: true,
 		key: "Equipe",
 		dataIndex: "Equipe",
 		align: "center",
+		width: "10%",
 	});
 	return columns;
 };

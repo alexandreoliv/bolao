@@ -46,10 +46,12 @@ const getDistanciaColumns = (keys) => {
 		"#e68181",
 	];
 
-	const distanciaColumns = keys.map((k) => ({
+	const distanciaColumns = keys.map((k, index) => ({
 		title: k,
+		ellipsis: true,
 		key: k,
 		dataIndex: k,
+		width: index === 0 ? "10%" : "",
 		render: (text, record) => ({
 			props: {
 				style: {
