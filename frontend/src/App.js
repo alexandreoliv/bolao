@@ -7,6 +7,7 @@ import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
 import AddAposta from "./Components/AddAposta";
 import MenuBolao from "./Components/MenuBolao";
+import Loading from "./Components/Loading";
 import { getData } from "./modules/getData";
 const { Header, Content, Footer } = Layout;
 
@@ -38,8 +39,6 @@ export const App = () => {
 
 	console.log("dados now", dados);
 
-	if (!dados) return;
-
 	return (
 		<Layout className="layout">
 			<Header>
@@ -60,91 +59,94 @@ export const App = () => {
 					className="site-layout-content"
 					style={{ padding: "10px 0 0 0 " }}
 				>
-					{component.page === "apostas" ? (
-						<Apostas
-							ano={component.ano}
-							serie={component.serie}
-							apostasColumns={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.apostasColumns)[0]
-							}
-							apostasData={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.apostasData)[0]
-							}
-						/>
-					) : component.page === "classificacao" ? (
-						<Classificacao
-							ano={component.ano}
-							serie={component.serie}
-							classificacaoColumns={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.classificacaoColumns)[0]
-							}
-							classificacaoData={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.classificacaoData)[0]
-							}
-						/>
-					) : component.page === "distancia" ? (
-						<Distancia
-							ano={component.ano}
-							serie={component.serie}
-							distanciaColumns={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.distanciaColumns)[0]
-							}
-							distanciaData={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.distanciaData)[0]
-							}
-						/>
-					) : component.page === "addAposta" ? (
-						<AddAposta
-							ano={component.ano}
-							serie={component.serie}
-							equipes={
-								dados
-									.filter(
-										(d) =>
-											d.ano === component.ano &&
-											d.serie === component.serie
-									)
-									.map((d) => d.tabela.equipes)[0]
-							}
-						/>
-					) : component.page === "regras" ? (
-						<Regras />
+					{!dados && <Loading />}
+					{dados ? (
+						component.page === "apostas" ? (
+							<Apostas
+								ano={component.ano}
+								serie={component.serie}
+								apostasColumns={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.apostasColumns)[0]
+								}
+								apostasData={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.apostasData)[0]
+								}
+							/>
+						) : component.page === "classificacao" ? (
+							<Classificacao
+								ano={component.ano}
+								serie={component.serie}
+								classificacaoColumns={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.classificacaoColumns)[0]
+								}
+								classificacaoData={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.classificacaoData)[0]
+								}
+							/>
+						) : component.page === "distancia" ? (
+							<Distancia
+								ano={component.ano}
+								serie={component.serie}
+								distanciaColumns={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.distanciaColumns)[0]
+								}
+								distanciaData={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.distanciaData)[0]
+								}
+							/>
+						) : component.page === "addAposta" ? (
+							<AddAposta
+								ano={component.ano}
+								serie={component.serie}
+								equipes={
+									dados
+										.filter(
+											(d) =>
+												d.ano === component.ano &&
+												d.serie === component.serie
+										)
+										.map((d) => d.tabela.equipes)[0]
+								}
+							/>
+						) : component.page === "regras" ? (
+							<Regras />
+						) : null
 					) : null}
 				</div>
 			</Content>
