@@ -10,12 +10,10 @@ export const getApostas = async (serie, ano, tabela) => {
 
 const getFile = (ano, serie) => {
 	return axios
-		.get(`${process.env.REACT_APP_API_URL}/getApostas`)
-		.then((response) =>
-			response.data.apostas.filter(
-				(r) => r.serie === serie && r.ano === ano
-			)
+		.get(
+			`${process.env.REACT_APP_API_URL}/getApostas?ano=${ano}&serie=${serie}`
 		)
+		.then((response) => response.data.apostas)
 		.catch((error) => console.log(error));
 };
 

@@ -28,12 +28,9 @@ export const getTabela = async (ano, serie) => {
 	// }
 
 	return await axios
-		.get(`${process.env.REACT_APP_API_URL}/getTabelas`)
-		.then(
-			(response) =>
-				response.data.tabelas.filter(
-					(t) => t.serie === serie && t.ano === ano
-				)[0]
+		.get(
+			`${process.env.REACT_APP_API_URL}/getTabelas?ano=${ano}&serie=${serie}`
 		)
+		.then((response) => response.data.tabelas[0])
 		.catch((error) => console.log(error));
 };

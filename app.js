@@ -14,14 +14,16 @@ app.get("/api/", (req, res) => {
 
 app.get("/api/getApostas", (req, res) => {
 	console.log("----->>> GET /getApostas called: ");
-	Aposta.find()
+	const { ano, serie } = req.query;
+	Aposta.find({ ano: ano, serie: serie })
 		.then((apostas) => res.json({ apostas }))
 		.catch((err) => console.log(err));
 });
 
 app.get("/api/getTabelas", (req, res) => {
 	console.log("----->>> GET /getTabelas called: ");
-	Tabela.find()
+	const { ano, serie } = req.query;
+	Tabela.find({ ano: ano, serie: serie })
 		.then((tabelas) => res.json({ tabelas }))
 		.catch((err) => console.log(err));
 });
