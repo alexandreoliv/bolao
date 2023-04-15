@@ -20,7 +20,8 @@ const getFile = (ano, serie) => {
 };
 
 const getColumns = (apostas) => {
-	let columns = apostas.map((a) => ({
+	let sortedApostas = apostas.sort((a, b) => (a.nome < b.nome ? -1 : 1)); // sort names alphabetically
+	const columns = sortedApostas.map((a) => ({
 		title: a.nome,
 		ellipsis: true,
 		key: a.nome,
