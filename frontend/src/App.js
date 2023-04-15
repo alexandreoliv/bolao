@@ -10,7 +10,7 @@ import { getData } from "./modules/getData";
 const { Header, Content, Footer } = Layout;
 
 export const App = () => {
-	const [anoAndSerie, setAnoAndSerie] = useState({
+	const [component, setComponent] = useState({
 		ano: 2023,
 		serie: "A",
 		page: "classificacao",
@@ -51,7 +51,7 @@ export const App = () => {
 					<Menu.Item
 						key="22"
 						onClick={() =>
-							setAnoAndSerie({
+							setComponent({
 								ano: 2023,
 								serie: "A",
 								page: "addAposta",
@@ -63,7 +63,7 @@ export const App = () => {
 					<Menu.Item
 						key="23"
 						onClick={() =>
-							setAnoAndSerie({
+							setComponent({
 								ano: 2023,
 								serie: "B",
 								page: "addAposta",
@@ -78,7 +78,7 @@ export const App = () => {
 							<Menu.Item
 								key="1"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2023,
 										serie: "A",
 										page: "classificacao",
@@ -90,7 +90,7 @@ export const App = () => {
 							<Menu.Item
 								key="2"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2023,
 										serie: "A",
 										page: "apostas",
@@ -102,7 +102,7 @@ export const App = () => {
 							<Menu.Item
 								key="3"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2023,
 										serie: "A",
 										page: "distancia",
@@ -116,7 +116,7 @@ export const App = () => {
 							<Menu.Item
 								key="4"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2023,
 										serie: "B",
 										page: "classificacao",
@@ -128,7 +128,7 @@ export const App = () => {
 							<Menu.Item
 								key="5"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2023,
 										serie: "B",
 										page: "apostas",
@@ -140,7 +140,7 @@ export const App = () => {
 							<Menu.Item
 								key="6"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2023,
 										serie: "B",
 										page: "distancia",
@@ -157,7 +157,7 @@ export const App = () => {
 							<Menu.Item
 								key="7"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2022,
 										serie: "A",
 										page: "classificacao",
@@ -169,7 +169,7 @@ export const App = () => {
 							<Menu.Item
 								key="8"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2022,
 										serie: "A",
 										page: "apostas",
@@ -181,7 +181,7 @@ export const App = () => {
 							<Menu.Item
 								key="9"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2022,
 										serie: "A",
 										page: "distancia",
@@ -195,7 +195,7 @@ export const App = () => {
 							<Menu.Item
 								key="10"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2022,
 										serie: "B",
 										page: "classificacao",
@@ -207,7 +207,7 @@ export const App = () => {
 							<Menu.Item
 								key="11"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2022,
 										serie: "B",
 										page: "apostas",
@@ -219,7 +219,7 @@ export const App = () => {
 							<Menu.Item
 								key="12"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2022,
 										serie: "B",
 										page: "distancia",
@@ -236,7 +236,7 @@ export const App = () => {
 							<Menu.Item
 								key="13"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2021,
 										serie: "A",
 										page: "classificacao",
@@ -248,7 +248,7 @@ export const App = () => {
 							<Menu.Item
 								key="14"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2021,
 										serie: "A",
 										page: "apostas",
@@ -260,7 +260,7 @@ export const App = () => {
 							<Menu.Item
 								key="15"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2021,
 										serie: "A",
 										page: "distancia",
@@ -274,7 +274,7 @@ export const App = () => {
 							<Menu.Item
 								key="16"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2021,
 										serie: "B",
 										page: "classificacao",
@@ -286,7 +286,7 @@ export const App = () => {
 							<Menu.Item
 								key="17"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2021,
 										serie: "B",
 										page: "apostas",
@@ -298,7 +298,7 @@ export const App = () => {
 							<Menu.Item
 								key="18"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2021,
 										serie: "B",
 										page: "distancia",
@@ -315,7 +315,7 @@ export const App = () => {
 							<Menu.Item
 								key="19"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2020,
 										serie: "A",
 										page: "classificacao",
@@ -327,7 +327,7 @@ export const App = () => {
 							<Menu.Item
 								key="20"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2020,
 										serie: "A",
 										page: "apostas",
@@ -339,7 +339,7 @@ export const App = () => {
 							<Menu.Item
 								key="21"
 								onClick={() =>
-									setAnoAndSerie({
+									setComponent({
 										ano: 2020,
 										serie: "A",
 										page: "distancia",
@@ -354,8 +354,8 @@ export const App = () => {
 					<Menu.Item
 						key="24"
 						onClick={() =>
-							setAnoAndSerie({
-								...anoAndSerie,
+							setComponent({
+								...component,
 								page: "regras",
 							})
 						}
@@ -378,16 +378,16 @@ export const App = () => {
 					className="site-layout-content"
 					style={{ padding: "10px 0 0 0 " }}
 				>
-					{anoAndSerie.page === "apostas" ? (
+					{component.page === "apostas" ? (
 						<Apostas
-							ano={anoAndSerie.ano}
-							serie={anoAndSerie.serie}
+							ano={component.ano}
+							serie={component.serie}
 							apostasColumns={
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.apostasColumns)[0]
 							}
@@ -395,22 +395,22 @@ export const App = () => {
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.apostasData)[0]
 							}
 						/>
-					) : anoAndSerie.page === "classificacao" ? (
+					) : component.page === "classificacao" ? (
 						<Classificacao
-							ano={anoAndSerie.ano}
-							serie={anoAndSerie.serie}
+							ano={component.ano}
+							serie={component.serie}
 							classificacaoColumns={
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.classificacaoColumns)[0]
 							}
@@ -418,22 +418,22 @@ export const App = () => {
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.classificacaoData)[0]
 							}
 						/>
-					) : anoAndSerie.page === "distancia" ? (
+					) : component.page === "distancia" ? (
 						<Distancia
-							ano={anoAndSerie.ano}
-							serie={anoAndSerie.serie}
+							ano={component.ano}
+							serie={component.serie}
 							distanciaColumns={
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.distanciaColumns)[0]
 							}
@@ -441,27 +441,27 @@ export const App = () => {
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.distanciaData)[0]
 							}
 						/>
-					) : anoAndSerie.page === "addAposta" ? (
+					) : component.page === "addAposta" ? (
 						<AddAposta
-							ano={anoAndSerie.ano}
-							serie={anoAndSerie.serie}
+							ano={component.ano}
+							serie={component.serie}
 							equipes={
 								dados
 									.filter(
 										(d) =>
-											d.ano === anoAndSerie.ano &&
-											d.serie === anoAndSerie.serie
+											d.ano === component.ano &&
+											d.serie === component.serie
 									)
 									.map((d) => d.tabela.equipes)[0]
 							}
 						/>
-					) : anoAndSerie.page === "regras" ? (
+					) : component.page === "regras" ? (
 						<Regras />
 					) : null}
 				</div>
