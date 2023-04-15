@@ -2,7 +2,7 @@ import "./App.css";
 import { Layout, Menu } from "antd";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-// import Apostas from "./Components/Apostas";
+import Apostas from "./Components/Apostas";
 import Classificacao from "./Components/Classificacao";
 import Distancia from "./Components/Distancia";
 import Regras from "./Components/Regras";
@@ -65,202 +65,288 @@ export const App = () => {
 							Adicionar Aposta B
 						</Menu.Item>
 
-						{/* <Menu.Item
-							key="1"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2023, serie: "A" })
-							}
-						>
-							<Link to="/" />
-							AA23
-						</Menu.Item>
-						<Menu.Item
-							key="2"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2023, serie: "A" })
-							}
-						>
-							<Link to="/classificacao" />
-							CA23
-						</Menu.Item>
-						<Menu.Item
-							key="3"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2023, serie: "A" })
-							}
-						>
-							<Link to="/distancia" />
-							DA23
-						</Menu.Item>
-						<Menu.Item
-							key="4"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2023, serie: "B" })
-							}
-						>
-							<Link to="/" />
-							AB23
-						</Menu.Item>
-						<Menu.Item
-							key="5"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2023, serie: "B" })
-							}
-						>
-							<Link to="/classificacao" />
-							CB23
-						</Menu.Item>
-						<Menu.Item
-							key="6"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2023, serie: "B" })
-							}
-						>
-							<Link to="/distancia" />
-							DB23
-						</Menu.Item>
+						<Menu.SubMenu key="s1" title="2023">
+							<Menu.ItemGroup title="Série A">
+								<Menu.Item
+									key="1"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2023,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="2"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2023,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="3"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2023,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+							<Menu.ItemGroup title="Série B">
+								<Menu.Item
+									key="4"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2023,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="5"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2023,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="6"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2023,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+						</Menu.SubMenu>
 
-						<Menu.Item
-							key="7"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "A" })
-							}
-						>
-							<Link to="/" />
-							AA22
-						</Menu.Item>
-						<Menu.Item
-							key="8"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "A" })
-							}
-						>
-							<Link to="/classificacao" />
-							CA22
-						</Menu.Item>
-						<Menu.Item
-							key="9"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "A" })
-							}
-						>
-							<Link to="/distancia" />
-							DA22
-						</Menu.Item>
-						<Menu.Item
-							key="10"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "B" })
-							}
-						>
-							<Link to="/" />
-							AB22
-						</Menu.Item>
-						<Menu.Item
-							key="11"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "B" })
-							}
-						>
-							<Link to="/classificacao" />
-							CB22
-						</Menu.Item>
-						<Menu.Item
-							key="12"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2022, serie: "B" })
-							}
-						>
-							<Link to="/distancia" />
-							DB22
-						</Menu.Item>
+						<Menu.SubMenu key="s2" title="2022">
+							<Menu.ItemGroup title="Série A">
+								<Menu.Item
+									key="7"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2022,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="8"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2022,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="9"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2022,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+							<Menu.ItemGroup title="Série B">
+								<Menu.Item
+									key="10"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2022,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="11"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2022,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="12"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2022,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+						</Menu.SubMenu>
 
-						<Menu.Item
-							key="13"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2021, serie: "A" })
-							}
-						>
-							<Link to="/" />
-							AA21
-						</Menu.Item>
-						<Menu.Item
-							key="14"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2021, serie: "A" })
-							}
-						>
-							<Link to="/classificacao" />
-							CA21
-						</Menu.Item>
-						<Menu.Item
-							key="15"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2021, serie: "A" })
-							}
-						>
-							<Link to="/distancia" />
-							DA21
-						</Menu.Item>
-						<Menu.Item
-							key="16"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2021, serie: "B" })
-							}
-						>
-							<Link to="/" />
-							AB21
-						</Menu.Item>
-						<Menu.Item
-							key="17"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2021, serie: "B" })
-							}
-						>
-							<Link to="/classificacao" />
-							CB21
-						</Menu.Item>
-						<Menu.Item
-							key="18"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2021, serie: "B" })
-							}
-						>
-							<Link to="/distancia" />
-							DB21
-						</Menu.Item>
-						<Menu.Item
-							key="19"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2020, serie: "A" })
-							}
-						>
-							<Link to="/" />
-							AA20
-						</Menu.Item>
-						<Menu.Item
-							key="20"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2020, serie: "A" })
-							}
-						>
-							<Link to="/classificacao" />
-							CA20
-						</Menu.Item>
-						<Menu.Item
-							key="21"
-							onClick={() =>
-								setAnoAndSerie({ ano: 2020, serie: "A" })
-							}
-						>
-							<Link to="/distancia" />
-							DA20
-						</Menu.Item>
+						<Menu.SubMenu key="s3" title="2021">
+							<Menu.ItemGroup title="Série A">
+								<Menu.Item
+									key="13"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2021,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="14"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2021,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="15"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2021,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+							<Menu.ItemGroup title="Série B">
+								<Menu.Item
+									key="16"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2021,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="17"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2021,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="18"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2021,
+											serie: "B",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+						</Menu.SubMenu>
+
+						<Menu.SubMenu key="s4" title="2020">
+							<Menu.ItemGroup title="Série A">
+								<Menu.Item
+									key="19"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2020,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/classificacao" />
+									Classificação
+								</Menu.Item>
+								<Menu.Item
+									key="20"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2020,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/" />
+									Apostas
+								</Menu.Item>
+								<Menu.Item
+									key="21"
+									onClick={() =>
+										setAnoAndSerie({
+											ano: 2020,
+											serie: "A",
+										})
+									}
+								>
+									<Link to="/distancia" />
+									Distância
+								</Menu.Item>
+							</Menu.ItemGroup>
+						</Menu.SubMenu>
 
 						<Menu.Item key="24">
 							<Link to="/regras" />
 							Regras
-						</Menu.Item> */}
+						</Menu.Item>
 					</Menu>
 				</Header>
 				<Content style={{ padding: "0 50px" }}>
@@ -281,36 +367,10 @@ export const App = () => {
 							<Route
 								path="/"
 								element={
-									// <Apostas
-									// 	ano={anoAndSerie.ano}
-									// 	serie={anoAndSerie.serie}
-									// 	apostasColumns={
-									// 		dados
-									// 			.filter(
-									// 				(d) =>
-									// 					d.ano ===
-									// 						anoAndSerie.ano &&
-									// 					d.serie ===
-									// 						anoAndSerie.serie
-									// 			)
-									// 			.map((d) => d.apostasColumns)[0]
-									// 	}
-									// 	apostasData={
-									// 		dados
-									// 			.filter(
-									// 				(d) =>
-									// 					d.ano ===
-									// 						anoAndSerie.ano &&
-									// 					d.serie ===
-									// 						anoAndSerie.serie
-									// 			)
-									// 			.map((d) => d.apostasData)[0]
-									// 	}
-									// />
-									<AddAposta
+									<Apostas
 										ano={anoAndSerie.ano}
 										serie={anoAndSerie.serie}
-										equipes={
+										apostasColumns={
 											dados
 												.filter(
 													(d) =>
@@ -319,7 +379,18 @@ export const App = () => {
 														d.serie ===
 															anoAndSerie.serie
 												)
-												.map((d) => d.tabela.equipes)[0]
+												.map((d) => d.apostasColumns)[0]
+										}
+										apostasData={
+											dados
+												.filter(
+													(d) =>
+														d.ano ===
+															anoAndSerie.ano &&
+														d.serie ===
+															anoAndSerie.serie
+												)
+												.map((d) => d.apostasData)[0]
 										}
 									/>
 								}
