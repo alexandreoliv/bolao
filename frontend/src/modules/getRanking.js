@@ -122,10 +122,16 @@ const getFinalRanking = (apoiadores, historico) => {
 		apoiadoresData[i].pontuacaoTotal =
 			apoiadoresData[i].pontuacaoA + apoiadoresData[i].pontuacaoB;
 
-		apoiadoresData[i].mediaPontuacaoA =
-			apoiadoresData[i].pontuacaoA / apoiadoresData[i].campeonatosA;
-		apoiadoresData[i].mediaPontuacaoB =
-			apoiadoresData[i].pontuacaoB / apoiadoresData[i].campeonatosB;
+		if (apoiadoresData[i].campeonatosA) {
+			apoiadoresData[i].mediaPontuacaoA =
+				apoiadoresData[i].pontuacaoA / apoiadoresData[i].campeonatosA;
+		} else apoiadoresData[i].mediaPontuacaoA = "";
+
+		if (apoiadoresData[i].campeonatosB) {
+			apoiadoresData[i].mediaPontuacaoB =
+				apoiadoresData[i].pontuacaoB / apoiadoresData[i].campeonatosB;
+		} else apoiadoresData[i].mediaPontuacaoB = "";
+
 		apoiadoresData[i].mediaPontuacaoTotal =
 			apoiadoresData[i].pontuacaoTotal /
 			apoiadoresData[i].campeonatosTotal;
@@ -143,10 +149,16 @@ const getFinalRanking = (apoiadores, historico) => {
 		apoiadoresData[i].posicaoTotal =
 			apoiadoresData[i].posicaoA + apoiadoresData[i].posicaoB;
 
-		apoiadoresData[i].mediaPosicaoA =
-			apoiadoresData[i].posicaoA / apoiadoresData[i].campeonatosA;
-		apoiadoresData[i].mediaPosicaoB =
-			apoiadoresData[i].posicaoB / apoiadoresData[i].campeonatosB;
+		if (apoiadoresData[i].campeonatosA) {
+			apoiadoresData[i].mediaPosicaoA =
+				apoiadoresData[i].posicaoA / apoiadoresData[i].campeonatosA;
+		} else apoiadoresData[i].mediaPosicaoA = "";
+
+		if (apoiadoresData[i].campeonatosB) {
+			apoiadoresData[i].mediaPosicaoB =
+				apoiadoresData[i].posicaoB / apoiadoresData[i].campeonatosB;
+		} else apoiadoresData[i].mediaPosicaoB = "";
+
 		apoiadoresData[i].mediaPosicaoTotal =
 			apoiadoresData[i].posicaoTotal / apoiadoresData[i].campeonatosTotal;
 
@@ -164,12 +176,18 @@ const getFinalRanking = (apoiadores, historico) => {
 			apoiadoresData[i].posicaoProporcionalA +
 			apoiadoresData[i].posicaoProporcionalB;
 
-		apoiadoresData[i].mediaPosicaoProporcionalA =
-			apoiadoresData[i].posicaoProporcionalA /
-			apoiadoresData[i].campeonatosA;
-		apoiadoresData[i].mediaPosicaoProporcionalB =
-			apoiadoresData[i].posicaoProporcionalB /
-			apoiadoresData[i].campeonatosB;
+		if (apoiadoresData[i].campeonatosA) {
+			apoiadoresData[i].mediaPosicaoProporcionalA =
+				apoiadoresData[i].posicaoProporcionalA /
+				apoiadoresData[i].campeonatosA;
+		} else apoiadoresData[i].mediaPosicaoProporcionalA = "";
+
+		if (apoiadoresData[i].campeonatosB) {
+			apoiadoresData[i].mediaPosicaoProporcionalB =
+				apoiadoresData[i].posicaoProporcionalB /
+				apoiadoresData[i].campeonatosB;
+		} else apoiadoresData[i].mediaPosicaoProporcionalB = "";
+
 		apoiadoresData[i].mediaPosicaoProporcionalTotal =
 			apoiadoresData[i].posicaoProporcionalTotal /
 			apoiadoresData[i].campeonatosTotal;
