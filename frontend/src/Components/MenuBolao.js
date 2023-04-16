@@ -312,6 +312,18 @@ const MenuBolao = (props) => {
 				onClick={() =>
 					setComponent({
 						...component,
+						page: "ranking",
+					})
+				}
+			>
+				Ranking
+			</Menu.Item>
+
+			<Menu.Item
+				key="25"
+				onClick={() =>
+					setComponent({
+						...component,
 						page: "regras",
 					})
 				}
