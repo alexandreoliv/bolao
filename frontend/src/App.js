@@ -8,7 +8,9 @@ import Regras from "./Components/Regras";
 import AddAposta from "./Components/AddAposta";
 import MenuBolao from "./Components/MenuBolao";
 import Loading from "./Components/Loading";
+import Ranking from "./Components/Ranking";
 import { getData } from "./modules/getData";
+import { getRanking } from "./modules/getRanking";
 const { Header, Content, Footer } = Layout;
 
 export const App = () => {
@@ -25,6 +27,8 @@ export const App = () => {
 		}
 	});
 
+	console.log({ dados });
+
 	const getAllData = async () => {
 		let dados = [];
 		dados.push(await getData(2020, "A"));
@@ -36,6 +40,8 @@ export const App = () => {
 		dados.push(await getData(2023, "B"));
 		setDados(dados);
 	};
+
+	const { rankingData, rankingColumns } = dados ? getRanking(dados) : {};
 
 	console.log("dados now", dados);
 
@@ -143,6 +149,11 @@ export const App = () => {
 										)
 										.map((d) => d.tabela.equipes)[0]
 								}
+							/>
+						) : component.page === "ranking" ? (
+							<Ranking
+								rankingColumns={rankingColumns}
+								rankingData={rankingData}
 							/>
 						) : component.page === "regras" ? (
 							<Regras />
