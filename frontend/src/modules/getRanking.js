@@ -17,8 +17,6 @@ export const getRanking = (dados) => {
 const getApostadores = (dados) => {
 	let allNames = [];
 	for (let i = 0; i < dados.length; i++) {
-		// const allNames = dados[i].classificacaoData.map(b => b.nome)
-		// allNames.forEach(item => apostadores.add(item))
 		const newNames = dados[i].classificacaoData.map((b) => b.nome);
 		allNames = [...allNames, ...newNames];
 	}
@@ -187,6 +185,8 @@ const getRankingColumns = () => {
 			dataIndex: "nome",
 			align: "center",
 			width: "15%",
+			defaultSortOrder: "ascend",
+			sorter: (a, b) => (a.nome < b.nome ? -1 : 1),
 		},
 		{
 			title: "Títulos A",
@@ -194,6 +194,8 @@ const getRankingColumns = () => {
 			key: "titulosA",
 			dataIndex: "titulosA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.titulosA - b.titulosA,
 		},
 		{
 			title: "Títulos B",
@@ -201,6 +203,8 @@ const getRankingColumns = () => {
 			key: "titulosB",
 			dataIndex: "titulosB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.titulosB - b.titulosB,
 		},
 		{
 			title: "Títulos Total",
@@ -208,6 +212,8 @@ const getRankingColumns = () => {
 			key: "titulosTotal",
 			dataIndex: "titulosTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.titulosTotal - b.titulosTotal,
 		},
 		{
 			title: "Campeonatos A",
@@ -215,6 +221,8 @@ const getRankingColumns = () => {
 			key: "campeonatosA",
 			dataIndex: "campeonatosA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.campeonatosA - b.campeonatosA,
 		},
 		{
 			title: "Campeonatos B",
@@ -222,6 +230,8 @@ const getRankingColumns = () => {
 			key: "campeonatosB",
 			dataIndex: "campeonatosB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.campeonatosB - b.campeonatosB,
 		},
 		{
 			title: "Campeonatos Total",
@@ -229,6 +239,8 @@ const getRankingColumns = () => {
 			key: "campeonatosTotal",
 			dataIndex: "campeonatosTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.campeonatosTotal - b.campeonatosTotal,
 		},
 		{
 			title: "Pontuação A",
@@ -236,6 +248,8 @@ const getRankingColumns = () => {
 			key: "pontuacaoA",
 			dataIndex: "pontuacaoA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.pontuacaoA - b.pontuacaoA,
 		},
 		{
 			title: "Pontuação B",
@@ -243,6 +257,8 @@ const getRankingColumns = () => {
 			key: "pontuacaoB",
 			dataIndex: "pontuacaoB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.pontuacaoB - b.pontuacaoB,
 		},
 		{
 			title: "Pontuação Total",
@@ -250,6 +266,8 @@ const getRankingColumns = () => {
 			key: "pontuacaoTotal",
 			dataIndex: "pontuacaoTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.pontuacaoTotal - b.pontuacaoTotal,
 		},
 		{
 			title: "Média Pontuação A",
@@ -257,6 +275,8 @@ const getRankingColumns = () => {
 			key: "mediaPontuacaoA",
 			dataIndex: "mediaPontuacaoA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.mediaPontuacaoA - b.mediaPontuacaoA,
 		},
 		{
 			title: "Média Pontuação B",
@@ -264,6 +284,8 @@ const getRankingColumns = () => {
 			key: "mediaPontuacaoB",
 			dataIndex: "mediaPontuacaoB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.mediaPontuacaoB - b.mediaPontuacaoB,
 		},
 		{
 			title: "Média Pontuação Total",
@@ -271,6 +293,8 @@ const getRankingColumns = () => {
 			key: "mediaPontuacaoTotal",
 			dataIndex: "mediaPontuacaoTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.mediaPontuacaoTotal - b.mediaPontuacaoTotal,
 		},
 		{
 			title: "Posição A",
@@ -278,6 +302,8 @@ const getRankingColumns = () => {
 			key: "posicaoA",
 			dataIndex: "posicaoA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.posicaoA - b.posicaoA,
 		},
 		{
 			title: "Posição B",
@@ -285,6 +311,8 @@ const getRankingColumns = () => {
 			key: "posicaoB",
 			dataIndex: "posicaoB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.posicaoB - b.posicaoB,
 		},
 		{
 			title: "Posição Total",
@@ -292,6 +320,8 @@ const getRankingColumns = () => {
 			key: "posicaoTotal",
 			dataIndex: "posicaoTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.posicaoTotal - b.posicaoTotal,
 		},
 		{
 			title: "Média Posição A",
@@ -299,6 +329,8 @@ const getRankingColumns = () => {
 			key: "mediaPosicaoA",
 			dataIndex: "mediaPosicaoA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.mediaPosicaoA - b.mediaPosicaoA,
 		},
 		{
 			title: "Média Posição B",
@@ -306,6 +338,8 @@ const getRankingColumns = () => {
 			key: "mediaPosicaoB",
 			dataIndex: "mediaPosicaoB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.mediaPosicaoB - b.mediaPosicaoB,
 		},
 		{
 			title: "Média Posição Total",
@@ -313,6 +347,8 @@ const getRankingColumns = () => {
 			key: "mediaPosicaoTotal",
 			dataIndex: "mediaPosicaoTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.mediaPosicaoTotal - b.mediaPosicaoTotal,
 		},
 		{
 			title: "Posição Proporcional A",
@@ -320,6 +356,8 @@ const getRankingColumns = () => {
 			key: "posicaoProporcionalA",
 			dataIndex: "posicaoProporcionalA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.posicaoProporcionalA - b.posicaoProporcionalA,
 		},
 		{
 			title: "Posição Proporcional B",
@@ -327,6 +365,8 @@ const getRankingColumns = () => {
 			key: "posicaoProporcionalB",
 			dataIndex: "posicaoProporcionalB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) => a.posicaoProporcionalB - b.posicaoProporcionalB,
 		},
 		{
 			title: "Posição Proporcional Total",
@@ -334,6 +374,9 @@ const getRankingColumns = () => {
 			key: "posicaoProporcionalTotal",
 			dataIndex: "posicaoProporcionalTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) =>
+				a.posicaoProporcionalTotal - b.posicaoProporcionalTotal,
 		},
 		{
 			title: "Média Posição Proporcional A",
@@ -341,6 +384,9 @@ const getRankingColumns = () => {
 			key: "mediaPosicaoProporcionalA",
 			dataIndex: "mediaPosicaoProporcionalA",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) =>
+				a.mediaPosicaoProporcionalA - b.mediaPosicaoProporcionalA,
 		},
 		{
 			title: "Média Posição Proporcional B",
@@ -348,6 +394,9 @@ const getRankingColumns = () => {
 			key: "mediaPosicaoProporcionalB",
 			dataIndex: "mediaPosicaoProporcionalB",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) =>
+				a.mediaPosicaoProporcionalB - b.mediaPosicaoProporcionalB,
 		},
 		{
 			title: "Média Posição Proporcional Total",
@@ -355,6 +404,10 @@ const getRankingColumns = () => {
 			key: "mediaPosicaoProporcionalTotal",
 			dataIndex: "mediaPosicaoProporcionalTotal",
 			align: "center",
+			defaultSortOrder: "descend",
+			sorter: (a, b) =>
+				a.mediaPosicaoProporcionalTotal -
+				b.mediaPosicaoProporcionalTotal,
 		},
 	];
 };
