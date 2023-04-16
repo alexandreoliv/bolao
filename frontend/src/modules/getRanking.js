@@ -1,3 +1,5 @@
+const currentYear = 2023;
+
 export const getRanking = (dados) => {
 	const apostadores = getApostadores(dados);
 	console.log({ apostadores });
@@ -17,8 +19,10 @@ export const getRanking = (dados) => {
 const getApostadores = (dados) => {
 	let allNames = [];
 	for (let i = 0; i < dados.length; i++) {
-		const newNames = dados[i].classificacaoData.map((b) => b.nome);
-		allNames = [...allNames, ...newNames];
+		if (dados[i].ano !== currentYear) {
+			const newNames = dados[i].classificacaoData.map((b) => b.nome);
+			allNames = [...allNames, ...newNames];
+		}
 	}
 
 	return Array.from([...new Set(allNames)]).sort();
@@ -26,7 +30,9 @@ const getApostadores = (dados) => {
 
 const getHistorico = (dados) => {
 	let historico = [];
-	let newDados = dados.map((d) => d.classificacaoData);
+	let newDados = dados
+		.filter((d) => d.ano !== currentYear)
+		.map((d) => d.classificacaoData);
 	for (let i = 0; i < newDados.length; i++) {
 		historico = [
 			...historico,
