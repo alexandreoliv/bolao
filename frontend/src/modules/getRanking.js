@@ -123,18 +123,21 @@ const getFinalRanking = (apoiadores, historico) => {
 			apoiadoresData[i].pontuacaoA + apoiadoresData[i].pontuacaoB;
 
 		if (apoiadoresData[i].campeonatosA) {
-			apoiadoresData[i].mediaPontuacaoA =
-				apoiadoresData[i].pontuacaoA / apoiadoresData[i].campeonatosA;
+			apoiadoresData[i].mediaPontuacaoA = (
+				apoiadoresData[i].pontuacaoA / apoiadoresData[i].campeonatosA
+			).toFixed(0);
 		} else apoiadoresData[i].mediaPontuacaoA = "";
 
 		if (apoiadoresData[i].campeonatosB) {
-			apoiadoresData[i].mediaPontuacaoB =
-				apoiadoresData[i].pontuacaoB / apoiadoresData[i].campeonatosB;
+			apoiadoresData[i].mediaPontuacaoB = (
+				apoiadoresData[i].pontuacaoB / apoiadoresData[i].campeonatosB
+			).toFixed(0);
 		} else apoiadoresData[i].mediaPontuacaoB = "";
 
-		apoiadoresData[i].mediaPontuacaoTotal =
+		apoiadoresData[i].mediaPontuacaoTotal = (
 			apoiadoresData[i].pontuacaoTotal /
-			apoiadoresData[i].campeonatosTotal;
+			apoiadoresData[i].campeonatosTotal
+		).toFixed(0);
 
 		apoiadoresData[i].posicaoA = historicoApostador[i]
 			.filter((h) => h.serie === "A")
@@ -150,17 +153,20 @@ const getFinalRanking = (apoiadores, historico) => {
 			apoiadoresData[i].posicaoA + apoiadoresData[i].posicaoB;
 
 		if (apoiadoresData[i].campeonatosA) {
-			apoiadoresData[i].mediaPosicaoA =
-				apoiadoresData[i].posicaoA / apoiadoresData[i].campeonatosA;
+			apoiadoresData[i].mediaPosicaoA = (
+				apoiadoresData[i].posicaoA / apoiadoresData[i].campeonatosA
+			).toFixed(0);
 		} else apoiadoresData[i].mediaPosicaoA = "";
 
 		if (apoiadoresData[i].campeonatosB) {
-			apoiadoresData[i].mediaPosicaoB =
-				apoiadoresData[i].posicaoB / apoiadoresData[i].campeonatosB;
+			apoiadoresData[i].mediaPosicaoB = (
+				apoiadoresData[i].posicaoB / apoiadoresData[i].campeonatosB
+			).toFixed(0);
 		} else apoiadoresData[i].mediaPosicaoB = "";
 
-		apoiadoresData[i].mediaPosicaoTotal =
-			apoiadoresData[i].posicaoTotal / apoiadoresData[i].campeonatosTotal;
+		apoiadoresData[i].mediaPosicaoTotal = (
+			apoiadoresData[i].posicaoTotal / apoiadoresData[i].campeonatosTotal
+		).toFixed(0);
 
 		apoiadoresData[i].posicaoProporcionalA = historicoApostador[i]
 			.filter((h) => h.serie === "A")
@@ -177,20 +183,23 @@ const getFinalRanking = (apoiadores, historico) => {
 			apoiadoresData[i].posicaoProporcionalB;
 
 		if (apoiadoresData[i].campeonatosA) {
-			apoiadoresData[i].mediaPosicaoProporcionalA =
+			apoiadoresData[i].mediaPosicaoProporcionalA = (
 				apoiadoresData[i].posicaoProporcionalA /
-				apoiadoresData[i].campeonatosA;
+				apoiadoresData[i].campeonatosA
+			).toFixed(0);
 		} else apoiadoresData[i].mediaPosicaoProporcionalA = "";
 
 		if (apoiadoresData[i].campeonatosB) {
-			apoiadoresData[i].mediaPosicaoProporcionalB =
+			apoiadoresData[i].mediaPosicaoProporcionalB = (
 				apoiadoresData[i].posicaoProporcionalB /
-				apoiadoresData[i].campeonatosB;
+				apoiadoresData[i].campeonatosB
+			).toFixed(0);
 		} else apoiadoresData[i].mediaPosicaoProporcionalB = "";
 
-		apoiadoresData[i].mediaPosicaoProporcionalTotal =
+		apoiadoresData[i].mediaPosicaoProporcionalTotal = (
 			apoiadoresData[i].posicaoProporcionalTotal /
-			apoiadoresData[i].campeonatosTotal;
+			apoiadoresData[i].campeonatosTotal
+		).toFixed(0);
 	}
 	console.log({ apoiadoresData });
 	return apoiadoresData;
