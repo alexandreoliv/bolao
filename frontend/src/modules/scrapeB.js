@@ -22,7 +22,7 @@ const launchBrowser = () => {
 const openPage = async (browser) => {
 	const page = await browser.newPage();
 	await page.goto(
-		"https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2022_-_S%C3%A9rie_B#Classifica%C3%A7%C3%A3o",
+		"https://pt.wikipedia.org/wiki/Campeonato_Brasileiro_de_Futebol_de_2023_-_S%C3%A9rie_B#Classifica%C3%A7%C3%A3o",
 		{
 			waitUntil: "networkidle2",
 		}
@@ -36,12 +36,12 @@ const scrapeTabela = async (page) => {
 		tabela.push({
 			time: {
 				nome_popular: await page.$eval(
-					`.wikitable:nth-child(24) tr:nth-child(${pos})> td:nth-child(2)`,
+					`.wikitable:nth-child(26) tr:nth-child(${pos})> td:nth-child(2)`,
 					(el) => el.innerText.trim()
 				),
 			},
 			posicao: await page.$eval(
-				`.wikitable:nth-child(24) tr:nth-child(${pos}) > td:nth-child(1)`,
+				`.wikitable:nth-child(26) tr:nth-child(${pos}) > th`,
 				(el) => Number(el.innerText)
 			),
 		});
@@ -56,18 +56,18 @@ const formatTabela = (tabela) => {
 	);
 	const equipes = newTabela.map((t) => t.time.nome_popular);
 	const posicoes = newTabela.map((t) => t.posicao);
-	newTabela = { ano: 2022, serie: "B", equipes, posicoes };
+	newTabela = { ano: 2023, serie: "B", equipes, posicoes };
 	return newTabela;
 };
 
 const exportTabelaAsJSON = (tabela) => {
 	const fs = require("fs");
 	fs.writeFile(
-		"../data/tabela2022B.json",
+		"../data/tabela2023B.json",
 		JSON.stringify(tabela),
 		function (err) {
 			if (err) throw err;
-			console.log("tabela2022B.json complete");
+			console.log("tabela2023B.json complete");
 		}
 	);
 };
