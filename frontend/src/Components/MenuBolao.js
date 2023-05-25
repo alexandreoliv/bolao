@@ -307,7 +307,7 @@ const MenuBolao = (props) => {
 				</Menu.ItemGroup>
 			</Menu.SubMenu>
 
-			<Menu.Item
+			{/* <Menu.Item
 				key="24"
 				onClick={() =>
 					setComponent({
@@ -317,7 +317,7 @@ const MenuBolao = (props) => {
 				}
 			>
 				Ranking
-			</Menu.Item>
+			</Menu.Item> */}
 
 			<Menu.Item
 				key="25"
