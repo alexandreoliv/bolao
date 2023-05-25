@@ -3,8 +3,8 @@ import { Menu } from "antd";
 const MenuBolao = (props) => {
 	const { component, setComponent } = props;
 	return (
-		<Menu theme="dark" mode="horizontal" defaultSelectedKeys={["22"]}>
-			<Menu.Item
+		<Menu theme="dark" mode="horizontal" defaultSelectedKeys={["s1"]}>
+			{/* <Menu.Item
 				key="22"
 				onClick={() =>
 					setComponent({
@@ -27,7 +27,7 @@ const MenuBolao = (props) => {
 				}
 			>
 				Adicionar Aposta B
-			</Menu.Item>
+			</Menu.Item> */}
 
 			<Menu.SubMenu key="s1" title="2023">
 				<Menu.ItemGroup title="Série A">
